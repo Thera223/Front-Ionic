@@ -1,0 +1,7 @@
+{
+  "name": "mirashop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
