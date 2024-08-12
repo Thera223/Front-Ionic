@@ -27,6 +27,16 @@ export const routes: Routes = [
           import('../tab4/tab4.page').then((m) => m.Tab4Page),
       },
       {
+        path: 'recu',
+        loadComponent: () =>
+          import('../recu/recu.page').then((m) => m.RecuPage),
+      },
+      {
+        path: 'modifie-mot-de-passe',
+        loadComponent: () =>
+          import('../modifie-mot-de-passe/modifie-mot-de-passe.page').then((m) => m.ModifieMotDePassePage),
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',
