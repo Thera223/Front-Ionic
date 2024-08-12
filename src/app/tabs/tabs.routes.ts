@@ -26,6 +26,37 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../tab4/tab4.page').then((m) => m.Tab4Page),
       },
+
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('../settings/settings.page').then((m) => m.SettingsPage),
+      },
+
+      {
+        path: 'notifications',
+        loadComponent: () =>
+          import('../notifications/notifications.page').then(
+            (m) => m.NotificationsPage
+          ),
+      },
+
+      {
+        path: 'historiques',
+        loadComponent: () =>
+          import('../historiques/historiques.page').then(
+            (m) => m.HistoriquesPage
+          ),
+      },
+
+      {
+        path: 'modifiermotdepass',
+        loadComponent: () =>
+          import('../modifermotdepass/modifermotdepass.page').then(
+            (m) => m.ModifermotdepassPage
+          ),
+      },
+
       {
         path: '',
         redirectTo: '/tabs/tab1',

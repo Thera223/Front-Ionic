@@ -1,0 +1,133 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Paramètre</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Carte pour les informations personnelles -->
+  <ion-card class="cardinfo">
+    <ion-card-header>
+      <h3>Information Personnelle</h3>
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Nom d'utilisateur"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Enter text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Email"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Enter text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Numéro"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Enter text"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Adresse de Livraison"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Enter text"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- Carte pour les préférences -->
+  <ion-card class="cardpreference">
+    <ion-card-header>
+      <h3>Préférence</h3>
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        <ion-select label="Langue" label-placement="floating" fill="outline">
+          <ion-select-option value="francais">Français</ion-select-option>
+          <ion-select-option value="anglais">Anglais</ion-select-option>
+          <ion-select-option value="bambara">Bambara</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Devise" label-placement="floating" fill="outline">
+          <ion-select-option value="euro">EURO</ion-select-option>
+          <ion-select-option value="dollars">DOLLARS</ion-select-option>
+          <ion-select-option value="xof">XOF</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+<!-- Carte pour les modes de paiement -->
+<ion-card class="cardpaiement">
+  <ion-card-header>
+    <h3>Mode de paiement</h3>
+  </ion-card-header>
+
+  <!-- Grid pour aligner les modes de paiement -->
+  <ion-grid>
+    <!-- Première ligne pour les cases à cocher -->
+    <ion-row>
+      <!-- PayPal Checkbox -->
+      <ion-col size="4" class="aligned-item">
+        <ion-item lines="none">
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <!-- VISA Checkbox -->
+      <ion-col size="4" class="aligned-item">
+        <ion-item lines="none">
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+
+      <!-- MasterCard Checkbox -->
+      <ion-col size="4" class="aligned-item">
+        <ion-item lines="none">
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- Deuxième ligne pour les images -->
+    <ion-row>
+      <!-- PayPal Image -->
+      <ion-col size="4" class="aligned-item">
+        <ion-img src="assets/pp.webp" alt="PayPal" class="payment-icon"></ion-img>
+      </ion-col>
+
+      <!-- VISA Image -->
+      <ion-col size="4" class="aligned-item">
+        <ion-img src="assets/om.webp" alt="Visa" class="payment-icon"></ion-img>
+      </ion-col>
+
+      <!-- MasterCard Image -->
+      <ion-col size="4" class="aligned-item">
+        <ion-img src="assets/mastercard.webp" alt="MasterCard" class="payment-icon"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+
+</ion-content>

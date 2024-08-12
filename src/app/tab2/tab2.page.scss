@@ -1,0 +1,31 @@
+ion-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto; /* Centrer l'avatar horizontalement */
+}
+
+
+
+ion-card {
+
+  margin: 0 auto; /* Ajouter un peu d'espace autour de la carte */
+}
+
+ion-card-subtitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ion-item {
+  --inner-padding-top: 10px;
+  --inner-padding-bottom: 10px;
+}
+
+.cardprofile1{
+  // background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+} 

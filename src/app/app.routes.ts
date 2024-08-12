@@ -7,6 +7,23 @@ export const routes: Routes = [
   },
   {
     path: 'tab4',
-    loadComponent: () => import('./tab4/tab4.page').then( m => m.Tab4Page)
+    loadComponent: () => import('./tab4/tab4.page').then((m) => m.Tab4Page),
+  },
+  {
+    path: 'settings',
+    loadComponent: () =>
+      import('./settings/settings.page').then((m) => m.SettingsPage),
+  },
+  {
+    path: 'notifications',
+    loadComponent: () => import('./notifications/notifications.page').then( m => m.NotificationsPage)
+  },
+  {
+    path: 'modifermotdepass',
+    loadComponent: () => import('./modifermotdepass/modifermotdepass.page').then( m => m.ModifermotdepassPage)
+  },
+  {
+    path: 'historiques',
+    loadComponent: () => import('./historiques/historiques.page').then( m => m.HistoriquesPage)
   },
 ];
