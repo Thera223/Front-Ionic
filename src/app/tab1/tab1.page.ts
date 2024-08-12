@@ -7,11 +7,14 @@ import {
   IonSearchbar,
   IonItem,
   IonIcon,
-  IonInput,
+  IonInput, IonRouterLink,
 } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ProduitserviceService } from '../Services/produitservice.service';
 import { PanierserviceService } from '../Services/panierservice.service';
+import {Produit} from "../Interface/Produit";
+import {NgForOf} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-tab1',
@@ -28,16 +31,23 @@ import { PanierserviceService } from '../Services/panierservice.service';
     IonTitle,
     IonContent,
     ExploreContainerComponent,
+    NgForOf,
+    IonRouterLink,
+    RouterLink,
   ],
 })
 export class Tab1Page implements OnInit {
+  test!:Produit[]
   constructor(
     private produitservice: ProduitserviceService,
     private panierService: PanierserviceService
   ) {}
   ngOnInit() {
     this.loadProduits();
-    this.listPpanier();
+    this.produitservice.getProduit().subscribe((data) => {
+      this.test=data
+      console.log(data);
+    });
   }
 
   loadProduits(): void {
