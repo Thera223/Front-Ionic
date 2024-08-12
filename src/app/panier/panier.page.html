@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  class="head" >
+    <div class="entet">
+    <div class="col">
+      <ion-buttons class="retour">
+        <ion-icon name="chevron-back-outline" ></ion-icon>
+      </ion-buttons>
+    </div>
+    <div class="col TITRE">
+      <ion-title>
+      
+        Mon panier
+      </ion-title>
+    </div>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2 class="leftmarg">Produits</h2>
+  <div class="card" *ngFor="let card of cards; let i = index">
+    <ion-card class="CARD">
+      <div class="col image">
+        <ion-img [src]="card.imagSrc"></ion-img>
+      </div>
+      <div class="col nom">
+        <h4>{{card.nom}}</h4>
+        <h4>{{card.prix}}</h4>
+      </div>
+      <div class="col bouton rightmarg">
+        <ion-button class="btn" color="btn" fill="clear" class="textend" (click)="supCard($event)">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+        <div class="increbtnt">
+          <ion-button fill="clear" class="textcolor" (click)="decremente(card)">
+            <ion-icon name="remove-outline"></ion-icon>
+          </ion-button>
+          <h5>{{card.panierQuantite}}</h5>
+          <ion-button fill="clear" class="textcolor" (click)="incremente(card)">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </ion-card>
+</div>
+<div class="total">
+  <h2 class="leftmarg  color" >Total</h2>
+  <h2 class="rightmarg">{{ calculerTotal() }}</h2>
+</div>
+<div class="passemd">
+  
+  <ion-button fill="clear" class="CMD" expand="block"> 
+    <ion-icon name="chevron-down-circle-outline"></ion-icon>&nbsp;
+    Passe à la caisse</ion-button>
+</div>
+</ion-content>
