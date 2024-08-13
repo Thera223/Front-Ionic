@@ -7,7 +7,7 @@ import {
   IonSearchbar,
   IonItem,
   IonIcon,
-  IonInput, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+  IonInput, IonButtons, IonBackButton, IonNote } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { ProduitserviceService } from '../Services/produitservice.service';
 import { PanierserviceService } from '../Services/panierservice.service';
@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, 
+  imports: [IonNote, IonBackButton, IonButtons, 
     IonInput,
     IonIcon,
     IonItem,

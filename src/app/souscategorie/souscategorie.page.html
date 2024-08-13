@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ categoryName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let sousCategorie of sousCategories">
+      <ion-label>{{ sousCategorie.libelle }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-segment value="custom" >
+  <ion-segment-button value="custom" *ngFor="let sousCategorie of sousCategories">
+    <ion-label>{{ sousCategorie.libelle }}</ion-label>
+  </ion-segment-button>
+</ion-segment> -->
+
+</ion-content>
+
+

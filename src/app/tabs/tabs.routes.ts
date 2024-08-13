@@ -27,14 +27,14 @@ export const routes: Routes = [
           import('../tab4/tab4.page').then((m) => m.Tab4Page),
       },
       {
-        path: '',
+        path: 'grid',
         redirectTo: 'categorie/categorie',
         pathMatch: 'full',
       },
     ],
   },
   {
-    path: '',
+    path: 'grid',
     redirectTo: 'categorie/categorie',
     pathMatch: 'full',
   },

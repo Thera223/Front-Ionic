@@ -7,19 +7,23 @@ import {
   IonLabel,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import {
-  grid,
-  home,
-  cart,
-  person
-} from 'ionicons/icons';
+import { RouterModule } from '@angular/router';
+import { grid, home, cart, person } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonTabs],
+  imports: [
+    RouterModule,
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonIcon,
+    IonLabel,
+    IonTabs,
+  ],
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
