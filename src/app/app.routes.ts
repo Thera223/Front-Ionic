@@ -28,4 +28,14 @@ export const routes: Routes = [
         (m) => m.SouscategoriePage
       ),
   },
+  {
+    path: 'souscategorie',
+    loadComponent: () => import('./souscategorie/souscategorie.page').then(m => m.SouscategoriePage)
+  },
+  {
+    path: 'detail/:id',
+    loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
+  },
+
+
 ];

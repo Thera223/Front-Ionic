@@ -1,21 +1,36 @@
-<ion-header [translucent]="true" class="header">
-  <ion-toolbar>
-   <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-    <ion-title>{{ categoryName}}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content >
-  <!-- <div class="list" *ngFor="let sousCategorie of sousCategories">
-    <div class="item">
-   <div>{{ sousCategorie.libelle }}</div>   
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-button>
+            <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>Sous-cate</ion-title>
+</ion-toolbar>
+<ion-toolbar>
+    <div class="segment">
+        @for (item of ["items", "Nike", "Sneakers", "Cuirs"]; track $index) {
+            <ion-button [color]="selectedButton === $index ? 'primary' : 'light'" 
+            (click)="changeColor($index)">{{item}}</ion-button>
+        }
     </div>
-  </div> -->
-  <div id="menu-outer" >
-    <ul id="horizontal-list" >
-      <li *ngFor="let sousCategorie of sousCategories">{{ sousCategorie.libelle }}</li>
-    </ul>
-</div>
+</ion-toolbar>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          @for (item of listFile; track $index) {
+            <ion-col size="6">
+                <div class="container" button (click)="navigate($index)">
+                    <img src="{{item.url}}" alt="img" srcset="">
+                    <div class="info">
+                        <p><b>Nom du produit</b></p>
+                        <div class="prix">
+                            <span class="cate">CATE</span>
+                            <span class="span"><b>3000</b><b> XOF</b></span>
+                        </div>
+                    </div>
+                </div>
+              </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
 </ion-content>
