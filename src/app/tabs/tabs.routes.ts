@@ -9,7 +9,7 @@ export const routes: Routes = [
       {
         path: 'home',
         loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          import('../tab1/tab1.page').then((m) => m.HomePage),
       },
       {
         path: 'grid',
