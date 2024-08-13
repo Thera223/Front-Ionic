@@ -19,17 +19,11 @@ import { NavController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
-  selector: 'app-tab2',
-} from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-
-@Component({
   selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
   styleUrls: ['tab4.page.scss'],
   standalone: true,
   imports: [
-
     IonCardSubtitle,
     IonLabel,
     IonItem,
@@ -58,8 +52,5 @@ export class Tab4Page {
     // Implémentez ici la logique de déconnexion
     console.log('Déconnexion');
   }
-  ],
-})
-export class Tab4Page {
-  constructor() {}
 }
+

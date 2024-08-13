@@ -34,7 +34,8 @@ export const routes: Routes = [
   {
     path: 'deconnexion',
     loadComponent: () => import('./deconnexion/deconnexion.page').then( m => m.DeconnexionPage)
-
+  },
+  {
     path: 'tab1',
     loadComponent: () => import('./tab1/tab1.page').then((m) => m.HomePage),
   },
