@@ -9,12 +9,12 @@ import { SouscateserviceService } from '../Services/souscateservice.service';
 
 @Component({
   selector: 'app-categorie',
-  templateUrl: './categorie.page.html',
-  styleUrls: ['./categorie.page.scss'],
+  templateUrl: './souscategorie.page.html',
+  styleUrls: ['./souscategorie.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonButton, IonButtons, IonIcon]
 })
-export class CategoriePage implements OnInit {
+export class SouscategoriePage implements OnInit {
   listFile: any[] = [];
   sousCategories: any[] = [];
   listile: any[] = [];
@@ -27,7 +27,7 @@ export class CategoriePage implements OnInit {
   ngOnInit() {
     this.souscateService.listFiles().subscribe((files)=>this.listFile = files);
     this.souscateService.getSousCategories().subscribe((data) => {this.sousCategories = data; console.log(data);
-    });     
+    });
     this.souscateService.getProduitBySousCategorieUrl(1).subscribe((p) => console.log(p));
   }
 

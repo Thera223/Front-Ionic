@@ -10,8 +10,8 @@ export const routes: Routes = [
     loadComponent: () => import('./tab4/tab4.page').then( m => m.Tab4Page)
   },
   {
-    path: 'categorie',
-    loadComponent: () => import('./categorie/categorie.page').then( m => m.CategoriePage)
+    path: 'souscategorie',
+    loadComponent: () => import('./souscategorie/souscategorie.page').then(m => m.SouscategoriePage)
   },
   {
     path: 'detail/:id',
