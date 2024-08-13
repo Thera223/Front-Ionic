@@ -8,7 +8,7 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 
-import { grid, home, cart, person,triangle, ellipse, square, home, cartOutline, gridOutline, addOutline, removeOutline, closeOutline, chevronDownCircleOutline, chevronBackOutline } from 'ionicons/icons';
+import {cart, grid, person,triangle, ellipse, square, home, cartOutline, gridOutline, addOutline, removeOutline, closeOutline, chevronDownCircleOutline, chevronBackOutline } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
 
 
@@ -25,12 +25,13 @@ import { RouterModule } from '@angular/router';
     IonIcon,
     IonLabel,
     IonTabs,
+    
   ],
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    addIcons({ grid, home, cart, person,triangle, ellipse,chevronBackOutline, square, home, cartOutline,chevronDownCircleOutline, gridOutline,removeOutline, addOutline,closeOutline});
+    addIcons({ grid,cart, person,triangle, ellipse,chevronBackOutline, square, home, cartOutline,chevronDownCircleOutline, gridOutline,removeOutline, addOutline,closeOutline});
   }
 }
