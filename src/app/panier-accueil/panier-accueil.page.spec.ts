@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PanierAcuueilPage } from './panier-acuueil.page';
+import { PanierAcuueilPage } from './panier-accueil.page';
 
 describe('PanierAcuueilPage', () => {
   let component: PanierAcuueilPage;

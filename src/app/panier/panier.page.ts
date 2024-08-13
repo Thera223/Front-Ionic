@@ -33,7 +33,7 @@ export class PanierPage implements OnInit {
     {nom: 'Pc',prix:20000, imagSrc:"assets/icon/pc.png", panierQuantite:2
     },
     {nom: 'Meuble',prix:30000, imagSrc:"assets/icon/MEUBLE.png", panierQuantite:1},
-    {nom: 'Alliment',prix:1000, imagSrc:"assets/icon/banane.png", panierQuantite:1},
+    {nom: 'Alliment',prix:1000, imagSrc:"assets/icon/banane.png", panierQuantite:3},
     {nom: 'Kito',prix:2000, imagSrc:"assets/icon/kito.png", panierQuantite:1},
 
   ]

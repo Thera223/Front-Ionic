@@ -6,8 +6,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonImg, IonButtons, IonBac
 
 @Component({
   selector: 'app-panier-acuueil',
-  templateUrl: './panier-acuueil.page.html',
-  styleUrls: ['./panier-acuueil.page.scss'],
+  templateUrl: './panier-accueil.page.html',
+  styleUrls: ['./panier-accueil.page.scss'],
   standalone: true,
   imports: [IonIcon, IonBackButton, IonButtons, 
      IonImg, IonContent, IonHeader, IonTitle, 

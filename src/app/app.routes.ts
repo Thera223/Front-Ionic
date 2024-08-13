@@ -15,8 +15,8 @@ export const routes: Routes = [
   },
  
   {
-    path: 'panier-acuueil',
-    loadComponent: () => import('./panier-acuueil/panier-acuueil.page').then( m => m.PanierAcuueilPage)
+    path: 'panier-accueil',
+    loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
 
 ];

@@ -16,19 +16,22 @@ ion-toolbar.head {
  
    
 }
-ion-img{
-   margin-top: 6px;
-    width: 80px;
-   margin-left: 8px;
-    height: 80px;
-    border-radius: 10rem;
+// ion-img{
+//    margin-top: 10px;
+//     width: 70px;
+//    margin-left: 8px;
+//     height: 60px;
+//     border-radius: 10rem;
+// }
+
+.image{
+    margin-left: 10px;
 }
-
-
-.image ion-img {
+ ion-img {
     width: 90%;
-    height: 90%;
+    height: 85%;
     object-fit: cover;
+    margin-top: 10px;
     
   }
 .nom{
@@ -64,7 +67,7 @@ ion-card{
   
 }
 .increbtnt{
-   margin-top: 3rem;
+   margin-top: 23px;
     border: 1px solid  #F4F4F4;
     display: flex;
     flex-direction: row;
