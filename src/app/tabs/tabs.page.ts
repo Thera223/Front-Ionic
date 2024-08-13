@@ -7,8 +7,10 @@ import {
   IonLabel,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
+
+import { grid, home, cart, person,triangle, ellipse, square, home, cartOutline, gridOutline, addOutline, removeOutline, closeOutline, chevronDownCircleOutline, chevronBackOutline } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
-import { grid, home, cart, person } from 'ionicons/icons';
+
 
 @Component({
   selector: 'app-tabs',
@@ -29,6 +31,6 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    addIcons({ grid, home, cart, person });
+    addIcons({ grid, home, cart, person,triangle, ellipse,chevronBackOutline, square, home, cartOutline,chevronDownCircleOutline, gridOutline,removeOutline, addOutline,closeOutline});
   }
 }

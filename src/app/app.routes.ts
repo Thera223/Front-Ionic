@@ -36,4 +36,14 @@ export const routes: Routes = [
     path: 'detail/:id',
     loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
   },
+  {
+    path: 'panier',
+    loadComponent: () => import('./panier/panier.page').then( m => m.PanierPage)
+  },
+ 
+  {
+    path: 'panier-accueil',
+    loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
+  },
+
 ];
