@@ -12,7 +12,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let category of filteredCategories">
-        <ion-card  [routerLink]="['/categorie', category.id]">
+        <ion-card  [routerLink]="['/categorie', category.id]" color="none">
           <ion-img src="../assets/images/Rectangle 401.png"></ion-img>
           <ion-card-header>
             <ion-card-title>{{ category.libelle }}</ion-card-title>
