@@ -7,10 +7,8 @@ import {
   IonLabel,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-
 import {cart, grid, person,triangle, ellipse, square, home, cartOutline, gridOutline, addOutline, removeOutline, closeOutline, chevronDownCircleOutline, chevronBackOutline } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
-
 
 @Component({
   selector: 'app-tabs',
@@ -25,7 +23,6 @@ import { RouterModule } from '@angular/router';
     IonIcon,
     IonLabel,
     IonTabs,
-    
   ],
 })
 export class TabsPage {
