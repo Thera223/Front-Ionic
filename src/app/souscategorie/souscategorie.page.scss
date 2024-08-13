@@ -1,0 +1,55 @@
+.segment{
+    display: flex;
+    overflow: scroll;
+}
+
+.segment::-webkit-scrollbar {
+    display: none;
+}
+
+.segment ion-button{
+    margin: 1px 10px;
+}
+
+.container{
+    background-color: cornsilk;
+    height: 170px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.info{
+    background-color: rgb(255 255 255 / 89%);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+}
+
+.info p{
+    margin: 2px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.prix {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cate {
+    font-weight: 400;
+    color: #EE4D2D;
+}
+
+.span {
+    font-size: smaller;
+}
