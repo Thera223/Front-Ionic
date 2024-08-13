@@ -12,14 +12,12 @@ export const routes: Routes = [
   },
   {
     path: 'tab1',
-    loadComponent: () => import('./tab1/tab1.page').then((m) => m.Tab1Page),
+    loadComponent: () => import('./tab1/tab1.page').then((m) => m.HomePage),
   },
   {
     path: 'categorie',
     loadComponent: () =>
-      import('./categorie/categorie.page').then(
-        (m) => m.categoriePage
-      ),
+      import('./categorie/categorie.page').then((m) => m.categoriePage),
   },
   {
     path: 'souscategorie',
