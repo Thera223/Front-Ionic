@@ -1,58 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CategorieService, sousCategorie, Category } from '../Services/categorie.service'; 
-import { IonicModule } from '@ionic/angular'; //
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonCol, IonRow, IonButton, IonButtons, IonIcon } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { arrowBack } from 'ionicons/icons';
+import { SouscateserviceService } from '../Services/souscateservice.service';
+
 @Component({
-  selector: 'app-souscategory',
-  standalone: true,
-  imports: [IonicModule, CommonModule],
+  selector: 'app-categorie',
   templateUrl: './souscategorie.page.html',
   styleUrls: ['./souscategorie.page.scss'],
+  standalone: true,
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonButton, IonButtons, IonIcon]
 })
 export class SouscategoriePage implements OnInit {
-  filteredCategories: Category[] = [];
-  sousCategories: sousCategorie[] = [];
-  categories: Category[] = [];
-  categoryName: string = '';
-  Category: any;
+  listFile: any[] = [];
+  sousCategories: any[] = [];
+  listile: any[] = [];
+  selectedButton: number | null = 0;
 
-  constructor(
-    private route: ActivatedRoute,
-    private categorieService: CategorieService
-  ) {}
+  constructor(private router: Router, private souscateService: SouscateserviceService) {
+    addIcons({ arrowBack});
+  }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      const categoryId = params.get('id');
-      if (categoryId) {
-        this.loadSubcategories(categoryId);
-      }
+    this.souscateService.listFiles().subscribe((files)=>this.listFile = files);
+    this.souscateService.getSousCategories().subscribe((data) => {this.sousCategories = data; console.log(data);
     });
-
-    this.categorieService.getCategories().subscribe((data) => {
-      this.categories = data;
-      this.filterCategories();
-      console.log(data);
-    });
+    this.souscateService.getProduitBySousCategorieUrl(1).subscribe((p) => console.log(p));
   }
 
-  filterCategories() {
-    this.filteredCategories = this.categories.filter((category) =>
-      category.libelle.toLowerCase().includes(this.categoryName.toLowerCase())
-    );
+  changeColor(index: number) {
+    if (this.selectedButton === index) {
+      this.selectedButton = null;
+    } else {
+      this.selectedButton = index;
+    }
   }
 
-  loadSubcategories(categoryId: string) {
-    this.categorieService.getSousCategories().subscribe((sousCategories) => {
-      this.sousCategories = sousCategories.filter(
-        (sousCategory) => sousCategory.category.id === parseInt(categoryId)
-      );
-
-      if (this.sousCategories.length > 0) {
-        this.categoryName = this.sousCategories[0].category.libelle;
-      }
-    });
+  navigate(index:any) {
+    this.router.navigateByUrl("detail/"+index);
+    console.log(index);
   }
+
 }
-

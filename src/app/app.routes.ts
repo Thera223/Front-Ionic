@@ -36,6 +36,4 @@ export const routes: Routes = [
     path: 'detail/:id',
     loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
   },
-
-
 ];
