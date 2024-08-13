@@ -1,4 +1,29 @@
-// ion-card {
-//     color:white;
-//     background: #ee4d2d;
-// }
+
+
+.head{
+    padding: 10px;
+    text-align: center;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ //----------------------------------------------------------------//
+.search-bar {
+  padding: 5px;
+}
+.custom-searchbar {
+ --background: #f3f3f3; 
+  --border: none;
+  --box-shadow: none; 
+  --border-radius: 8px; 
+  --padding-start: 10px; 
+  --padding-end: 10px; 
+color: #EE4D2D;
+font-weight: 3;
+}
+ion-header{
+    background: #ee4d2d;
+    color: white;
+    box-shadow: none;
+}

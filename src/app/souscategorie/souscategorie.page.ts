@@ -6,20 +6,16 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-souscategory',
   standalone: true,
-  imports: [
-    IonicModule,
-    CommonModule,
-
-    
-  ],
+  imports: [IonicModule, CommonModule],
   templateUrl: './souscategorie.page.html',
+  styleUrls: ['./souscategorie.page.scss'],
 })
 export class SouscategoriePage implements OnInit {
   filteredCategories: Category[] = [];
   sousCategories: sousCategorie[] = [];
   categories: Category[] = [];
   categoryName: string = '';
-Category: any;
+  Category: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +32,7 @@ Category: any;
 
     this.categorieService.getCategories().subscribe((data) => {
       this.categories = data;
-      this.filterCategories(); 
+      this.filterCategories();
       console.log(data);
     });
   }
@@ -49,13 +45,10 @@ Category: any;
 
   loadSubcategories(categoryId: string) {
     this.categorieService.getSousCategories().subscribe((sousCategories) => {
-      
-      
       this.sousCategories = sousCategories.filter(
         (sousCategory) => sousCategory.category.id === parseInt(categoryId)
       );
 
-      
       if (this.sousCategories.length > 0) {
         this.categoryName = this.sousCategories[0].category.libelle;
       }

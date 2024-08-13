@@ -12,8 +12,7 @@ import {
   IonImg,
   IonCardHeader,
   IonCardTitle,
-  IonCardSubtitle,
-} from '@ionic/angular/standalone';
+  IonCardSubtitle, IonIcon } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { CategorieService } from '../Services/categorie.service';
 import { CommonModule } from '@angular/common';
@@ -24,7 +23,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: 'categorie.page.html',
   styleUrls: ['categorie.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonIcon, 
     CommonModule,
     FormsModule,
     IonCardSubtitle,

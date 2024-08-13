@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-title>Catgeorie</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
+    <div class="search-bar">
+    <ion-searchbar
+    [(ngModel)]="searchTerm"
+      placeholder="Categorie..."
+      showCancelButton="never"
+      (ionInput)="filterCategories()"
+      class="custom-searchbar">
+    </ion-searchbar>
+  </div>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- Search Bar -->
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterCategories()"></ion-searchbar>
-
   <!-- Grid Layout -->
   <ion-grid>
     <ion-row>

@@ -1,28 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header">
   <ion-toolbar>
-   
+   <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
     <ion-title>{{ categoryName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
-  <div class="list" *ngFor="let sousCategorie of sousCategories">
-    <ul class="item">
-      <li>{{ sousCategorie.libelle }}</li>
+  <!-- <div class="list" *ngFor="let sousCategorie of sousCategories">
+    <div class="item">
+   <div>{{ sousCategorie.libelle }}</div>   
+    </div>
+  </div> -->
+  <div id="menu-outer" >
+    <ul id="horizontal-list" >
+      <li *ngFor="let sousCategorie of sousCategories">{{ sousCategorie.libelle }}</li>
     </ul>
-  </div>
-
-  <!-- <ion-list lines="none" >
-    <ion-item *ngFor="let sousCategorie of sousCategories" >
-      <ion-label>{{ sousCategorie.libelle }}</ion-label>
-    </ion-item>
-  </ion-list> -->
-  <!-- <ion-segment value="custom">
-    <ion-segment-button
-      value="custom"
-      *ngFor="let sousCategorie of sousCategories"
-    >
-      <ion-label>{{ sousCategorie.libelle }}</ion-label>
-    </ion-segment-button>
-  </ion-segment> -->
+</div>
 </ion-content>
