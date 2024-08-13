@@ -24,6 +24,7 @@ import {
   IonButtons,
   IonButton,
   IonIcon,
+  IonBackButton,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -32,6 +33,7 @@ import {
   styleUrls: ['./settings.page.scss'],
   standalone: true,
   imports: [
+    IonBackButton,
     IonIcon,
     IonButton,
     IonButtons,
@@ -63,7 +65,5 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {}
 
-  goBack() {
-    this.navCtrl.back();
-  }
+ 
 }

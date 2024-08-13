@@ -2,8 +2,8 @@
   <ion-toolbar>
     <ion-title>Paramètre</ion-title>
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      <ion-button>
+        <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -78,56 +78,67 @@
     </ion-list>
   </ion-card>
 
-<!-- Carte pour les modes de paiement -->
-<ion-card class="cardpaiement">
-  <ion-card-header>
-    <h3>Mode de paiement</h3>
-  </ion-card-header>
+  <!-- Carte pour les modes de paiement -->
+  <ion-card class="cardpaiement">
+    <ion-card-header>
+      <h3>Mode de paiement</h3>
+    </ion-card-header>
 
-  <!-- Grid pour aligner les modes de paiement -->
-  <ion-grid>
-    <!-- Première ligne pour les cases à cocher -->
-    <ion-row>
-      <!-- PayPal Checkbox -->
-      <ion-col size="4" class="aligned-item">
-        <ion-item lines="none">
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-      </ion-col>
+    <!-- Grid pour aligner les modes de paiement -->
+    <ion-grid>
+      <!-- Première ligne pour les cases à cocher -->
+      <ion-row>
+        <!-- PayPal Checkbox -->
+        <ion-col size="4" class="aligned-item">
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-col>
 
-      <!-- VISA Checkbox -->
-      <ion-col size="4" class="aligned-item">
-        <ion-item lines="none">
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-      </ion-col>
+        <!-- VISA Checkbox -->
+        <ion-col size="4" class="aligned-item">
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-col>
 
-      <!-- MasterCard Checkbox -->
-      <ion-col size="4" class="aligned-item">
-        <ion-item lines="none">
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+        <!-- MasterCard Checkbox -->
+        <ion-col size="4" class="aligned-item">
+          <ion-item lines="none">
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
 
-    <!-- Deuxième ligne pour les images -->
-    <ion-row>
-      <!-- PayPal Image -->
-      <ion-col size="4" class="aligned-item">
-        <ion-img src="assets/pp.webp" alt="PayPal" class="payment-icon"></ion-img>
-      </ion-col>
+      <!-- Deuxième ligne pour les images -->
+      <ion-row>
+        <!-- PayPal Image -->
+        <ion-col size="4" class="aligned-item">
+          <ion-img
+            src="assets/pp.webp"
+            alt="PayPal"
+            class="payment-icon"
+          ></ion-img>
+        </ion-col>
 
-      <!-- VISA Image -->
-      <ion-col size="4" class="aligned-item">
-        <ion-img src="assets/om.webp" alt="Visa" class="payment-icon"></ion-img>
-      </ion-col>
+        <!-- VISA Image -->
+        <ion-col size="4" class="aligned-item">
+          <ion-img
+            src="assets/om.webp"
+            alt="Visa"
+            class="payment-icon"
+          ></ion-img>
+        </ion-col>
 
-      <!-- MasterCard Image -->
-      <ion-col size="4" class="aligned-item">
-        <ion-img src="assets/mastercard.webp" alt="MasterCard" class="payment-icon"></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-card>
-
+        <!-- MasterCard Image -->
+        <ion-col size="4" class="aligned-item">
+          <ion-img
+            src="assets/mastercard.webp"
+            alt="MasterCard"
+            class="payment-icon"
+          ></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

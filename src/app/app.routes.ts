@@ -26,4 +26,8 @@ export const routes: Routes = [
     path: 'historiques',
     loadComponent: () => import('./historiques/historiques.page').then( m => m.HistoriquesPage)
   },
+  {
+    path: 'deconnexion',
+    loadComponent: () => import('./deconnexion/deconnexion.page').then( m => m.DeconnexionPage)
+  },
 ];

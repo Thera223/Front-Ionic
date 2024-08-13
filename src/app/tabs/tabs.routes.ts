@@ -58,6 +58,14 @@ export const routes: Routes = [
       },
 
       {
+        path: 'deconnexion',
+        loadComponent: () =>
+          import('../deconnexion/deconnexion.page').then(
+            (m) => m.DeconnexionPage
+          ),
+      },
+
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',
