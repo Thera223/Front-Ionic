@@ -12,6 +12,13 @@ export interface sousCategorie {
   libelle: string;
   category: Category;
 }
+export interface Produits {
+  id: number;
+  description: string;
+  libelle: string;
+  prix: number;
+  souscategorie: sousCategorie;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +26,7 @@ export interface sousCategorie {
 export class CategorieService {
   private apiUrl = 'http://localhost:8080/admin/categories';
   private apiUrlS = 'http://localhost:8080/admin/sous-categorie';
+  private apiUrlProduit = ' http://localhost:8080/admin/listesProduit';
 
   constructor(private http: HttpClient) {}
 
@@ -33,11 +41,21 @@ export class CategorieService {
       .get<Category>(`${this.apiUrl}/${categoryId}`)
       .pipe(map((response: Category) => response));
   }
-
+  // ---------------------------------------------------------------------------//
   getSousCategories(): Observable<sousCategorie[]> {
     return this.http
       .get<sousCategorie[]>(this.apiUrlS)
       .pipe(map((response: sousCategorie[]) => response));
   }
-
+  getSousCategoryById(sousCategoryId: number): Observable<sousCategorie> {
+    return this.http
+      .get<sousCategorie>(`${this.apiUrlS}/${sousCategoryId}`)
+      .pipe(map((response: sousCategorie) => response));
+  }
+  // ---------------------------------------------------------------------------//
+  getProduits(sousCategorieId: number): Observable<Produits[]> {
+    return this.http
+      .get<Produits[]>(`${this.apiUrlProduit}?souscategorie=${sousCategorieId}`)
+      .pipe(map((response: Produits[]) => response));
+  }
 }
