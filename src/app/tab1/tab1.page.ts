@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA,Component, Input, OnInit, ElementRef,  ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 import { IonHeader, IonToolbar, IonTitle, IonContent,IonList,IonSearchbar,IonCard,IonCol,IonRow,IonGrid,
   IonCardHeader,IonCardContent,IonLabel,IonIcon,IonItem,IonListHeader} from '@ionic/angular/standalone';
 import {IonicSlides} from '@ionic/angular';
@@ -9,11 +10,14 @@ import {IonicSlides} from '@ionic/angular';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
+
   imports: [
+
     IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
+
     IonList,
     IonCol,
     IonRow,
@@ -21,6 +25,7 @@ import {IonicSlides} from '@ionic/angular';
     IonSearchbar,
     IonCard,IonCardHeader,IonCardContent,IonLabel,IonIcon,IonItem,IonListHeader,CommonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class HomePage implements OnInit {
  
