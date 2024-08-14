@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar>
+    <ion-title>Catgeorie</ion-title>
+  </ion-toolbar> -->
+    <div class="search-bar">
+    <ion-searchbar
+    [(ngModel)]="searchTerm"
+      placeholder="Categorie..."
+      showCancelButton="never"
+      (ionInput)="filterCategories()"
+      class="custom-searchbar">
+    </ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Grid Layout -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <!-- <ion-col size="6" *ngFor="let category of filteredCategories"> -->
+        <ion-card color="none">
+          <!-- <ion-card  [routerLink]="['/categorie', category.id]" color="none"> -->
+          <ion-img src="../assets/images/Rectangle 401.png"></ion-img>
+          <ion-card-header>
+            <!-- <ion-card-title>{{ category.libelle }}</ion-card-title>
+            <ion-card-subtitle >{{category.libelle}}</ion-card-subtitle> -->
+            <ion-card-title>Electro</ion-card-title>
+            <ion-card-subtitle>Alimentation</ion-card-subtitle>
+            <ion-card-subtitle>Sport</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

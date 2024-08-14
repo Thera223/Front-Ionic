@@ -1,14 +1,79 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="search-bar">
+    <ion-searchbar
+      placeholder="Rechercher des produits"
+      showCancelButton="never"
+      (ionInput)="onSearch($event)" 
+      class="custom-searchbar">
+    </ion-searchbar>
+  </div>
+  
+  <div *ngIf="slides.length > 0">
+    <swiper-container
+      #swiper
+      (slideChange)="onSlideChange($event)"
+      [modules]="SwiperModules"
+      [slidesPerView]="1"
+      [initialSlide]="1"
+      [centeredSlides]="true"
+      [autoplay]="{ delay: 1000, disableOnInteraction: true }"
+      [spaceBetween]="20"
+      [pagination]="{ clickable: true, dynamicBullets: true }">
+      <swiper-slide *ngFor="let slide of slides">
+        <div class="slide-content">
+          <img [src]="slide?.banner" />
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <button (click)="ajoutPanier()">ajou</button>
+  <ion-list>
+    <ion-list-header class="category-header">
+      <span class="category-title">Les différentes catégories</span>
+      <a href="#" class="see-all">Voir tout</a>
+    </ion-list-header>
+
+    <div class="category-segment-wrapper">
+      <ion-segment scrollable class="category-segment">
+        <ion-segment-button *ngFor="let category of categories" class="category-button">
+          <ion-label>{{ category }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-list>
+
+  <ion-grid class="product-grid">
+    <ion-row>
+      <ion-col size="6" size-md="4" *ngFor="let product of filteredProducts">
+        <div class="product-card">
+          <div class="product-image">
+            <img [src]="product.image" alt="{{ product.name }}">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-price">{{ product.price }}</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-list-header class="best-sellers-header">
+      <span class="header-title">Les meilleurs produits</span>
+      <!-- <a href="#" class="see-all">Voir tout</a> -->
+    </ion-list-header>
+    <div class="best-sellers-container">
+      <div class="best-sellers-segment">
+        <ion-segment-button *ngFor="let product of bestSellers" class="best-sellers-card">
+          <div class="product-image">
+            <img [src]="product.image" alt="{{ product.name }}">
+            <div class="product-brand">{{ product.brand }}</div>
+          </div>
+        </ion-segment-button>
+      </div>
+    </div>
+  </ion-list>
 </ion-content>
 <ion-content *ngFor="let produit of test ">
   {{produit.description}}
