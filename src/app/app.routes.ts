@@ -69,14 +69,11 @@ export const routes: Routes = [
   {
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
-  },  {
+  },
+  {
     path: 'historiques',
     loadComponent: () => import('./historiques/historiques.page').then( m => m.HistoriquesPage)
   },
-<<<<<<< HEAD
-
-];
-=======
   {
     path: 'deconnexion',
     loadComponent: () => import('./deconnexion/deconnexion.page').then( m => m.DeconnexionPage)
@@ -128,5 +125,4 @@ export const routes: Routes = [
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
   },
-];
->>>>>>> 760588f94f4cafe7998fdbef9940c49ffc08323d
+]
