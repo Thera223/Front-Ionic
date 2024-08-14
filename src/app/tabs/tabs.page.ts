@@ -8,7 +8,6 @@ import {
 import { addIcons } from 'ionicons';
 import {cart, grid, person,triangle, ellipse, square, home, cartOutline, gridOutline,  settingsOutline, notificationsOutline, timeOutline, lockClosedOutline, logOutOutline, addOutline, removeOutline, closeOutline, chevronDownCircleOutline, chevronBackOutline } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
-
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',

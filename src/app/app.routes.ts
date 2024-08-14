@@ -70,4 +70,16 @@ export const routes: Routes = [
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
+  {
+    path: 'recu',
+    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
+  },
+  {
+    path: 'recu',
+    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
+  },
+  {
+    path: 'modifie-mot-de-passe',
+    loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
+  },
 ];

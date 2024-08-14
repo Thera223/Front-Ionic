@@ -66,8 +66,18 @@ export const routes: Routes = [
       },
 
       {
-        path: 'grid',
-        redirectTo: 'categorie/categorie',
+        path: 'recu',
+        loadComponent: () =>
+          import('../recu/recu.page').then((m) => m.RecuPage),
+      },
+      {
+        path: 'modifie-mot-de-passe',
+        loadComponent: () =>
+          import('../modifie-mot-de-passe/modifie-mot-de-passe.page').then((m) => m.ModifieMotDePassePage),
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/tab1',
         pathMatch: 'full',
       },
     ],
