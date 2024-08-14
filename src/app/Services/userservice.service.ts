@@ -13,6 +13,10 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
+
+
+
+  
   private getAuthorizationHeader(): string {
     const credentials = btoa(`${this.username}:${this.password}`);
     return `Basic ${credentials}`;

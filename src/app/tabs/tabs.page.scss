@@ -2,7 +2,8 @@ iconpanier{
     transition:  transform 0.3s ease-in-out;
 }
 
-iconpanier.active{
-    transform: translate(-1cm);
-    color: red;
+ion-tab-button{
+    --color-focused:#ee4d2d;
+    --color-selected:#ee4d2d;
+    --ripple-color:none;
 }

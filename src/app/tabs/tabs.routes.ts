@@ -7,25 +7,64 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          import('../tab1/tab1.page').then((m) => m.HomePage),
       },
       {
-        path: 'tab2',
+        path: 'grid',
         loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('../categorie/categorie.page').then((m) => m.categoriePage),
       },
       {
-        path: 'tab3',
+        path: 'cart',
         loadComponent: () =>
           import('../tab3/tab3.page').then((m) => m.Tab3Page),
       },
       {
-        path: 'tab4',
+        path: 'person',
         loadComponent: () =>
           import('../tab4/tab4.page').then((m) => m.Tab4Page),
       },
+
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('../settings/settings.page').then((m) => m.SettingsPage),
+      },
+
+      {
+        path: 'notifications',
+        loadComponent: () =>
+          import('../notifications/notifications.page').then(
+            (m) => m.NotificationsPage
+          ),
+      },
+
+      {
+        path: 'historiques',
+        loadComponent: () =>
+          import('../historiques/historiques.page').then(
+            (m) => m.HistoriquesPage
+          ),
+      },
+
+      {
+        path: 'modifiermotdepass',
+        loadComponent: () =>
+          import('../modifermotdepass/modifermotdepass.page').then(
+            (m) => m.ModifermotdepassPage
+          ),
+      },
+
+      {
+        path: 'deconnexion',
+        loadComponent: () =>
+          import('../deconnexion/deconnexion.page').then(
+            (m) => m.DeconnexionPage
+          ),
+      },
+
       {
         path: 'recu',
         loadComponent: () =>
@@ -44,8 +83,8 @@ export const routes: Routes = [
     ],
   },
   {
-    path: '',
-    redirectTo: '/tabs/tab1',
+    path: 'grid',
+    redirectTo: 'categorie/categorie',
     pathMatch: 'full',
   },
 ];
