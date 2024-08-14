@@ -1,42 +1,34 @@
 <ion-header [translucent]="true">
-  <ion-toolbar  class="head" >
-    <div class="entet">
-    <div class="col">
-      <ion-buttons class="retour">
-        <ion-icon name="chevron-back-outline" ></ion-icon>
-      </ion-buttons>
-    </div>
-    <div class="col TITRE">
-      <ion-title>
-      
-        Mon panier
-      </ion-title>
-    </div>
-  </div>
-  </ion-toolbar>
+  <ion-toolbar  class="head" >  
+    <ion-title>
+      Mon panier
+    </ion-title>
+    </ion-toolbar>
+    
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <h2 class="leftmarg">Produits</h2>
-  <div class="card" *ngFor="let card of cards; let i = index">
+  <div class="card" *ngFor="let produit of produits">
     <ion-card class="CARD">
       <div class="col image">
-        <ion-img [src]="card.imagSrc"></ion-img>
+        <ion-img [src]="produit.imagSrc"></ion-img>
       </div>
       <div class="col nom">
-        <h4>{{card.nom}}</h4>
-        <h4>{{card.prix}}</h4>
+        <h4>{{produit.nom}}</h4>
+        <h4>{{produit.prixUnitaire}} F</h4>
+        <h4>{{produit.totalUnitaire}} F</h4>
       </div>
       <div class="col bouton rightmarg">
         <ion-button class="btn" color="btn" fill="clear" class="textend" (click)="supCard($event)">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
         <div class="increbtnt">
-          <ion-button fill="clear" class="textcolor" (click)="decremente(card)">
+          <ion-button fill="clear" class="textcolor" (click)="decremente(produit.nom)">
             <ion-icon name="remove-outline"></ion-icon>
           </ion-button>
-          <h5>{{card.panierQuantite}}</h5>
-          <ion-button fill="clear" class="textcolor" (click)="incremente(card)">
+          <h5>{{produit.quantite}}</h5>
+          <ion-button fill="clear" class="textcolor" (click)="incremente(produit.nom)">
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
         </div>
@@ -45,7 +37,7 @@
 </div>
 <div class="total">
   <h2 class="leftmarg  color" >Total</h2>
-  <h2 class="rightmarg">{{ calculerTotal() }}</h2>
+  <h2 class="rightmarg">{{totalPanier }} FCFA</h2>
 </div>
 <div class="passemd">
   
