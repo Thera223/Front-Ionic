@@ -1,0 +1,225 @@
+/* Styles pour la barre de recherche */
+.search-bar {
+    // background-color: #f5f5f5; /* Couleur de fond légère */
+    padding: 10px;
+  }
+  
+  
+  .custom-searchbar {
+   --background: #f3f3f3; /* Fond blanc pour le champ de recherche */
+    --border: none; /* Supprime la bordure */
+    --box-shadow: none; /* Supprime l'ombre portée */
+    --border-radius: 8px; /* Ajoute un border-radius */
+    --padding-start: 10px; /* Ajoute du padding interne à gauche */
+    --padding-end: 10px; /* Ajoute du padding interne à droite */
+  color: #EE4D2D;
+  font-weight: 3;
+  }
+  
+  .custom-searchbar .searchbar-input {
+    --padding-start: 0; /* Supprime le padding interne à gauche */
+    --padding-end: 0; /* Supprime le padding interne à droite */
+  }
+  
+  
+  
+  .custom-searchbar .searchbar-icon {
+    color: #EE4D2D; /* Couleur orange pour l'icône de recherche */
+  }
+  
+  /* Styles généraux */
+  div {
+    margin-top: 0; /* Réduit la marge pour éviter un trop grand espace */
+  }
+  
+  /* Styles pour le swiper */
+  swiper-container {
+    height: 100%;
+  }
+  
+  swiper-slide {
+    height: 100%;
+  }
+  
+  .slide-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide-content img {
+    width: 90%;
+    height: 23vh; /* Ajustez cette valeur pour définir la hauteur des images */
+    border-radius: 15px;
+    object-fit: cover; /* Assure que l'image couvre le conteneur sans déformation */
+  }
+  
+  /* Styles pour les boutons de catégorie */
+  .category-button {
+    background-color: #EE4D2D;
+    color: white;
+    padding: 0 10px; /* Ajuste le padding des boutons */
+    border-radius: 10px;
+    margin: 0 5px; /* Réduit la marge entre les boutons */
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    --background-checked:#000;
+    --background-focused:none;
+    border-bottom: none;
+  }
+  
+  .category-button:hover, .category-button.active {
+    background-color: #c93c1f;
+  }
+  
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  
+  .category-title {
+    font-size: 14px;
+    margin-right: 120px;
+    font-weight: bold;
+  }
+  
+  .see-all { 
+    font-size: 14px;
+    color: #000000; /* Couleur du lien */
+    text-decoration: none;
+  }
+  
+  .see-all:hover {
+    text-decoration: none;
+    color: #868686;
+  }
+  
+  /* Styles pour les cartes produits */
+  .product-grid {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Ajoute de l'espace entre les cartes */
+  }
+  
+  .product-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: none;
+    width: 200px; /* Fixe une largeur spécifique pour les cartes */
+    flex: 1 0 200px; /* Permet à la carte de s'ajuster et d'occuper l'espace */
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-image {
+    height: 200px; /* Hauteur fixe pour l'image */
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .product-name {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .product-price {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #EE4D2D;
+  }
+  
+  @media (max-width: 576px) {
+    .product-card {
+      width: 100%; /* Utilisez toute la largeur disponible sur les petits écrans */
+      flex: 1 0 100%; /* Assure que chaque carte occupe toute la largeur disponible */
+    }
+  }
+  
+  /* Styles pour la section des meilleurs produits */
+  .best-sellers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  .header-title {
+    font-size: 16px;
+    margin-right: 120px;
+    font-weight: bold;
+  }
+  .see-all {
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .best-sellers-container {
+    padding: 0 10px;
+    width: 100%; /* Assure que le conteneur occupe toute la largeur */
+    overflow-x: auto; /* Permet le défilement horizontal */
+    display: flex;
+    gap: 10px; /* Ajoute de l'espace entre les cartes */
+  }
+  
+  ion-segment-button{
+  
+  }
+  .best-sellers-segment {
+    display: flex;
+    flex-wrap: nowrap; /* Empêche le retour à la ligne des éléments */
+  }
+  
+  .best-sellers-segment ion-segment-button {
+    border: none;
+    box-shadow: none;
+    width: 200px; /* Ajustez la largeur pour une meilleure visibilité */
+    height: 200px; /* Ajustez la hauteur pour une meilleure visibilité */
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .best-sellers-segment ion-segment-button .product-image {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .best-sellers-segment ion-segment-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .product-brand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: #EE4D2D; /* Couleur de fond orange */
+    color: white;
+    text-align: center;
+    font-size: 14px; /* Augmente la taille du texte pour une meilleure visibilité */
+    border-radius: 0 0 10px 10px;
+  }
+  
