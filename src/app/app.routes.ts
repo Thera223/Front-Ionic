@@ -58,7 +58,7 @@ export const routes: Routes = [
     loadComponent: () => import('./souscategorie/souscategorie.page').then(m => m.SouscategoriePage)
   },
   {
-    path: 'detail/:id',
+    path: 'detail',
     loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
   },
   {
@@ -70,5 +70,4 @@ export const routes: Routes = [
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
-
 ];
