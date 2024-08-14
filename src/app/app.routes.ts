@@ -69,5 +69,9 @@ export const routes: Routes = [
   {
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
+  },  {
+    path: 'historiques',
+    loadComponent: () => import('./historiques/historiques.page').then( m => m.HistoriquesPage)
   },
+
 ];
