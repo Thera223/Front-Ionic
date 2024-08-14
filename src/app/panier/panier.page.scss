@@ -32,25 +32,37 @@ ion-title{
 
 .image{
     margin-left: 10px;
+  
+    width: 65%;
+    
 }
  ion-img {
-    width: 90%;
-    height: 85%;
+    width: 63px;
+    height: 63px;
     object-fit: cover;
     margin-top: 10px;
     
   }
 .nom{
-    margin:auto;
+    width: 100%;
+
    
 }
-.col {
-    flex: 1;
-  }
+ h4{
+    font-size: 14;
+    font-weight: bold;
+   
+}
+// .col {
+//     flex: 2;
+//   }
 
 .CARD{
+    width: auto;
+    height: 90px;
     display: flex;
     flex-direction: row;
+    position: relative;
     padding: 1px;
     border-radius: 8px;
    
@@ -65,18 +77,21 @@ ion-card{
     
 }
 .bouton{
-    width: 135px;
-  
+    width: 100%;
+   
 }
 .increbtnt{
-   margin-top: 23px;
+
+   margin-top: 6px;
+   margin-left: 2rem;
     border: 1px solid  #F4F4F4;
     display: flex;
     flex-direction: row;
     border-radius: 12px;
     justify-content: space-between;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    height: 35px;
+    height: 30px;
+    width: 99px;
    
 }
 .textend{
@@ -92,8 +107,9 @@ h5{
     color: black;
     margin-bottom: 1px;
     margin-top: 6px;
+    font-size: 12px;
    
-    font-weight: bold;
+  
 }
 .total{
     display: flex;
@@ -121,5 +137,32 @@ h5{
     margin-left: 10px;
 }
 .passemd{
-    margin-top: 10rem;
+    margin-top: 3rem;
+}
+// mediaquery pour le web
+@media  (min-width: 1200px) {
+   
+    .increbtnt{
+ 
+         width: 150px; 
+         margin-left: 9rem;  
+     }
+     .textend{
+       
+        margin-left: 10rem;
+       }
+}
+// mediaquery pour tablet
+@media (min-width: 768px) {
+    .bouton{
+        margin-left: 25rem;
+       
+    }
+    
+    .increbtnt{   
+         width: 150px;
+     }
+   .textend{
+    margin-left: 9rem;
+   }
 }

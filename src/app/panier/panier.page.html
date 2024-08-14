@@ -15,12 +15,13 @@
         <ion-img [src]="produit.imagSrc"></ion-img>
       </div>
       <div class="col nom">
+        
         <h4>{{produit.nom}}</h4>
-        <h4>{{produit.prixUnitaire}} F</h4>
-        <h4>{{produit.totalUnitaire}} F</h4>
+        <h5>{{produit.prixUnitaire}} F</h5>
+        <!-- <h4>{{produit.totalUnitaire}} F</h4> -->
       </div>
       <div class="col bouton rightmarg">
-        <ion-button class="btn" color="btn" fill="clear" class="textend" (click)="supCard($event)">
+        <ion-button color="btn" fill="clear" class="textend" (click)="supCard($event)">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
         <div class="increbtnt">
