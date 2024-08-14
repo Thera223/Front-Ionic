@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { commande} from '../Interface/commande';
+import { commande } from '../Interface/commande';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,4 @@ export class CommandeService {
 RecupererCommande():Observable<commande[]>{
   return this.http.get <commande []>(this.BaseUrl)
 }
-
 }
