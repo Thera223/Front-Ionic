@@ -1,0 +1,37 @@
+<ion-content>
+
+  
+  <div *ngIf="slides.length > 0">
+    <swiper-container
+      #swiper
+      (slideChange)="onSlideChange($event)"
+      [modules]="SwiperModules"
+      [slidesPerView]="1"
+      [initialSlide]="1"
+      [centeredSlides]="true"
+      [autoplay]="{ delay: 1000, disableOnInteraction: false }"
+      [spaceBetween]="20"
+      [pagination]="{ clickable: true, dynamicBullets: true }">
+      <swiper-slide *ngFor="let slide of slides">
+        <div class="slide-content">
+          <img [src]="slide?.banner" />
+        </div>
+        <div class="welcome-container">
+          <div class="content">
+            
+            <h1>Bienvenue sur notre Boutique en ligne</h1>
+            <p>Nous sommes ravis de vous accueillir. Explorez nos produits et trouvez ce que vous cherchez !</p>
+          </div>
+        
+          <!-- Navigation -->
+          <div class="navigation">
+            <button class="skip-button">Skip</button>
+          
+            <button class="next-button" (click)="goToNextPage()" >→</button>
+          </div>
+        </div>
+        
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  

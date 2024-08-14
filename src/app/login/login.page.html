@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="image">
+    <ion-row justify-content-center align-items-center>
+      <ion-col size="auto" class="ion-text-center">
+        <ion-img src="../assets/icon/A.png"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+ 
+  <div class="text-center">
+   <h1>Bienvenue</h1>
+    <p>MiraShop est une boutique en ligne qui vous offre 
+      une game de produits moderne de qualité</p>
+  </div>
+
+  
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size="auto" class="ion-text-center">
+        <!-- <ion-button expand="block">Connexion</ion-button>
+         <ion-button expand="block">Inscription</ion-button> -->
+         <ion-button class="connexion-button" expand="block"(click)="openModal()" >Connexion</ion-button>
+         <ion-button class="Creer" fill="outline"   (click)="openModal1()">Creer un compte</ion-button>
+
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="footer-note text-center">
+    <p>En vous connectant ou en vous enregistrant, vous acceptez les conditions générales et la politique de confidentialité.</p>
+  </div>
+  <div class="footer"> 
+    <ion-title>MiraShop tous droits réservés</ion-title>
+  </div>
+   
+
+ 
+</ion-content>
+
+
