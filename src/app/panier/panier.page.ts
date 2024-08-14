@@ -24,22 +24,20 @@ export class PanierPage implements OnInit {
   constructor() {
 
    }
+  //  {nom: 'Pc',prix:20000, imagSrc:"assets/icon/pc.png", panierQuantite:2
 
   ngOnInit() {
-    this.calculerTotal();
+    this.calculerTotals();
   }
 
-  cards: Card[]=[
-    {nom: 'Pc',prix:20000, imagSrc:"assets/icon/pc.png", panierQuantite:2
-    },
-    {nom: 'Meuble',prix:30000, imagSrc:"assets/icon/MEUBLE.png", panierQuantite:1},
-    {nom: 'Alliment',prix:1000, imagSrc:"assets/icon/banane.png", panierQuantite:3},
-    {nom: 'Kito',prix:2000, imagSrc:"assets/icon/kito.png", panierQuantite:1},
+  produits = [
+    { nom: "PC",imagSrc:"assets/icon/pc.png", prixUnitaire: 100000, quantite: 0 ,totalUnitaire: 0 },
+    { nom: "Alliment",imagSrc:"assets/icon/banane.png", prixUnitaire: 1000, quantite: 0,totalUnitaire: 0  },
+    { nom: "kito",imagSrc:"assets/icon/kito.png", prixUnitaire: 3000, quantite: 0 ,totalUnitaire: 0 },
+    // Ajoutez d'autres produits ici selon les besoins
+  ];
 
-  ]
-
-  
-  panierQuantite: number=0
+  totalPanier: number = 0;
 // la fonction pour supprimer provisoirement le card
   supCard(event: Event){
     const CardElement= (event.target as HTMLElement).closest('ion-card');
@@ -47,20 +45,30 @@ export class PanierPage implements OnInit {
       CardElement.remove();
     }
   }
-  // Les fonction pour incrementer et decrementer
-  incremente(cardt : Card){
-    this.panierQuantite++;
-    this.calculerTotal();
-  }
-  decremente( cardt : Card){
-    if(this.panierQuantite >0){
-      this.panierQuantite--;
-      this.calculerTotal();
+  // Fonctions pour incrémenter et décrémenter la quantité d'un produit spécifique
+  incremente(nomProduit: string){
+    const produit = this.produits.find(p => p.nom === nomProduit);
+    if (produit) {
+      produit.quantite++;
+      this.calculerTotals();
     }
   }
-  calculerTotal(): number {
-    return this.cards.reduce((acc, cardt) => acc + (cardt.prix * cardt.panierQuantite), 0);
+  
+  decremente(nomProduit: string){
+    const produit = this.produits.find(p => p.nom === nomProduit);
+    if (produit && produit.quantite > 0) {
+      produit.quantite--;
+      this.calculerTotals();
+    }
   }
-
-
+  
+  // Fonction pour calculer les totaux
+  calculerTotals() {
+    this.totalPanier = this.produits.reduce((total, produit) => total + (produit.prixUnitaire * produit.quantite), 0);
+  
+    // Supposons que vous vouliez mettre à jour totalUnitaire pour chaque produit
+    this.produits.forEach(produit => {
+      produit.totalUnitaire = produit.prixUnitaire * produit.quantite;
+    });
+  }
 }
