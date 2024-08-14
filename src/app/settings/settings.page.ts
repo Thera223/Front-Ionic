@@ -60,10 +60,12 @@ import {
     FormsModule,
   ],
 })
-export class SettingsPage implements OnInit {
+export class SettingsPage {
   constructor(private navCtrl: NavController) {}
 
-  ngOnInit() {}
+  navigateTo(page: string) {
+    this.navCtrl.navigateForward(`/${page}`);
+  }
 
  
 }

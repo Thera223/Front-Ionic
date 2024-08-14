@@ -75,10 +75,6 @@ export const routes: Routes = [
     loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
   },
   {
-    path: 'recu',
-    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
-  },
-  {
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
   },
