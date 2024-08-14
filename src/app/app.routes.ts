@@ -73,5 +73,60 @@ export const routes: Routes = [
     path: 'historiques',
     loadComponent: () => import('./historiques/historiques.page').then( m => m.HistoriquesPage)
   },
+<<<<<<< HEAD
 
 ];
+=======
+  {
+    path: 'deconnexion',
+    loadComponent: () => import('./deconnexion/deconnexion.page').then( m => m.DeconnexionPage)
+  },
+  {
+    path: 'tab1',
+    loadComponent: () => import('./tab1/tab1.page').then((m) => m.HomePage),
+  },
+  {
+    path: 'souscategorie',
+    loadComponent: () =>
+      import('./souscategorie/souscategorie.page').then(
+        (m) => m.SouscategoriePage
+      ),
+  },
+  {
+    path: 'categorie/:id', // Route with parameter
+    loadComponent: () =>
+      import('./souscategorie/souscategorie.page').then(
+        (m) => m.SouscategoriePage
+      ),
+  },
+  {
+    path: 'souscategorie',
+    loadComponent: () => import('./souscategorie/souscategorie.page').then(m => m.SouscategoriePage)
+  },
+  {
+    path: 'detail',
+    loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
+  },
+  {
+    path: 'panier',
+    loadComponent: () => import('./panier/panier.page').then( m => m.PanierPage)
+  },
+ 
+  {
+    path: 'panier-accueil',
+    loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
+  },
+  {
+    path: 'recu',
+    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
+  },
+  {
+    path: 'recu',
+    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
+  },
+  {
+    path: 'modifie-mot-de-passe',
+    loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
+  },
+];
+>>>>>>> 760588f94f4cafe7998fdbef9940c49ffc08323d
