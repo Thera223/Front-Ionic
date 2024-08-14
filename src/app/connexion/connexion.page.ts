@@ -30,13 +30,8 @@ export class ConnexionPage implements OnInit {
       
      
     });
-
-    
-
     modal.present();
-
     const { data, role } = await modal.onWillDismiss();
-
     // if (role === 'confirm') {
     //   this.message = `Hello, ${data}!`;
     // }
@@ -47,13 +42,8 @@ export class ConnexionPage implements OnInit {
       component:InscriptionPage,
      
     });
-
-    
-
     modal.present();
-
     const { data, role } = await modal.onWillDismiss();
-
     // if (role === 'confirm') {
     //   this.message = `Hello, ${data}!`;
     // }
@@ -61,6 +51,7 @@ export class ConnexionPage implements OnInit {
 
 
   ngOnInit() {
+    console.log('okkkkkk');
   }
 
 }
