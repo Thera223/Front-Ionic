@@ -28,7 +28,7 @@ export class DetailPage implements OnInit {
   }
 
   retourTab1() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/tabs/home']);
 
 
   }
