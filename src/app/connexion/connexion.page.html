@@ -1,0 +1,41 @@
+
+
+    
+   
+  <ion-content class="ion-padding">
+    <div>
+     
+       <ion-buttons slot="start">
+         <ion-button class="connexion-button" (click)="openModal()" >Connexion
+          <div class="bar-orange"></div>
+         </ion-button>
+         <ion-button class="Creer" (click)="openModal1()">
+           Créer un compte
+          
+         </ion-button>
+       
+       
+       </ion-buttons>
+     </div>
+    <ion-label>Email</ion-label>
+    <ion-item>
+      <ion-input labelPlacement="stacked"  type="Email" placeholder="Votre email"></ion-input>
+    </ion-item>
+    <ion-label>Password</ion-label>
+    <ion-item>
+      <ion-input labelPlacement="stacked" type="Password"  placeholder="Votre Password"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button class="connexion-button" expand="full">Créer</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="connexion-button" expand="full" (click)="cancel()">Annuler</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-content>
+  
+  

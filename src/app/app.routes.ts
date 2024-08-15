@@ -15,6 +15,22 @@ export const routes: Routes = [
     loadComponent: () => import('./tab4/tab4.page').then((m) => m.Tab4Page),
   },
   {
+    path: 'connexion',
+    loadComponent: () => import('./connexion/connexion.page').then( m => m.ConnexionPage)
+  },
+  {
+    path: 'inscription',
+    loadComponent: () => import('./inscription/inscription.page').then( m => m.InscriptionPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'cover',
+    loadComponent: () => import('./cover/cover.page').then( m => m.CoverPage)
+  },
+  {
     path: 'settings',
     loadComponent: () =>
       import('./settings/settings.page').then((m) => m.SettingsPage),
@@ -121,4 +137,21 @@ export const routes: Routes = [
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
   },
-]
+  {
+    path: 'confirmation',
+    loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
+  },
+  {
+    path: 'livraison',
+    loadComponent: () => import('./livraison/livraison.page').then( m => m.LivraisonPage)
+  },
+  {
+    path: 'mode',
+    loadComponent: () => import('./mode/mode.page').then( m => m.ModePage)
+  },
+  {
+    path: 'paiement',
+    loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
+  },
+];
+

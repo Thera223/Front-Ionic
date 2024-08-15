@@ -17,8 +17,6 @@ import {
 } from '@ionic/angular/standalone';
 import { NavController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-import { addIcons } from 'ionicons';
-import { lockClosedOutline, logOutOutline, settingsOutline, timeOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tab4',
@@ -44,9 +42,7 @@ import { lockClosedOutline, logOutOutline, settingsOutline, timeOutline } from '
   ],
 })
 export class Tab4Page {
-  constructor(private navCtrl: NavController) {
-    addIcons({settingsOutline,timeOutline,lockClosedOutline,logOutOutline});
-  }
+  constructor(private navCtrl: NavController) {}
 
   navigateTo(page: string) {
     this.navCtrl.navigateForward(`/${page}`);
