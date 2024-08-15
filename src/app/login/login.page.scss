@@ -1,0 +1,92 @@
+ion-content {
+    --ion-background-color: white;
+    padding: 16px;
+  }
+  
+  ion-img {
+    width: 100%; 
+    padding: 20px;
+    height: auto; 
+    margin: 0 auto; /* Center the image */
+    display: block; /* Ensure the image is centered */
+    border: 4px solid #EB4028; /* Orange border */
+    border-radius: 10px; /* Rounded corners */
+    box-sizing: border-box; /* Include the border in the element's width and height */
+  }
+  
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto; /* Adjust height as needed */
+    padding: 16px; /* Add padding to the container for spacing */
+    box-sizing: border-box; /* Ensure padding is included in the container's dimensions */
+  }
+  
+  
+  
+  ion-button.connexion-button {
+    margin-bottom: 8px; /* Add spacing between buttons */
+    --background: #EB4028; /* Orange button color */
+    // --color: white; /* Button text color */
+    color: var(--back-color-se);
+    width: 300px; /* Adjust width as needed */
+    justify-content: center;
+    font-weight: bold;
+    
+  
+  }
+  ion-button.Creer {
+    margin-bottom: 8px; /* Add spacing between buttons */
+    
+    // --color: white; /* Button text color *
+    color: var(--back-color-pr);
+    --border-color: var(--back-color-pr);
+    width: 300px; /* Adjust width as needed */
+    justify-content: center;
+    font-weight: bold;
+    
+  
+  }
+  
+  ion-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ion-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-center {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+    margin: 16px 0; /* Add margin above and below the text */
+    height: 100px; /* Optional: Adjust height to ensure vertical centering */
+  }
+  
+  .text-center p {
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333; /* Darker color for better readability */
+    margin: 0; /* Remove default margin from paragraph */
+    line-height: 1.5; /* Adjust line height for readability */
+  }
+  
+  .footer {
+    background-color: #EB4028; /* Set the background color to orange */
+    text-align: center; /* Center-align the text inside the grid */
+    padding: 10px; /* Optional: Add padding for spacing */
+    margin: 20px;
+  }
+  
+  /* Optional: Adjust the text color if needed */
+  .footer ion-title {
+    color: white; /* Set the text color to white for contrast */
+  }
+  

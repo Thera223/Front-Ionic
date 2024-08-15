@@ -1,1 +1,9 @@
+iconpanier{
+    transition:  transform 0.3s ease-in-out;
+}
 
+ion-tab-button{
+    --color-focused:#ee4d2d;
+    --color-selected:#ee4d2d;
+    --ripple-color:none;
+}
