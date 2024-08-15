@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { NavController } from '@ionic/angular';
 import { ProgressionService } from '../Services/progression.service';
 import { BarProgressionComponent } from '../bar-progression/bar-progression.component';
 import { IonicModule } from '@ionic/angular';
@@ -16,8 +16,10 @@ import { IonicModule } from '@ionic/angular';
 export class ConfirmationPage implements OnInit {
   currentStep: number = 0;
 
-  constructor(private progression:ProgressionService) { }
-
+  constructor(private navCtrl: NavController,private progression:ProgressionService) { }
+  navigateTo(page: string) {
+    this.navCtrl.navigateForward(`/${page}`);
+  }
   ngOnInit() {
     this.progression.setCurrentStep(2);
   }
