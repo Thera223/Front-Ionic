@@ -121,4 +121,22 @@ export const routes: Routes = [
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
   },
+  {
+    path: 'confirmation',
+    loadComponent: () => import('./confirmation/confirmation.page').then( m => m.ConfirmationPage)
+  },
+  {
+    path: 'livraison',
+    loadComponent: () => import('./livraison/livraison.page').then( m => m.LivraisonPage)
+  },
+  {
+    path: 'mode',
+    loadComponent: () => import('./mode/mode.page').then( m => m.ModePage)
+  },
+  {
+    path: 'paiement',
+    loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
+  },
+];
 ]
+
