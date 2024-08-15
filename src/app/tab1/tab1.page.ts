@@ -1,7 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA,Component, Input, OnInit, ElementRef,  ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
 import { IonHeader, IonToolbar, IonTitle, IonContent,IonList,IonSearchbar,IonCard,IonCol,IonRow,IonGrid,
   IonCardHeader,IonCardContent,IonLabel,IonIcon,IonItem,IonListHeader} from '@ionic/angular/standalone';
 import {IonicSlides} from '@ionic/angular';
@@ -17,7 +15,6 @@ import {IonicSlides} from '@ionic/angular';
     IonToolbar,
     IonTitle,
     IonContent,
-
     IonList,
     IonCol,
     IonRow,
@@ -44,7 +41,6 @@ swiperRef: ElementRef | undefined;
         {banner:'assets/imgmirashop/slide1.jpg'},
         {banner:'assets/imgmirashop/slide2.jpg'},
       ]
-
       this.products = [
         { name: 'Panier damou', price: '5.000', image: 'assets/imgmirashop/panieramadan.jpg' },
         { name: 'Sac', price: '25.000', image: 'assets/imgmirashop/sac.jpg' },

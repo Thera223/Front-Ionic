@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+
 import { PanierPage } from "../panier/panier.page";
+
 
 @Component({
   selector: 'app-tab3',
@@ -13,3 +15,5 @@ import { PanierPage } from "../panier/panier.page";
 export class Tab3Page {
   constructor() {}
 }
+
+

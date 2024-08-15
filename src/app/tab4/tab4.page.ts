@@ -4,8 +4,21 @@ import {
   IonToolbar,
   IonTitle,
   IonContent,
+  IonAvatar,
+  IonCardContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonItem,
+  IonLabel,
+  IonIcon,
+  IonList,
+  IonCardSubtitle,
 } from '@ionic/angular/standalone';
+import { NavController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
+import { addIcons } from 'ionicons';
+import { lockClosedOutline, logOutOutline, settingsOutline, timeOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tab4',
@@ -13,13 +26,35 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
   styleUrls: ['tab4.page.scss'],
   standalone: true,
   imports: [
+    IonCardSubtitle,
+    IonLabel,
+    IonItem,
+    IonCardTitle,
+    IonCardHeader,
+    IonCardContent,
+    IonAvatar,
     IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
     ExploreContainerComponent,
+    IonCard,
+    IonList,
+    IonIcon,
   ],
 })
 export class Tab4Page {
-  constructor() {}
+  constructor(private navCtrl: NavController) {
+    addIcons({settingsOutline,timeOutline,lockClosedOutline,logOutOutline});
+  }
+
+  navigateTo(page: string) {
+    this.navCtrl.navigateForward(`/${page}`);
+  }
+
+  logout() {
+    // Implémentez ici la logique de déconnexion
+    console.log('Déconnexion');
+  }
 }
+
