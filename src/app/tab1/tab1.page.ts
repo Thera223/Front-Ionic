@@ -74,6 +74,8 @@ swiperRef: ElementRef | undefined;
       next: (data) => {
         this.products = data;
         this.filteredProducts = this.products;
+        console.log(this.products);
+        
       },
       error: (err) => {
         console.error('Erreur de chargement des produits', err);
