@@ -1,0 +1,44 @@
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+  }
+  
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  
+    .label {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+  
+    ion-progress-bar {
+      width: 60px;
+      --progress-background: #ccc;
+      --progress-bar-background: #EE4D2D;
+    }
+  
+    &.completed .label {
+      font-weight: bold;
+      color: #EE4D2D;
+    }
+  }
+  
+  .progress-line {
+    width: 100px;
+    height: 4px;
+    background-color: #ccc;
+    position: relative;
+    top: -12px;
+  
+    &.completed {
+      background-color: #EE4D2D;
+    }
+  }
+  

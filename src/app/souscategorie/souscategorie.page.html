@@ -4,7 +4,7 @@
             <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
         </ion-button>
     </ion-buttons>
-    <ion-title>Sous-cate</ion-title>
+    <ion-title>Sous-categories</ion-title>
 </ion-toolbar>
 <ion-toolbar>
     <div class="segment">
@@ -18,9 +18,10 @@
     <ion-grid>
         <ion-row>
           @for (item of listFile; track $index) {
+            
             <ion-col size="6">
                 <div class="container" button (click)="navigate($index)">
-                    <img src="http://localhost:8080/admin/files/Capture d'écran 2024-04-23 101253.png" alt="img" srcset="">
+                    <img src="{{item.image}}" alt="img" srcset="">
                     <div class="info">
                         <p><b>Nom du produit</b></p>
                         <div class="prix">

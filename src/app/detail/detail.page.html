@@ -1,13 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>detail</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--<div *ngFor="let detail of Detailprod">
+  <p>{{detail.description}}</p>
+  <p>{{detail.libelle}}</p>
+  <p>{{detail.prix}}</p>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+</div>-->
+
+<div xmlns:redirectTo="http://www.w3.org/1999/xhtml">
+  <div style="background: #8c8c8c">
+
+    <button style="background: none" (click)="retourTab1()">
+
+      <ion-icon name="caret-back-outline" class="icon"></ion-icon> </button>
+    <div style="justify-content: center; display: flex; align-items:center">
+      <img class="Img" src="assets/imgmirashop/Iphone14.png">
+    </div>
+
+
+
+  </div>
+
+  <h2 style="color: orangered; margin-left: 10px">Iphone 14 pro</h2>
+  <h3 style="margin-left: 10px">Téléphone</h3>
+  <p style="margin-left: 10px">Le design épuré et moderne convient parfaitement à ceux qui préfèrent un appareil élégant
+    qui se fond facilement<span><a style="color: orangered">Lire plus</a></span></p>
+  <div>
+    <span>
+      <img class="pousser2" src="assets/imgmirashop/Face1.png">
+      <img src="assets/imgmirashop/Face2.png">
+      <img src="assets/imgmirashop/Face3.png">
+    </span>
+  </div>
+  <div class="color-picker">
+    <h5>Couleur
+      <span>
+        <input type="radio" id="color1" name="color" value="color1" checked>
+        <label for="color1" class="color-label color1"></label>
+
+        <input type="radio" id="color2" name="color" value="color2">
+        <label for="color2" class="color-label color2"></label>
+
+        <input type="radio" id="color3" name="color" value="color3">
+        <label for="color3" class="color-label color3"></label>
+      </span>
+    </h5>
+  </div>
+  <!--<div class="container">
+    <div class="quantity">
+      <button class="quantity-btn minus">-</button>
+      <span class="quantity-number">3</span>
+      <button class="quantity-btn plus">+</button>
+    </div>
+  </div>-->
+  <div class="button-container">
+    <ion-button class="custom-button"  (click)="goToPanier()">
+      <h2 class="button-text">Ajouter au panier</h2>
+    </ion-button>
+  </div>
+</div>

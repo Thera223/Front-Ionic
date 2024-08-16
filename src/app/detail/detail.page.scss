@@ -1,0 +1,110 @@
+.pousser{
+  text-align: right;
+}
+.pousser2{
+  margin-left: 20px;
+}
+.Notation{
+  text-align: right;
+}
+.button-container {
+  text-align: center;
+}
+
+.custom-button {
+  --background: #EE4D2D; /* Couleur de fond du bouton */
+  --color: white; /* Couleur du texte du bouton */
+  --padding-start: 16px; /* Espace à gauche du texte */
+  --padding-end: 16px; /* Espace à droite du texte */
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --border: none;
+  --box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-text {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center; /* Centre le texte à l'intérieur du bouton */
+}
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px; // Ajouter un peu de padding si nécessaire
+}
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 0 10px;
+  background-color: #f9f9f9;
+
+  .quantity-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #ff4c4c;
+    cursor: pointer;
+    padding: 0 5px;
+    outline: none;
+
+    &:hover {
+      color: #ff3a3a;
+    }
+  }
+.quantity-number {
+    font-size: 1.2em;
+    margin: 0 10px;
+  }
+}
+.color-picker {
+  h5 {
+    display: flex;
+    align-items: center;
+
+    span {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+  }
+  input[type="radio"] {
+    display: none;
+    &:checked + .color-label {
+      transform: scale(1.2); /* Agrandit le cercle sélectionné */
+      box-shadow: 0 0 0 3px #c0c0c0; /* Ajoute un contour pour indiquer la sélection */
+    }
+  }
+.color-label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    &.color1 {
+      background-color: #6e7979;
+      border: 2px solid #bfc7c7;
+    }
+    &.color2 {
+      background-color: #6f6b6b; /* Couleur gris */
+    }
+
+    &.color3 {
+      background-color: #ff4c4c; /* Couleur rouge */
+    }
+  }
+}
+.icon{
+  color: orangered;
+  background: #f6f7f9;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
