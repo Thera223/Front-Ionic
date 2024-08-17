@@ -91,7 +91,7 @@ swiperRef: ElementRef | undefined;
   }
   onSlideChange(event: any) {
     console.log(this.swiperRef?.nativeElement.swiper.activeIndex);
-    console.log('event', event);
+    console.log('event',event);
   }
   navigateToCategorie(): void {
     this.router.navigate(['/tabs/grid']);
