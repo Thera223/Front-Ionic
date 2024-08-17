@@ -152,6 +152,10 @@ export const routes: Routes = [
   {
     path: 'paiement',
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
+  },  {
+    path: 'creation-recu',
+    loadComponent: () => import('./creation-recu/creation-recu.page').then( m => m.CreationRecuPage)
   },
+
 ];
 
