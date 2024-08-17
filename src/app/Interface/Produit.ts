@@ -1,6 +1,8 @@
-export interface Produit{
-  id:number;
-  description: string
-  libelle:string
-  prix:number
+
+export interface Produit {
+  id: number;
+  description: string;
+  libelle: string;
+  prix: number;
+  images: { url: string }[];
 }

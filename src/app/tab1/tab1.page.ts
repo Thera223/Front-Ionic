@@ -1,11 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA,Component, Input, OnInit, ElementRef,  ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProduitService } from '../Services/produit.service';
+import { Router} from '@angular/router';
 import { CategorieService, Category } from '../Services/categorie.service';
 import { IonHeader, IonToolbar, IonTitle, IonContent,IonList,IonSearchbar,IonCard,IonCol,IonRow,IonGrid,
-  IonCardHeader,IonCardContent,IonLabel,IonIcon,IonItem,IonListHeader} from '@ionic/angular/standalone';
+  IonCardHeader,IonCardContent,IonLabel,IonIcon,IonItem,IonListHeader,IonRouterLink} from '@ionic/angular/standalone';
 import {IonicSlides} from '@ionic/angular';
-import { Router } from '@angular/router';
+
   @Component({
   selector: 'app-home',
   templateUrl: 'tab1.page.html',
@@ -48,6 +49,7 @@ swiperRef: ElementRef | undefined;
         {banner:'assets/imgmirashop/slide2.jpg'},
       ]
       this.loadProduits();
+      
       this.loadCategories();
       
   this.bestSellers = [
@@ -74,6 +76,7 @@ swiperRef: ElementRef | undefined;
       next: (data) => {
         this.products = data;
         this.filteredProducts = this.products;
+        console.log(this.products);
       },
       error: (err) => {
         console.error('Erreur de chargement des produits', err);
@@ -92,5 +95,9 @@ swiperRef: ElementRef | undefined;
   }
   navigateToCategorie(): void {
     this.router.navigate(['/tabs/grid']);
+  }
+
+  navigateToDetail(productId: number): void {
+    this.router.navigate(['/produit/detail', productId]);
   }
 }
