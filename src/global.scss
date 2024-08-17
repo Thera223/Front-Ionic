@@ -65,4 +65,13 @@ ion-modal {
     --swiper-pagination-color: var( --back-color-pr, #EB4028);
    
   }
-
+  @font-face {
+    font-family: 'Inter';
+    src: url('./assets/fonts/Inter.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  *{
+    font-family: 'inter';
+  }
+ 
