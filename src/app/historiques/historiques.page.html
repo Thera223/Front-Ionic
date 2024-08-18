@@ -26,10 +26,10 @@
   
   <ion-list>
     <ion-list-header>Paiements</ion-list-header>
-    <ion-item *ngFor="let paiement of paiements">
+    <ion-item *ngFor="let paiement of historique1">
       <ion-label>
         <h2>Paiement #{{ paiement.id }}</h2>
-        <p>Effectué le {{ paiement.date | date:'dd/MM/yyyy' }}</p>
+        <p>Payement Effectué le {{ paiement.date | date:'dd/MM/yyyy' }} avec un montant de {{ paiement.montant }} FCFA </p>
       </ion-label>
     </ion-item>
   </ion-list>
