@@ -1,7 +1,9 @@
-export interface Produit{
-  id:number;
+export interface Produit {
+  id: number;
   description: string;
-  libelle:string;
-  prix:number;
-  images:string[];
+  libelle: string;
+  prix: number;
+  images: { url: string }[];
+  fileInfo: { url: string}[];
 }
+
