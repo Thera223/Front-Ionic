@@ -15,7 +15,7 @@ import { Router } from '@angular/router';  // Importation du Router
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,IonButtons, IonItem, IonLabel, IonInput, IonIcon,IonImg,IonGrid, IonCol,IonRow, IonButton, IonFooter, IonModal, IonAvatar, IonList, FormsModule, ReactiveFormsModule, JsonPipe, NgIf, IonProgressBar]
 })
-export class InscriptionPage implements OnInit {
+export class InscriptionPage  {
   clientForm: FormGroup;
 
   constructor(private fb: FormBuilder, private InscriptionService: InscriptionService,  private modalCtrl: ModalController, private router: Router) {
@@ -30,7 +30,9 @@ export class InscriptionPage implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  // ngOnInit() {
+
+  // }
 
   onSubmit() {
     if (this.clientForm.valid) {
