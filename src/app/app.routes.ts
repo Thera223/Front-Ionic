@@ -74,7 +74,7 @@ export const routes: Routes = [
     loadComponent: () => import('./souscategorie/souscategorie.page').then(m => m.SouscategoriePage)
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     loadComponent: () => import('./detail/detail.page').then( m => m.DetailPage)
   },
   {

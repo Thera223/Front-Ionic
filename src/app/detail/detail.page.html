@@ -1,11 +1,22 @@
-<!--<div *ngFor="let detail of Detailprod">
-  <p>{{detail.description}}</p>
-  <p>{{detail.libelle}}</p>
-  <p>{{detail.prix}}</p>
+<div>
 
-</div>-->
+  <div *ngIf="images && images.length > 0">
+    <div *ngFor="let image of images">
+      <img [src]="image" alt="Produit image">
+    </div>
+  </div>
 
-<div xmlns:redirectTo="http://www.w3.org/1999/xhtml">
+  <p>{{ Detailprod.description }}</p>
+  <p>{{ Detailprod.libelle }}</p>
+  <p>{{ Detailprod.prix }}</p>
+
+
+
+</div>
+
+
+
+<!--<div xmlns:redirectTo="http://www.w3.org/1999/xhtml">
   <div style="background: #8c8c8c">
 
     <button style="background: none" (click)="retourTab1()">
@@ -44,7 +55,7 @@
       </span>
     </h5>
   </div>
-  <!--<div class="container">
+  <div class="container">
     <div class="quantity">
       <button class="quantity-btn minus">-</button>
       <span class="quantity-number">3</span>
@@ -56,4 +67,4 @@
       <h2 class="button-text">Ajouter au panier</h2>
     </ion-button>
   </div>
-</div>
+

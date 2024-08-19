@@ -1,13 +1,39 @@
-<ion-content>
+<div *ngFor="let detail of Detailprod">
+  <p>{{detail.libelle}}</p>
+  <p>{{detail.prix}}</p>
+  <button [routerLink]="['/detail', detail.id]">naviguer</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content>
   <div class="search-bar">
     <ion-searchbar
       placeholder="Rechercher des produits"
       showCancelButton="never"
-      (ionInput)="onSearch($event)" 
+      (ionInput)="onSearch($event)"
       class="custom-searchbar">
     </ion-searchbar>
   </div>
-  
+
   <div *ngIf="slides.length > 0">
     <swiper-container
       #swiper
@@ -61,8 +87,8 @@
   <ion-list>
     <ion-list-header class="best-sellers-header">
       <span class="header-title">Les meilleurs produits</span>
-      <!-- <a href="#" class="see-all">Voir tout</a> -->
-    </ion-list-header>
+       <a href="#" class="see-all">Voir tout</a> -->
+    <!-- </ion-list-header>
     <div class="best-sellers-container">
       <div class="best-sellers-segment">
         <ion-segment-button *ngFor="let product of bestSellers" class="best-sellers-card">
@@ -74,6 +100,6 @@
       </div>
     </div>
   </ion-list>
-</ion-content>
+</ion-content> -->
 
 
