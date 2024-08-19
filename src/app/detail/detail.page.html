@@ -3,7 +3,7 @@
     <ion-icon name="caret-back-outline" class="icon"></ion-icon>
   </button>
   <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-    <img class="Img" [src]="produit?.images?.[0]?.url" alt="Produit Image" style="max-width: 100%; height: auto;">  
+    <img class="Img" src="{{produit!.fileInfo[0].url}}" alt="Produit Image" style="max-width: 100%; height: auto;">  
   </div>
 </div>
 

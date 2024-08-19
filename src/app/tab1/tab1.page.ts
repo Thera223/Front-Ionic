@@ -74,7 +74,6 @@
     loadProduits() {
       this.produitService.getProduits().subscribe({
         next: (data) => {
-          console.log('Données reçues:', data); // Ajoute cette ligne pour vérifier les données
           this.products = data;
           this.filteredProducts = this.products;
          
