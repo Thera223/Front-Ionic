@@ -29,8 +29,7 @@ export class PanierserviceService {
     return this.http.post<HttpResponse<any>>(
       `${this.baseUrl}/${clientId}/panier/ajouterProduit?produitId=${produitId}&quantite=${qte}`,
       {
-        headers,
-        responseType: 'text' as 'json',
+        headers
       }
     );
   }
