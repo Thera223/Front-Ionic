@@ -36,7 +36,7 @@
       <ion-col size="6" size-md="4" size-lg="3" size-xl="3" *ngFor="let product of filteredProducts">
         <div class="product-card" (click)="navigateToDetail(product.id)" style="cursor: pointer;">
           <div class="product-image">
-            <img [src]="product.images[3]" alt="{{product.libelle }}">
+            <img [src]="product.images[0]" alt="{{product.libelle }}">
           </div>
           <div class="product-info">
             <h3 class="product-name">{{ product.libelle }}</h3>
