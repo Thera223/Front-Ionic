@@ -70,7 +70,6 @@
         }
       });
     }
-
     loadProduits() {
       this.produitService.getProduits().subscribe({
         next: (data) => {
@@ -96,7 +95,6 @@
     navigateToCategorie(): void {
       this.router.navigate(['/tabs/grid']);
     }
-
     navigateToDetail(productId: number): void {
       this.router.navigate(['/produit/detail', productId]);
     }

@@ -1,4 +1,3 @@
-
 export interface Produit {
   id: number;
   description: string;
@@ -7,3 +6,4 @@ export interface Produit {
   images: { url: string }[];
   fileInfo: { url: string}[];
 }
+

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,8 +17,7 @@ import {caretBackOutline} from "ionicons/icons";
   standalone: true,
   imports: [IonContent,IonButton, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonIcon, IonRouterLink, RouterLinkActive]
 })
-export class DetailPage implements OnInit {
-  
+export class DetailPage implements OnInit {  
   produit: Produit | undefined;
   constructor( 
   private produitService: ProduitService,
