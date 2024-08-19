@@ -4,10 +4,17 @@ import { Observable } from 'rxjs';
 
 export interface PanierClient{
   id: number;
-  libelle: string;
-  prix: number;
-  total: Number;
-   fileInfo:string[2];
+  quantite: number;
+  panierId: number
+  clientId: number
+  nouvelleQuantité: number
+  produitId: number
+   produit:{
+    fileInfo:any[];
+    libelle: string;
+    prix: number;
+    total: Number;
+   }
  
 }
 
@@ -19,14 +26,30 @@ export class PanierserviceService {
   
   //Fonction pour recupérer un prduit pour afficher et d'afficher sur la page panier
 
-  apiurl= 'http://localhost:8080/client/1/produits';
-  apiurlSup= 'http://localhost:8080/client/2/panier/2/supprimerProduit';
+  apiurl= 'http://localhost:8080/client/3/produits';
+
+  // apiurlSup= 'http://localhost:8080/client/3/panier/';
+
+  // urlUpdate= 'http://localhost:8080/client/2/panier/'
 
   getPaner():Observable<PanierClient[]>{
     return this.http.get<PanierClient[]>(this.apiurl);
+    
   }
-  supprimerPanier():Observable<any>{
-    return this.http.delete(this.apiurlSup +'Supprimer');
+  supprimerPanier(clientId: number, panierId: number): Observable<string> {
+    const url = `http://localhost:8080/client/${clientId}/panier/${panierId}`;
+    return this.http.delete(url, { responseType: 'text' });
+  }
+
+  updatePanier(panier_id: number, produit_id: number, nouvelleQuantité: number):void{
+    this.http.put(`http://localhost:8080/client/2/panier/${panier_id}/modifierQuantite?produitId=${produit_id}&nouvelleQuantite=${nouvelleQuantité}`, {}).subscribe(()=>{
+      console.log('Produit modifier');
+      
+    }
+  , error=>{
+    console.log('erreur de modification', error);
+    
+  })
   }
 
   private baseUrl = 'http://localhost:8080/client';

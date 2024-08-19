@@ -2,6 +2,9 @@
 <div *ngIf="paniers.length >0; else videpanier">
 <ion-header [translucent]="true">
   <ion-toolbar  class="head" >  
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detail"></ion-back-button>
+    </ion-buttons>
     <ion-title>
       Mon panier
     </ion-title>
@@ -11,34 +14,34 @@
 
 <ion-content [fullscreen]="true">
   <h2 class="leftmarg">Produits</h2>
-  <div class="card" *ngFor="let produit of paniers">
+  <div class="card" *ngFor="let produitCommandee of paniers">
     <ion-card class="CARD">
       <div class="col image">
-        <ion-img [src]="produit.fileInfo"></ion-img>
+        <ion-img [src]="produitCommandee.produit.fileInfo[0].url"></ion-img>
       </div>
       <div class="col nom">
         
-        <h5>{{produit.libelle}}</h5>
+        <h5>{{produitCommandee.produit.libelle}}</h5>
 
-        <h6>{{produit.prix}} F</h6>
+        <h6>{{produitCommandee.produit.prix}} F</h6>
         <!-- <h4>{{produit.totalUnitaire}} F</h4> -->
 
       </div>
       <div class="col bouton rightmarg">
         <div class="closebtn">
-        <ion-button color="btn" fill="clear" class="textend" (click)="supCard()">
+        <ion-button color="btn" fill="clear" class="textend" (click)="supCard(produitCommandee.clientId || 0,produitCommandee.panierId ||0 )">
           <ion-icon name="close-outline"></ion-icon>
         </ion-button>
       </div>
         <div class="increbtnt">
          
-          <ion-button size="small" class="left" fill="clear" (click)="decrementePrd(produit)">
+          <ion-button size="small" class="left" fill="clear" (click)="decrementePrd(produitCommandee)">
             <ion-icon name="remove-outline"></ion-icon>
           </ion-button>
 
-          <h5>{{produit.id}}</h5>
+          <h5>{{produitCommandee.quantite}}</h5>
 
-          <ion-button size="small"class="textcolor " class="right" fill="clear" (click)="incrementePrd(produit)" >
+          <ion-button size="small"class="textcolor " class="right" fill="clear" (click)="incrementePrd(produitCommandee)">
             <ion-icon name="add-outline"></ion-icon>
           </ion-button>
         </div>
@@ -52,7 +55,7 @@
 <div class="passemd">
   
   <ion-button fill="clear" class="CMD" expand="block"> 
-    <ion-icon name="chevron-down-circle-outline"></ion-icon>&nbsp;
+    <ion-icon name="chevron-down-circle-outline" routerLink="livraison"></ion-icon>&nbsp;
     Procéder au payement</ion-button>
     
 </div>
