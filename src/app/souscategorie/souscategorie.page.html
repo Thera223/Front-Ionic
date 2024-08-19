@@ -1,4 +1,4 @@
-<ion-toolbar>
+<!-- <ion-toolbar>
     <ion-buttons slot="start">
         <ion-button>
             <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
@@ -34,4 +34,44 @@
           }
         </ion-row>
       </ion-grid>
+</ion-content> -->
+
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button>
+      <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Sous-catégories</ion-title>
+</ion-toolbar>
+
+<ion-toolbar>
+  <div class="segment">
+    <ion-button
+      *ngFor="let sousCategorie of sousCategories; let i = index"
+      [color]="selectedButton === i ? 'primary' : 'light'"
+      (click)="changeColor(i)"
+    >
+      {{ sousCategorie.libelle }}
+    </ion-button>
+  </div>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of listFile; let i = index" size="6">
+        <div class="container" (click)="navigate(i)">
+          <img [src]="item.image" alt="img" />
+          <div class="info">
+            <p><b>{{ item.name }}</b></p>
+            <div class="prix">
+              <span class="cate">{{ item.name }}</span>
+              <span class="span"><b>{{ item.price }}</b><b> XOF</b></span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

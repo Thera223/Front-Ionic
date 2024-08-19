@@ -1,40 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { PayementService } from '../Services/payement.service';
-import { ProgressionService } from '../Services/progression.service';
-import { BarProgressionComponent } from '../bar-progression/bar-progression.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PayementService } from '../Services/payement.service';
+import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-paiement',
   templateUrl: './paiement.page.html',
   styleUrls: ['./paiement.page.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule,BarProgressionComponent]
+  standalone: true, // Ajouté pour utiliser le mode standalone
+  imports: [IonicModule, ReactiveFormsModule, FormsModule, CommonModule],
 })
 export class PaiementPage implements OnInit {
-  products: any[] = [];
-  deliveryFee = 24.75;
-  subtotal = 0;
-  total = 0;
+  paiementForm: FormGroup;
+  commandes: any[] = [];
 
-  constructor(private payement: PayementService,
-     private progression:ProgressionService,
-     private router:Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private paiementService: PayementService,
+    private router: Router
+  ) {
+    this.paiementForm = this.fb.group({
+      commandeId: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
-    this.products = this.payement.getProducts();
-    this.progression.setCurrentStep(0);
-    this.calculateTotals();
+    this.loadCommandes();
   }
-  calculateTotals() {
-    this.subtotal = this.products.reduce((acc, product) => acc + product.price, 0);
-    this.total = this.subtotal + this.deliveryFee;
+
+  loadCommandes() {
+    this.paiementService.getCommandes().subscribe(
+      (data) => {
+        this.commandes = data;
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des commandes', error);
+      }
+    );
   }
- GoTo(){
-  this.router.navigate(['/mode']);
- }
-  
+
+  effectuerPaiement() {
+    if (this.paiementForm.valid) {
+      const commandeData = { id: this.paiementForm.value.commandeId };
+      this.paiementService.effectuerPaiement(commandeData).subscribe(
+        (response) => {
+          console.log('Paiement réussi', response);
+          this.router.navigate(['/confirmation']); // Redirection après succès
+        },
+        (error) => {
+          console.error('Erreur lors du paiement', error);
+        }
+      );
+    }
+  }
 }

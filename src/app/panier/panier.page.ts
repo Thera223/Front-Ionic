@@ -1,73 +1,107 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonCard, IonImg, IonButtons, IonBackButton } from '@ionic/angular/standalone';
-import { car, card } from 'ionicons/icons';
-
-export interface Card{
-  nom: string;
-  prix : number;
-  imagSrc: string
-  panierQuantite: number
-}
+import { NavController } from '@ionic/angular';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonIcon,
+  IonCard,
+  IonImg,
+  IonButtons,
+  IonBackButton,
+} from '@ionic/angular/standalone';
+import { PanierserviceService } from '../Services/panierservice.service';
 
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.page.html',
   styleUrls: ['./panier.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonImg, IonCard, IonIcon, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonBackButton,
+    IonButtons,
+    IonImg,
+    IonCard,
+    IonIcon,
+    IonButton,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+  ],
 })
 export class PanierPage implements OnInit {
+  produits: any[] = [];
+  totalPanier: number = 0;
 
-  calculertotal: number= 0;
-  constructor() {
-
-   }
-  //  {nom: 'Pc',prix:20000, imagSrc:"assets/icon/pc.png", panierQuantite:2
+  constructor(
+    private panierService: PanierserviceService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
-    this.calculerTotals();
+    const panierId = 1; // Remplacez par l'ID réel du panier
+    this.panierService.listProduitsPanier(panierId).subscribe((produits) => {
+      console.log(produits);
+      this.produits = produits.map((produit) => ({
+        id: produit.id,
+        nom: produit.libelle,
+        imagSrc:
+          produit.fileInfo && produit.fileInfo.length > 0
+            ? produit.fileInfo[0].url
+            : 'assets/img/default.png',
+        prixUnitaire: produit.prix,
+        quantite: produit.quantite || 0,
+        totalUnitaire: produit.prixUnitaire * produit.quantite,
+      }));
+      this.calculerTotals();
+    });
   }
 
-  produits = [
-    { nom: "PC",imagSrc:"assets/icon/pc.png", prixUnitaire: 100000, quantite: 0 ,totalUnitaire: 0 },
-    { nom: "Alliment",imagSrc:"assets/icon/banane.png", prixUnitaire: 1000, quantite: 0,totalUnitaire: 0  },
-    { nom: "kito",imagSrc:"assets/icon/kito.png", prixUnitaire: 3000, quantite: 0 ,totalUnitaire: 0 },
-    // Ajoutez d'autres produits ici selon les besoins
-  ];
-
-  totalPanier: number = 0;
-// la fonction pour supprimer provisoirement le card
-  supCard(event: Event){
-    const CardElement= (event.target as HTMLElement).closest('ion-card');
-    if(CardElement){
+  // la fonction pour supprimer provisoirement le card
+  supCard(event: Event) {
+    const CardElement = (event.target as HTMLElement).closest('ion-card');
+    if (CardElement) {
       CardElement.remove();
     }
   }
+
   // Fonctions pour incrémenter et décrémenter la quantité d'un produit spécifique
-  incremente(nomProduit: string){
-    const produit = this.produits.find(p => p.nom === nomProduit);
+  incremente(produitId: number) {
+    const produit = this.produits.find((p) => p.id === produitId);
     if (produit) {
       produit.quantite++;
       this.calculerTotals();
+      this.panierService
+        .ajouterProduit(1, produitId, produit.quantite)
+        .subscribe();
     }
   }
-  
-  decremente(nomProduit: string){
-    const produit = this.produits.find(p => p.nom === nomProduit);
+  navigateTo(page: string) {
+    this.navCtrl.navigateForward(`/${page}`);
+  }
+
+  decremente(produitId: number) {
+    const produit = this.produits.find((p) => p.id === produitId);
     if (produit && produit.quantite > 0) {
       produit.quantite--;
       this.calculerTotals();
     }
   }
-  
+
   // Fonction pour calculer les totaux
   calculerTotals() {
-    this.totalPanier = this.produits.reduce((total, produit) => total + (produit.prixUnitaire * produit.quantite), 0);
-  
-    // Supposons que vous vouliez mettre à jour totalUnitaire pour chaque produit
-    this.produits.forEach(produit => {
+    this.totalPanier = this.produits.reduce(
+      (total, produit) => total + produit.prixUnitaire * produit.quantite,
+      0
+    );
+    this.produits.forEach((produit) => {
       produit.totalUnitaire = produit.prixUnitaire * produit.quantite;
     });
   }
