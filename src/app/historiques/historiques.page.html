@@ -18,7 +18,7 @@
     <ion-list-header>Commandes</ion-list-header>
     <ion-item *ngFor="let commande of historique">
       <ion-label>
-        <h2>Commande #{{ commande.id }}</h2>
+        <h2>Commande #: {{ commande.id }}</h2>
         <p>Passée le {{ commande.date | date:'dd/MM/yyyy' }}</p>
       </ion-label>
     </ion-item>
@@ -29,10 +29,10 @@
     <ion-item *ngFor="let paiement of historique1">
       <ion-label>
         <h2>Paiement #{{ paiement.id }}</h2>
-        <p>Payement Effectué le {{ paiement.date | date:'dd/MM/yyyy' }} avec un montant de {{ paiement.montant }} FCFA pour la commande #{{ paiement.commande.id}}</p>
+        <p>Payement Effectué le {{ paiement.date | date:'dd/MM/yyyy' }} avec un montant de: {{ paiement.montant }} FCFA pour la commande  #{{ paiement.commande.id}}</p>
       </ion-label>
     </ion-item>
-  </ion-list>
-
+  </ion-list>       
+             
 </ion-content>
 
