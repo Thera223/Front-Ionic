@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonLabel, IonItem, IonListHeader,IonTabBar,IonTabs, IonIcon, IonTabButton,IonButtons,IonBackButton } from '@ionic/angular/standalone';
 import { commande } from '../Interface/commande';
 import { CommandeService } from '../Services/commande.service';
+import { PayementClientService } from '../Services/payement-client.service';
+import { payementclient } from '../Interface/PayementClient';
 
 @Component({
   selector: 'app-historiques',
@@ -14,29 +16,40 @@ import { CommandeService } from '../Services/commande.service';
 })
 export class HistoriquesPage implements OnInit {
   historique!:commande[]
-  constructor(private commandeservice : CommandeService) {
+
+  historique1!: payementclient[]
+
+
+  
+  constructor(private commandeservice : CommandeService, private payementClientservice : PayementClientService) {
     
    }
  
 
-  paiements = [
-    { id: 1, date: new Date('2023-06-20') },
-    { id: 2, date: new Date('2023-07-25') },
-    { id: 3, date: new Date('2023-08-05') },
-    { id: 1, date: new Date('2023-06-20') },
-    { id: 2, date: new Date('2023-07-25') },
-    { id: 3, date: new Date('2023-08-05') },
-    { id: 1, date: new Date('2023-06-20') },
-    { id: 2, date: new Date('2023-07-25') },
-    { id: 3, date: new Date('2023-08-05') },
-    { id: 1, date: new Date('2023-06-20') },
-    { id: 2, date: new Date('2023-07-25') },
-    { id: 3, date: new Date('2023-08-05') },
-  ];
+
   ngOnInit() {
-    this.commandeservice.RecupererCommande().subscribe(data=>{
-      this.historique=data
-    })
-  }
+  
+    const clientId = 2; 
+
+    this.commandeservice.RecupererCommande(clientId).subscribe({
+      next: (data) => {
+        this.historique = data;
+      },
+      error: (err) => {
+        console.error('Erreur lors de la récupération des commandes', err);
+      }
+    });
+
+    this.payementClientservice.RecupererPayement(clientId).subscribe({
+      next: (data1)=> {
+        this.historique1 = data1;
+      },
+      error: (err) =>{
+        console.error('Erreur lors de la récupération des payement', err);
+          
+      },
+    });
+
+}
 
 }

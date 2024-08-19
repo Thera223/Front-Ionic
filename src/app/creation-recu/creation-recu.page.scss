@@ -1,0 +1,32 @@
+.content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    height: 100%;
+    text-align: center;
+  }
+  
+  ion-img {
+    min-width: 30%; /* Ajuste la taille de l'image si nécessaire */
+    max-width: 30%;
+    margin-bottom: 20px; /* Espacement entre l'image et le texte */
+  }
+  
+  h1 {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .connexion-button {
+    
+    width: 100%; /* Prend toute la largeur du conteneur */
+    max-width: 300px; /* Limite la largeur pour un meilleur rendu */
+    --background: #EB4028; /* Orange button color */
+  }
+  

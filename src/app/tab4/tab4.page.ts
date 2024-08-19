@@ -14,10 +14,11 @@ import {
   IonIcon,
   IonList,
   IonCardSubtitle,
+  IonButton,
 } from '@ionic/angular/standalone';
 import { NavController } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab4',
   templateUrl: 'tab4.page.html',
@@ -39,18 +40,39 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonCard,
     IonList,
     IonIcon,
+    IonButton
   ],
 })
 export class Tab4Page {
-  constructor(private navCtrl: NavController) {}
+  
+  
+  constructor(private navCtrl: NavController, private router: Router) {}
 
   navigateTo(page: string) {
     this.navCtrl.navigateForward(`/${page}`);
   }
+  title = 'mirashop';
+  logIN: boolean = false;
+
+  ngOnInit(): void {
+    let auth = localStorage.getItem('authToken');
+    if (auth != null) {
+      this.logIN = true;
+    }
+  }
+
+  verifier(value:any) {    
+    this.logIN = value;
+  }
 
   logout() {
-    // Implémentez ici la logique de déconnexion
-    console.log('Déconnexion');
+    localStorage.clear();
+    this.logIN = false;
+    // Rediriger vers la page de connexion
+    this.router.navigate(['/login']);
+   
   }
 }
+
+
 
