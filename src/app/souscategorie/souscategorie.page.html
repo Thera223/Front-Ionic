@@ -8,16 +8,16 @@
 </ion-toolbar>
 <ion-toolbar>
     <div class="segment">
-        @for (item of ["items", "Nike", "Sneakers", "Cuirs"]; track $index) {
+        @for (item of sousCategories; track $index) {
             <ion-button [color]="selectedButton === $index ? 'primary' : 'light'" 
-            (click)="changeColor($index)">{{item}}</ion-button>
+            (click)="changeColor($index)">{{item.libelle}}</ion-button>
         }
     </div>
 </ion-toolbar>
 <ion-content>
     <ion-grid>
         <ion-row>
-          @for (produit of listFile; track $index) {
+          @for (produit of produits; track $index) {
             
             <ion-col size="6">
                 <div class="container" button (click)="navigate($index)">
