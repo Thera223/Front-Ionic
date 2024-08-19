@@ -47,6 +47,7 @@
 
 ion-modal {
     --height: 80%;
+    --bottom: 0;
     --border-radius: 20px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
@@ -65,4 +66,4 @@ ion-modal {
     --swiper-pagination-color: var( --back-color-pr, #EB4028);
    
   }
-
+  

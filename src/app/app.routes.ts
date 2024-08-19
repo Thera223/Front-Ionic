@@ -160,5 +160,6 @@ export const routes: Routes = [
     path: 'paiement',
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
   },
+
 ];
 
