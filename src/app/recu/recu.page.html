@@ -1,0 +1,75 @@
+<ion-content>
+  <div class="conteneurlogo">
+    <img src="/assets/logoo.png" alt="Logo de l'entreprise">
+    <div class="recuinfo">
+      <h4>REÇU A1B2C3</h4>
+      <p>REF: EEA5T26Y7UZ</p>
+    </div>
+  </div>
+
+  <section class="enteterecu">
+    <div class="divpremierp">
+      <p>A:</p>
+    </div>
+    <div class="partiedroite" *ngFor="let recu of recus">
+      <p>{{ recu.payement.commande.client.prenom }}  {{ recu.payement.commande.client.nom }}</p>
+      <p>{{ recu.payement.commande.client.adresse }}</p>
+      <p>{{ recu.payement.commande.client.telephone }}</p>
+    </div>
+    
+  </section>
+
+  <div class="tableau">
+    <p style="font-size: 8px; margin-left: 16px;">L'expéditeur garantit que cet envoi ne contient pas de matériel non expédiable</p>
+    <ion-grid>
+      <!-- Affichage dynamique des produits -->
+      <ion-row>
+        <ion-col class="ion-text-start ion-text-bottom">Produit </ion-col>
+        <ion-col class="ion-text-start ion-text-bottom">Prix</ion-col>
+        <ion-col class="ion-text-start ion-text-bottom">Quantité</ion-col>
+        <ion-col class="ion-text-start ion-text-bottom">sous-total</ion-col>
+      </ion-row>
+
+      <!-- Boucle pour afficher les produits -->
+      <ion-row *ngFor="let recu of recus">
+        <ion-col *ngFor="let produitCommande of recu.payement.commande.produitCommandees" class="ion-text-start ion-text-bottom">
+          {{ produitCommande.produit.libelle }}  
+        </ion-col>
+        <ion-col *ngFor="let produitCommande of recu.payement.commande.produitCommandees" class="ion-text-start ion-text-bottom">
+          {{ produitCommande.produit.prix }} F CFA
+        </ion-col>
+        <ion-col *ngFor="let produitCommande of recu.payement.commande.produitCommandees" class="ion-text-start ion-text-bottom">
+          <!-- Détails supplémentaires si nécessaire -->
+          {{ produitCommande.produit.quantite }}
+        </ion-col>
+        <ion-col *ngFor="let produitCommande of recu.payement.commande.produitCommandees" class="ion-text-start ion-text-bottom">
+          {{ produitCommande.produit.prix * produitCommande.produit.quantite }} F CFA
+        </ion-col>
+      </ion-row>
+
+      <!-- Total général -->
+      <ion-row *ngFor="let recu of recus">
+        <ion-col class="azerty"></ion-col>
+        <ion-col class="azerty"></ion-col>
+        <ion-col class="azerty"></ion-col>
+        <ion-col class="ion-text-bottom" style="border-left: solid 1px rgba(73, 71, 71, 0.534); color: red; font-weight: bold;">
+          {{ recu.total}} F CFA
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+
+
+  <div class="bouttonactions">
+    <button class="pdficon" (click)="generatePDF()"><img src="assets/document.png" alt="iconpdf"></button>
+    <button class="impression" (click)="imprimerPage()"><img class="imageimprimante" src="assets/imprimante.png" alt="icone pdf"></button>
+  </div>
+  
+  
+
+  
+
+   
+  </ion-content>

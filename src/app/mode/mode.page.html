@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>mode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">mode</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<app-bar-progression></app-bar-progression>
+
+<div class="image-carousel">
+  <ion-card *ngFor="let image of images; let i = index" 
+            [class.selected]="selectedIndex === i" 
+            (click)="selectImage(i)">
+    <img [src]="image" class="carousel-image"/>
+  </ion-card>
+</div>
+<ion-button (click)="goTo()">Confirmer la sélection</ion-button>
+
+</ion-content>

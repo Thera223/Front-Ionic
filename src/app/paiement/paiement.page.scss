@@ -1,0 +1,51 @@
+ion-header {
+    ion-toolbar {
+      --background: #EE4D2D !important;
+      --color: #fff !important;
+  
+      ion-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .progress-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+  
+    ion-icon {
+      font-size: 1.5rem;
+    }
+  
+    ion-label {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+  
+  .recap {
+    margin: 1rem 0;
+  }
+  
+  .totals {
+    margin: 1rem 0;
+    ion-item {
+      --inner-padding-end: 0;
+      ion-label {
+        font-weight: bold;
+      }
+      ion-note {
+        font-weight: bold;
+      }
+    }
+  }
+  
+  ion-button {
+    --background: #EE4D2D !important;
+    --color: #fff !important;
+    margin: 1rem 0;
+  }
+  

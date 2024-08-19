@@ -1,0 +1,42 @@
+.choisir{
+    --background: #EE4D2D;
+    --color: #fff;
+}
+ion-progress-bar{
+    --progress-background: #EE4D2D;
+}
+.image-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    gap: 10px; /* Space between images */
+    margin-top: 100px;
+  }
+  
+  ion-card {
+    flex: 0 0 auto;
+    width: 150px; /* Adjust size as needed */
+    scroll-snap-align: start;
+    cursor: pointer;
+    border: 1px solid transparent; /* Border to highlight selection */
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .selected {
+    border-color: #EE4D2D; /* Highlight selected image */
+  }
+  
+  ion-button {
+    margin-top: 30px;
+    margin-left: 20% ;
+    --background: #EE4D2D; /* Button background color */
+    --color: white; /* Button text color */
+  }
+  
