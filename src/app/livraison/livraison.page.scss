@@ -1,0 +1,72 @@
+ion-header {
+    ion-toolbar {
+      --background: #EE4D2D;
+      --color: #fff;
+
+      ion-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  ion-content {
+    &.contener {
+      padding-top: 20px; // Ajoute un espacement entre la barre d'outils et le formulaire
+    }
+  }
+  .form-container {
+    margin-top: 12px;
+    padding: 0 16px; // Ajoute des marges latérales pour le formulaire
+  }
+
+ion-item {
+  --border-width: 1px; // Largeur de la bordure
+  --border-style: solid; // Style de la bordure
+  --border-color: #EE4D2D; // Couleur de la bordure
+  border-radius: 4px; // Bordure arrondie pour une meilleure apparence
+  
+  // Appliquer la bordure à tous les côtés
+  border-top: 1px solid #EE4D2D;
+  border-right: 1px solid #EE4D2D;
+  border-bottom: 1px solid #EE4D2D;
+  border-left: 1px solid #EE4D2D;
+ 
+ // Supprimer les traits en bas des inputs
+ ion-input {
+  --padding-bottom: 0;
+  --border-width: 0;
+  --border-bottom: none !important;
+}
+  margin-bottom: 16px; // Espacement entre les champs
+  padding: 0; // Retirer le padding par défaut pour éviter le décalage
+  display: position;
+  align-items: center; // Aligner verticalement les enfants
+  justify-content: space-between; // Positionner le label et le select aux extrémités
+
+  }
+
+  .select_contener {
+    display: position;
+    align-items: center; // Aligner verticalement les enfants
+    justify-content: space-between; // Positionner le label et le select aux extrémités
+  
+    // S'assurer que le select est bien positionné à droite
+    
+  }
+  ion-label {
+    margin-right: 20px; // Espacement entre le label et le select
+  }
+  
+
+.contener_bouton {
+  display: flex;
+  justify-content: center; /* Centre le bouton horizontalement */
+  margin-top: 16px; /* Ajoute un espace au-dessus du bouton, ajustez selon vos besoins */
+  margin-bottom: 16px; /* Ajoute un espace en dessous du bouton, ajustez selon vos besoins */
+}
+
+ion-button {
+  --background: #EE4D2D !important;
+  --color: #fff !important;
+  width: 150px; /* Largeur du bouton */
+}

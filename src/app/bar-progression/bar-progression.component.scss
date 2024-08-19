@@ -1,0 +1,86 @@
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15%;
+  }
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  
+    .icon-container {
+      position: relative;
+      width: 24px;  // Adjust size as needed
+      height: 24px; // Adjust size as needed
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ion-icon {
+      font-size: 23px; // Adjust size as needed
+      position: relative;
+      color: #EE4D2D;
+      
+  
+      &.icon-inside {
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    &.completed {
+      ion-icon.ellipse-icon {
+        background-color: #EE4D2D;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white; // Ensure the icon color is white for the checkmark icon
+      }
+
+      ion-icon.icon-inside {
+        color: white;
+      }
+    }
+    }
+    .label {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #333;
+    }
+    &.completed .label {
+      font-weight: bold;
+      color: #EE4D2D;
+    }
+  }
+  
+  .progress-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    position: relative;
+    margin: 0 -29px;
+    top: -10px;
+  
+    &.completed {
+      background-color: #EE4D2D;
+    }
+  }
+  .progress-step:first-child .progress-line{
+    
+    margin-left: 0;
+  }
+  
+  
+  .progress-step:last-child .progress-line {
+    margin-right: 0;
+  }

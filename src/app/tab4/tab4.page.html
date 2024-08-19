@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-header>
   <ion-toolbar>
     <ion-title>Inline Modal</ion-title>
@@ -37,3 +38,72 @@
     </ng-template>
   </ion-modal>
 </ion-content>
+=======
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Conteneur pour le profil -->
+  <ion-card class="cardprofile1">
+    <ion-card-header>
+      <ion-card-title>Mon Profil</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div style="text-align: center">
+        <ion-avatar>
+          <img
+            alt="Silhouette of a person's head"
+            src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          />
+        </ion-avatar>
+
+        <ion-item lines="none">
+          <ion-label>
+            <h1>Username</h1>
+            <p>userexample.com</p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Conteneur pour les paramètres du compte -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Mon Compte</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item button (click)="navigateTo('settings')">
+        <ion-icon name="settings-outline" slot="start"></ion-icon>
+        <ion-label>Paramètres</ion-label>
+      </ion-item>
+
+      <!-- <ion-item button (click)="navigateTo('notifications')">
+        <ion-icon name="notifications-outline" slot="start"></ion-icon>
+        <ion-label>Notifications</ion-label>
+      </ion-item> -->
+
+      <ion-item button (click)="navigateTo('historiques')">
+        <ion-icon name="time-outline" slot="start"></ion-icon>
+        <ion-label>Historique</ion-label>
+      </ion-item>
+
+      <ion-item button (click)="navigateTo('modifie-mot-de-passe')">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-label>Modifier le mot de passe</ion-label>
+      </ion-item>
+
+      <ion-item button (click)="navigateTo('login')">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Déconnexion</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
+>>>>>>> 578e8dc (code)

@@ -1,0 +1,62 @@
+/* Style général pour les boutons de connexion et de création */
+.connexion-button {
+  
+    --color:  #89909E; /* Couleur du texte en blanc */
+   
+  }
+  ion-item {
+  
+    --background: #fff; /* Fond blanc pour mieux visualiser l'arrondi */
+    border: 2px solid #BEC5D1; /* Bordure noire */
+    border-radius: 20px; /* Assure que les coins sont arrondis */
+    margin-bottom: 10px; /* Espacement entre les éléments */
+    padding: 0; /* Retirer le padding par défaut */
+  }
+  
+  ion-content {
+    --border-radius: 10px; /* Arrondi des coins pour le conteneur si nécessaire */
+  }
+  
+  /* Style spécifique pour le bouton 'Créer un compte' */
+  .Creer {
+    --background: transparent; /* Fond transparent */
+    --color: #EB4028; /* Couleur du texte en orange */
+    
+  }
+  
+  /* Style pour le conteneur des boutons en bas */
+  ion-grid {
+    margin-top: 16px; /* Espace au-dessus des boutons */
+  }
+  
+  ion-row {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les colonnes */
+  }
+  .bar-orange {
+    position: absolute;
+    bottom: 0; /* Positionner la barre à 9 pixels du bas du bouton */
+    left: 0;
+    width: 100%; /* La barre s'étend sur toute la largeur du bouton */
+    height: 4px; /* Hauteur de la barre */
+    background-color: #EB4028; /* Couleur de la barre */
+    border-radius: 0 0 5px 5px; /* Arrondir les coins inférieurs */
+  }
+  
+  ion-col {
+    padding: 20PX; /* Supprimer le padding des colonnes */
+  }
+  
+  ion-button {
+    --border-radius: 10px; /* Coins arrondis pour les boutons */
+    margin: 10px;
+  }
+  
+  /* Assurez-vous que les boutons remplissent l'espace */
+  ion-button[expand="full"] {
+    border-radius: 20px;
+    width: 100%; /* Largeur complète du bouton */
+    --background: #EB4028; /* Orange button color */
+    color: #fff;
+  }
+  

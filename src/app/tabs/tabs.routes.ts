@@ -7,6 +7,7 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
+<<<<<<< HEAD
         path: 'tab1',
         loadComponent: () =>
           import('../tab1/tab1.page').then((m) => m.Tab1Page),
@@ -18,14 +19,83 @@ export const routes: Routes = [
       },
       {
         path: 'tab3',
+=======
+        path: 'home',
+        loadComponent: () =>
+          import('../tab1/tab1.page').then((m) => m.HomePage),
+      },
+      {
+        path: 'grid',
+        loadComponent: () =>
+          import('../categorie/categorie.page').then((m) => m.categoriePage),
+      },
+      {
+        path: 'cart',
+>>>>>>> 578e8dc (code)
         loadComponent: () =>
           import('../tab3/tab3.page').then((m) => m.Tab3Page),
       },
       {
+<<<<<<< HEAD
         path: 'tab4',
         loadComponent: () =>
           import('../tab4/tab4.page').then((m) => m.Tab4Page),
       },
+=======
+        path: 'person',
+        loadComponent: () =>
+          import('../tab4/tab4.page').then((m) => m.Tab4Page),
+      },
+
+      {
+        path: 'settings',
+        loadComponent: () =>
+          import('../settings/settings.page').then((m) => m.SettingsPage),
+      },
+
+      {
+        path: 'notifications',
+        loadComponent: () =>
+          import('../notifications/notifications.page').then(
+            (m) => m.NotificationsPage
+          ),
+      },
+
+      {
+        path: 'historiques',
+        loadComponent: () =>
+          import('../historiques/historiques.page').then(
+            (m) => m.HistoriquesPage
+          ),
+      },
+
+      {
+        path: 'modifiermotdepass',
+        loadComponent: () =>
+          import('../modifermotdepass/modifermotdepass.page').then(
+            (m) => m.ModifermotdepassPage
+          ),
+      },
+
+      {
+        path: 'deconnexion',
+        loadComponent: () =>
+          import('../deconnexion/deconnexion.page').then(
+            (m) => m.DeconnexionPage
+          ),
+      },
+
+      {
+        path: 'recu',
+        loadComponent: () =>
+          import('../recu/recu.page').then((m) => m.RecuPage),
+      },
+      {
+        path: 'modifie-mot-de-passe',
+        loadComponent: () =>
+          import('../modifie-mot-de-passe/modifie-mot-de-passe.page').then((m) => m.ModifieMotDePassePage),
+      },
+>>>>>>> 578e8dc (code)
       {
         path: '',
         redirectTo: '/tabs/tab1',
@@ -34,8 +104,13 @@ export const routes: Routes = [
     ],
   },
   {
+<<<<<<< HEAD
     path: '',
     redirectTo: '/tabs/tab1',
+=======
+    path: 'grid',
+    redirectTo: 'categorie/categorie',
+>>>>>>> 578e8dc (code)
     pathMatch: 'full',
   },
 ];
