@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,17 +12,28 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { ActivatedRoute } from '@angular/router';
 
 
+=======
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonList, IonListHeader, IonItem, IonLabel, IonNote } from '@ionic/angular/standalone';
+>>>>>>> 25bded750536e58e9bda2cee5981ff426b68f346
 
 @Component({
   selector: 'app-recu',
   templateUrl: './recu.page.html',
   styleUrls: ['./recu.page.scss'],
   standalone: true,
+<<<<<<< HEAD
   imports: [IonIcon, IonButton, IonNote, IonLabel, IonItem, IonListHeader, IonList, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule,   ]
+=======
+  imports: [IonNote, IonLabel, IonItem, IonListHeader, IonList, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule,  ]
+>>>>>>> 25bded750536e58e9bda2cee5981ff426b68f346
 })
 export class RecuPage implements OnInit {
   total= 1500;
   items =[]
+<<<<<<< HEAD
   recus: Recu[] = [];
    
 
@@ -132,3 +144,14 @@ export class RecuPage implements OnInit {
     );
   }
 }
+=======
+
+  
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+>>>>>>> 25bded750536e58e9bda2cee5981ff426b68f346

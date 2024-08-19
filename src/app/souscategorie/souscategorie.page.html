@@ -18,10 +18,16 @@
     <ion-grid>
         <ion-row>
           @for (item of listFile; track $index) {
+<<<<<<< HEAD
             
             <ion-col size="6">
                 <div class="container" button (click)="navigate($index)">
                     <img src="{{item.image}}" alt="img" srcset="">
+=======
+            <ion-col size="6">
+                <div class="container" button (click)="navigate($index)">
+                    <img src="{{item.url}}" alt="img" srcset="">
+>>>>>>> 25bded750536e58e9bda2cee5981ff426b68f346
                     <div class="info">
                         <p><b>Nom du produit</b></p>
                         <div class="prix">

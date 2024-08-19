@@ -14,4 +14,8 @@ describe('HistoriquesPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 25bded750536e58e9bda2cee5981ff426b68f346
