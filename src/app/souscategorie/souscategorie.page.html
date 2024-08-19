@@ -8,25 +8,25 @@
 </ion-toolbar>
 <ion-toolbar>
     <div class="segment">
-        @for (item of ["items", "Nike", "Sneakers", "Cuirs"]; track $index) {
+        @for (item of sousCategories; track $index) {
             <ion-button [color]="selectedButton === $index ? 'primary' : 'light'" 
-            (click)="changeColor($index)">{{item}}</ion-button>
+            (click)="changeColor($index)">{{item.libelle}}</ion-button>
         }
     </div>
 </ion-toolbar>
 <ion-content>
     <ion-grid>
         <ion-row>
-          @for (item of listFile; track $index) {
+          @for (produit of produits; track $index) {
             
             <ion-col size="6">
                 <div class="container" button (click)="navigate($index)">
-                    <img src="{{item.image}}" alt="img" srcset="">
+                    <img src="{{produit.images[0]}}"alt="img" srcset="">
                     <div class="info">
-                        <p><b>Nom du produit</b></p>
+                        <p><b>{{produit.libelle}}</b></p>
                         <div class="prix">
-                            <span class="cate">CATE</span>
-                            <span class="span"><b>3000</b><b> XOF</b></span>
+                            <span class="cate"></span>
+                            <span class="span"><b>{{produit.prix}}</b><b> XOF</b></span>
                         </div>
                     </div>
                 </div>

@@ -63,6 +63,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'produit/detail/:id', // Route with parameter
+    loadComponent: () =>
+      import('./detail/detail.page').then(
+        (m) => m.DetailPage
+      ),
+  },
+  {
     path: 'categorie/:id', // Route with parameter
     loadComponent: () =>
       import('./souscategorie/souscategorie.page').then(
@@ -152,9 +159,6 @@ export const routes: Routes = [
   {
     path: 'paiement',
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
-  },  {
-    path: 'creation-recu',
-    loadComponent: () => import('./creation-recu/creation-recu.page').then( m => m.CreationRecuPage)
   },
 
 ];
