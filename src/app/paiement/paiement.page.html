@@ -1,46 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Checkout</ion-title>
+    <ion-title>Paiement</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Checkout</ion-title>
+      <ion-title size="large">Paiement</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-bar-progression></app-bar-progression>
-
-  <div class="recap">
-    <ion-card *ngFor="let product of products">
-      <ion-card-content>
-        <ion-item>
-          <ion-label>
-            <h2>{{ product.name }}</h2>
-            <p>Ends on {{ product.date }}</p>
-          </ion-label>
-          <ion-note slot="end" color="dark">{{ product.price | currency:'CFA' }}</ion-note>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </div>
-
-  <div class="totals">
+  <!-- Formulaire de Paiement -->
+  <form [formGroup]="paiementForm" (ngSubmit)="effectuerPaiement()">
     <ion-item>
-      <ion-label>Subtotal</ion-label>
-      <ion-note slot="end" color="dark">{{ subtotal | currency:'CFA' }}</ion-note>
+      <ion-label>Choisir une Commande</ion-label>
+      <ion-select formControlName="commandeId" interface="popover">
+        <ion-select-option
+          *ngFor="let commande of commandes"
+          [value]="commande.id"
+        >
+          {{ commande.id }} - {{ commande.date | date:'short' }} - {{
+          commande.statu.libelle }}
+        </ion-select-option>
+      </ion-select>
     </ion-item>
-    <ion-item>
-      <ion-label>Livraison</ion-label>
-      <ion-note slot="end" color="dark">{{ deliveryFee | currency:'CFA' }}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>Total</ion-label>
-      <ion-note slot="end" color="dark">{{ total | currency:'CFA' }}</ion-note>
-    </ion-item>
-  </div>
 
-  <ion-button (click)="GoTo()" expand="full" fill="clear" >Continue</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!paiementForm.valid">
+      Payer
+    </ion-button>
+  </form>
 </ion-content>

@@ -4,10 +4,9 @@ import { Produit } from '../Interface/Produit';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SouscateserviceService {
-
   private baseUrl = 'http://localhost:8080';
   private souscategorieUrl = `http://localhost:8080/admin/sous-categorie`;
   private produitBySousCategorieUrl = `http://localhost:8080/admin/lireProduitBySousCategorie`;
@@ -27,15 +26,19 @@ export class SouscateserviceService {
   getSousCategories(): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.get<any>(`${this.souscategorieUrl}`, {
-      headers
+      headers,
+      //responseType: 'text' as 'json',
     });
   }
-
   getProduitBySousCategorieUrl(sousCategorieId: number): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.get<any>(`${this.produitBySousCategorieUrl}/${sousCategorieId}`, {
-      headers,
-    });
+    return this.http.get<any>(
+      `${this.produitBySousCategorieUrl}/${sousCategorieId}`,
+      {
+        headers,
+        responseType: 'text' as 'json',
+      }
+    );
   }
 
   listFiles(): Observable<any> {
