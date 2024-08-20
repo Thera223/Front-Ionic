@@ -24,7 +24,15 @@ ion-content{
     --color: #EB4028; /* Couleur du texte en orange */
     
   }
- 
+  .nav-separator {
+    height: 4px; /* Height of the bar */
+    background-color: #89909E; /* Color of the bar */
+    width: 50px; /* Width of the bar */
+    position: relative; /* Necessary for bottom positioning */
+    bottom: 10px; /* Positioned at the bottom of the navigation */
+    left: 50%; /* Moves the left edge to the center */
+    transform: translateX(-50%); /* Centers the element by shifting it left by half its width */
+}
   
   /* Style pour le conteneur des boutons en bas */
   ion-grid {

@@ -4,7 +4,7 @@
    
   <ion-content class="ion-padding">
     <div>
-     
+      <div id="nav-separator" class="nav-separator"></div>
        <ion-buttons slot="start">
          <ion-button class="connexion-button" (click)="openModal()" >Connexion
           <div class="bar-orange"></div>
@@ -17,25 +17,34 @@
        
        </ion-buttons>
      </div>
-    <ion-label>Email</ion-label>
-    <ion-item>
-      <ion-input labelPlacement="stacked"  type="Email" placeholder="Votre email"></ion-input>
-    </ion-item>
-    <ion-label>Password</ion-label>
-    <ion-item>
-      <ion-input labelPlacement="stacked" type="Password"  placeholder="Votre Password"></ion-input>
-    </ion-item>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-button class="connexion-button" expand="full">Créer</ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button class="connexion-button" expand="full" (click)="cancel()">Annuler</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    
+     <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-input  labelPlacement="stacked"  name="username"  formControlName="username"  type="Email" placeholder="Votre email"  required #username></ion-input>
+      </ion-item>
+      <ion-label>Password</ion-label>
+      <ion-item>
+        <ion-input labelPlacement="stacked" type="Password"  formControlName="password" placeholder="Votre Password" required #password></ion-input>
+      </ion-item>
+      <div *ngIf="isLoginFailed" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button
+  class="connexion-button"
+  expand="block"
+  (click)="login(username.value, password.value)"
+>connexion</ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button class="connexion-button" expand="full" (click)="cancel()">Annuler</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+     </form>
+   
   </ion-content>
   
   

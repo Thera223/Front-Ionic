@@ -1,41 +1,64 @@
 
 
-<div>
-  
- <hr>
-  <ion-buttons slot="start">
-    <ion-button class="connexion-button" (click)="openModal()" >Connexion</ion-button>
-    <ion-button class="Creer" (click)="openModal1()">
-      Créer un compte
-      <div class="bar-orange"></div>
-    </ion-button>
-  
-  
-  </ion-buttons>
-</div>
+
 <ion-content class="ion-padding">
-   
+  <ion-avatar slot="start"></ion-avatar>
+  <div>
   
-  <ion-label>Nom et Prenom</ion-label>
+    <hr>
+    <div id="nav-separator" class="nav-separator"></div>
+     <ion-buttons slot="start">
+       <ion-button class="connexion-button" (click)="openModal()" >Connexion</ion-button>
+       <ion-button class="Creer" (click)="openModal1()">
+         Créer un compte
+         <ion-progress-bar value="0.5"></ion-progress-bar>
+       </ion-button>
+      
+       
+     
+     
+     </ion-buttons>
+   </div>
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+  <ion-label>Nom</ion-label>
   <ion-item>
-    <ion-input labelPlacement="stacked"  type="text" placeholder="Votre nom"></ion-input>
+    <ion-input labelPlacement="stacked" name="nom" type="text" formControlName="nom" placeholder="Votre nom" ></ion-input>
+  </ion-item>
+  <ion-label>Prenom</ion-label>
+  <ion-item>
+    <ion-input labelPlacement="stacked"  name="prenom" type="text" formControlName="prenom" placeholder="Votre prenom" ></ion-input>
+  </ion-item>
+  <ion-label> adresse</ion-label>
+  <ion-item>
+    <ion-input labelPlacement="stacked"  name="adresse" type="text" formControlName="adresse" placeholder="Votre  adresse" ></ion-input>
+  </ion-item>
+  <ion-label>  telephone</ion-label>
+  <ion-item>
+    <ion-input labelPlacement="stacked"  name="telephone" formControlName="telephone" type="text" placeholder="Votre   telephone" ></ion-input>
   </ion-item>
   <ion-label>Email</ion-label>
   <ion-item>
-    <ion-input labelPlacement="stacked" type="Email"  placeholder="Email"></ion-input>
+    <ion-input labelPlacement="stacked" formControlName="email" type="Email"  placeholder="Email" ></ion-input>
+  </ion-item>
+
+  <ion-label>Usermane</ion-label>
+  <ion-item>
+    <ion-input labelPlacement="stacked" formControlName="username" type=" username"  placeholder=" username" ></ion-input>
   </ion-item>
   <ion-label>Password</ion-label>
   <ion-item>
-    <ion-input labelPlacement="stacked" type="Password" placeholder="Votre Password"></ion-input>
+    <ion-input labelPlacement="stacked" formControlName="motDePasse" type="Password" placeholder="Votre Password" ></ion-input>
   </ion-item>
   <ion-grid>
     <ion-row>
       <ion-col size="6">
-        <ion-button class="connexion-button" expand="full">Créer</ion-button>
+        <ion-button class="connexion-button" expand="full" type="submit" [disabled]="!clientForm.valid">Créer</ion-button>
       </ion-col>
       <ion-col size="6">
         <ion-button class="connexion-button" expand="full" (click)="cancel()">Annuler</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+</form>
 </ion-content>
+
