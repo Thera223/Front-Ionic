@@ -24,7 +24,6 @@ export class HistoriquesPage implements OnInit {
   constructor(private commandeservice : CommandeService, private payementClientservice : PayementClientService) {
     
    }
- 
 
 
   ngOnInit() {
