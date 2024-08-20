@@ -6,6 +6,11 @@ import { commande } from '../Interface/commande';
 import { CommandeService } from '../Services/commande.service';
 import { PayementClientService } from '../Services/payement-client.service';
 import { payementclient } from '../Interface/PayementClient';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { RecuService } from '../Services/recu.service';
+import { addIcons } from 'ionicons';
+import { downloadOutline } from 'ionicons/icons';
+
 
 @Component({
   selector: 'app-historiques',
@@ -21,10 +26,29 @@ export class HistoriquesPage implements OnInit {
 
 
   
-  constructor(private commandeservice : CommandeService, private payementClientservice : PayementClientService) {
+  constructor(private commandeservice : CommandeService, 
+    private payementClientservice : PayementClientService,
+    private sanitizer: DomSanitizer,
+    private recuService: RecuService) {
     
    }
 
+
+   downloadReceipt(paymentId: number) {
+    this.recuService.getReceiptUrl(paymentId).subscribe((receiptUrl) => {
+      this.downloadFile(this.sanitizer.bypassSecurityTrustUrl(receiptUrl), 'application/pdf', `receipt_${paymentId}.pdf`);
+    });
+  }
+
+  downloadFile(dataUrl: SafeUrl, mimeType: string, fileName: string) {
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUrl.toString());
+    linkElement.setAttribute('download', fileName);
+    linkElement.setAttribute('type', mimeType);
+    document.body.appendChild(linkElement);
+    linkElement.click();
+    document.body.removeChild(linkElement);
+  }
 
   ngOnInit() {
   
@@ -48,6 +72,7 @@ export class HistoriquesPage implements OnInit {
           
       },
     });
+    addIcons({ 'download-outline': downloadOutline });
 
 }
 

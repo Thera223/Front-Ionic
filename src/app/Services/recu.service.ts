@@ -31,6 +31,14 @@ export class RecuService {
     });
   }
 
+  getReceiptUrl(paymentId: number): Observable<string> {
+    const headers = this.getAuthHeaders();
+    const url = `${this.baseUrl}/${paymentId}/pdf`;
+    return this.http.get(url, {
+      headers,
+      responseType: 'text',
+    });
+  }
 
   
   

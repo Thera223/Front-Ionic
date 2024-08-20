@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RecuService,  } from '../Services/recu.service';
@@ -7,6 +7,7 @@ import { Recu } from '../Interface/recu';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 import { ActivatedRoute } from '@angular/router';
 
@@ -25,14 +26,10 @@ export class RecuPage implements OnInit {
   recus: Recu[] = [];
    
 
-  
 
   // recus: Recu[] = [];
 
-  constructor(private recuService: RecuService,
-    
-  private route: ActivatedRoute
-  ) {
+  constructor(private recuService: RecuService  ) {
    
   
   }
