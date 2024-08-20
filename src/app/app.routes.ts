@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
+  
   {
     path: '',
     redirectTo: 'tabs/home',
@@ -98,6 +100,11 @@ export const routes: Routes = [
     path: 'tab1',
     loadComponent: () => import('./tab1/tab1.page').then((m) => m.HomePage),
   },
+
+  {
+    path: 'recu/:id',
+  loadComponent: () => import('./recu/recu.page').then((m) => m.RecuPage),
+  },
   {
     path: 'souscategorie',
     loadComponent: () =>
@@ -129,10 +136,7 @@ export const routes: Routes = [
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
-  {
-    path: 'recu',
-    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
-  },
+ 
   {
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
