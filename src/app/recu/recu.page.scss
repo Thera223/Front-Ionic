@@ -111,6 +111,41 @@
 
 
 
+.tableau {
+  width: 100%;
+}
+
+.col-header, .col-content, .col-total {
+  padding: 8px;
+  border-bottom: solid 1px #ccc;
+  text-align: left;
+}
+
+.col-header {
+  font-weight: bold;
+}
+
+.col-total {
+  color: red;
+  font-weight: bold;
+  text-align: right;
+}
+
+ion-col {
+  display: flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

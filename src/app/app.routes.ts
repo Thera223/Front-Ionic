@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
+  
   {
     path: '',
     redirectTo: 'tabs/home',
@@ -63,13 +65,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'produit/detail/:id', // Route with parameter
-    loadComponent: () =>
-      import('./detail/detail.page').then(
-        (m) => m.DetailPage
-      ),
-  },
-  {
     path: 'categorie/:id', // Route with parameter
     loadComponent: () =>
       import('./souscategorie/souscategorie.page').then(
@@ -105,6 +100,11 @@ export const routes: Routes = [
     path: 'tab1',
     loadComponent: () => import('./tab1/tab1.page').then((m) => m.HomePage),
   },
+
+  {
+    path: 'recu/:id',
+  loadComponent: () => import('./recu/recu.page').then((m) => m.RecuPage),
+  },
   {
     path: 'souscategorie',
     loadComponent: () =>
@@ -136,10 +136,7 @@ export const routes: Routes = [
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
-  {
-    path: 'recu',
-    loadComponent: () => import('./recu/recu.page').then( m => m.RecuPage)
-  },
+ 
   {
     path: 'modifie-mot-de-passe',
     loadComponent: () => import('./modifie-mot-de-passe/modifie-mot-de-passe.page').then( m => m.ModifieMotDePassePage)
@@ -160,6 +157,4 @@ export const routes: Routes = [
     path: 'paiement',
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
   },
-
 ];
-
