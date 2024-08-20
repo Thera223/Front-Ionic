@@ -42,7 +42,7 @@ export class SouscategoriePage implements OnInit {
 
   produits: any[] = [];
   sousCategories: any[] = [];
-  listile: any[] = [];
+  listFile: any[] = [];
   selectedButton: number | null = 0;
 
   constructor(

@@ -93,7 +93,7 @@ export const routes: Routes = [
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
   },
-  {
+    {
     path: 'recu/:id',
   loadComponent: () => import('./recu/recu.page').then((m) => m.RecuPage),
   },

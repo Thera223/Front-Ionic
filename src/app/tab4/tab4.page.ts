@@ -56,12 +56,11 @@ export class Tab4Page {
 
   constructor(
     private navCtrl: NavController,
-    private userservice: UsersService // private cdr: ChangeDetectorRef // Injectez le ChangeDetectorRef
+    private userservice: UsersService, // private cdr: ChangeDetectorRef // Injectez le ChangeDetectorRef
+  private router: Router
   ) {}
 
-  ngOnInit() {
-    this.loadUsers();
-  }
+
 
   loadUsers(): void {
     this.userservice.findAll().subscribe((data) => {
@@ -78,6 +77,7 @@ export class Tab4Page {
   logIN: boolean = false;
 
   ngOnInit(): void {
+    this.loadUsers();
     let auth = localStorage.getItem('authToken');
     if (auth != null) {
       this.logIN = true;

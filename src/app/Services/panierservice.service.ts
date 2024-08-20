@@ -17,8 +17,8 @@ export interface PanierClient {
 })
 export class PanierserviceService {
   private baseUrl = 'http://localhost:8080/client';
-  private username = 'sam';
-  private password = 'sam';
+  private username = 'momo';
+  private password = '123';
 
   constructor(private http: HttpClient) {}
 
