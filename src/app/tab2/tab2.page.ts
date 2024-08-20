@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import {
   IonHeader,
   IonToolbar,
@@ -40,6 +41,7 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     IonList,
     IonIcon,
   ],
+  
 })
 export class Tab2Page {
   constructor(private navCtrl: NavController) {}

@@ -158,4 +158,3 @@ export const routes: Routes = [
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
   },
 ];
-

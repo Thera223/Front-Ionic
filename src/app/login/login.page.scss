@@ -20,7 +20,7 @@ ion-content {
     align-items: center;
     width: 100%;
     height: auto; /* Adjust height as needed */
-    padding: 16px; /* Add padding to the container for spacing */
+    padding-top: 16px; /* Add padding to the container for spacing */
     box-sizing: border-box; /* Ensure padding is included in the container's dimensions */
   }
   
@@ -31,19 +31,20 @@ ion-content {
     --background: #EB4028; /* Orange button color */
     // --color: white; /* Button text color */
     color: var(--back-color-se);
-    width: 300px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
     justify-content: center;
     font-weight: bold;
+    border-radius: 50%;
     
   
   }
   ion-button.Creer {
     margin-bottom: 8px; /* Add spacing between buttons */
-    
+    border-radius: 50%;
     // --color: white; /* Button text color *
     color: var(--back-color-pr);
     --border-color: var(--back-color-pr);
-    width: 300px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
     justify-content: center;
     font-weight: bold;
     
@@ -67,7 +68,8 @@ ion-content {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     text-align: center;
-    margin: 16px 0; /* Add margin above and below the text */
+    
+    margin: 16px ; /* Add margin above and below the text */
     height: 100px; /* Optional: Adjust height to ensure vertical centering */
   }
   
@@ -78,15 +80,69 @@ ion-content {
     line-height: 1.5; /* Adjust line height for readability */
   }
   
-  .footer {
-    background-color: #EB4028; /* Set the background color to orange */
+  ion-footer {
+    --background-color: #EB4028; /* Set the background color to orange */
     text-align: center; /* Center-align the text inside the grid */
-    padding: 10px; /* Optional: Add padding for spacing */
-    margin: 20px;
+
+   
+  }
+  /* Pour les écrans plus petits comme les mobiles */
+@media (max-width: 576px) {
+  ion-img {
+    padding: 10px; /* Réduisez les marges et le padding sur les petits écrans */
+    width: 100%;
   }
   
-  /* Optional: Adjust the text color if needed */
-  .footer ion-title {
-    color: white; /* Set the text color to white for contrast */
+  ion-button.connexion-button,
+  ion-button.Creer {
+    width: 150px; /* Réduisez la largeur des boutons sur les petits écrans */
   }
+  
+  .text-center p {
+    font-size: 14px; /* Réduisez la taille de la police sur les petits écrans */
+  }
+}
+
+/* Pour les écrans moyens, comme les tablettes */
+@media (min-width: 577px) and (max-width: 992px) {
+  ion-img {
+    padding: 20px;
+    width: 700px; /* Ajuster la largeur des images pour les tablettes */
+  }
+  
+  ion-button.connexion-button,
+  ion-button.Creer {
+    width: 300px; /* Ajustez la largeur des boutons pour les tablettes */
+    padding: 10px;
+  }
+
+  
+  .text-center  {
+  
+    padding:35px;
+  }
+   h1 p {
+    font-size: 1000px;
+    
+  }
+  
+}
+
+/* Pour les grands écrans, comme les ordinateurs de bureau */
+@media (min-width: 993px) {
+  ion-img {
+    padding: 20px;
+    width: 100%; /* Ajustez la largeur des images pour les grands écrans */
+  }
+  
+  ion-button.connexion-button,
+  ion-button.Creer {
+    width: 200px; /* Largeur par défaut des boutons */
+  }
+  
+  .text-center p {
+    font-size: 16px;
+  }
+}
+
   
