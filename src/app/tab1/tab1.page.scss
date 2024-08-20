@@ -56,25 +56,32 @@
     object-fit: cover; /* Assure que l'image couvre le conteneur sans déformation */
   }
   
-  /* Styles pour les boutons de catégorie */
   .category-button {
     background-color: #EE4D2D;
     color: white;
-    padding: 0 10px; /* Ajuste le padding des boutons */
+    padding: 2px 4px; /* Réduit le padding pour un bouton très petit */
     border-radius: 10px;
-    margin: 0 5px; /* Réduit la marge entre les boutons */
+    margin: 0 3px; /* Réduit la marge entre les boutons */
     border: none;
     outline: none;
     transition: background-color 0.3s ease;
-    --background-checked:#000;
-    --background-focused:none;
-    border-bottom: none;
+    font-size: 10px; /* Réduit la taille de la police */
+    min-width: 30px; /* Largeur minimale pour que le texte s'affiche correctement */
+    height: 20px; /* Hauteur fixée pour rendre le bouton plus compact */
   }
   
   .category-button:hover, .category-button.active {
     background-color: #c93c1f;
   }
-  
+  /* Suppression des styles natifs de segment */
+  .category-segment {
+    --background: transparent; /* Supprime le fond par défaut */
+    --border-color: transparent; /* Supprime les bordures */
+  }
+  .category-segment-button {
+    border: none; /* Supprime les bordures */
+    outline: none; /* Supprime l'effet d'outline par défaut */
+  }
   .category-header {
     display: flex;
     justify-content: space-between;
@@ -85,7 +92,6 @@
   
   .category-title {
     font-size: 14px;
-    margin-right: 120px;
     font-weight: bold;
   }
   
@@ -93,34 +99,28 @@
     font-size: 14px;
     color: #000000; /* Couleur du lien */
     text-decoration: none;
+    margin-left: auto; /* Pousse "Voir tout" à droite */
   }
   
   .see-all:hover {
     text-decoration: none;
     color: #868686;
   }
-  
-  /* Styles pour les cartes produits */
   .product-grid {
     margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Ajoute de l'espace entre les cartes */
   }
   
   .product-card {
     background: #fff;
     border-radius: 10px;
     box-shadow: none;
-    width: 200px; /* Fixe une largeur spécifique pour les cartes */
-    flex: 1 0 200px; /* Permet à la carte de s'ajuster et d'occuper l'espace */
-    margin: 5px;
     display: flex;
     flex-direction: column;
+    margin: 5px;
   }
   
   .product-image {
-    height: 200px; /* Hauteur fixe pour l'image */
+    height: 200px; 
     overflow: hidden;
     border-radius: 10px;
   }
@@ -147,13 +147,37 @@
     color: #EE4D2D;
   }
   
+  /* Pour très petit écran : 1 carte par ligne */
   @media (max-width: 576px) {
-    .product-card {
-      width: 100%; /* Utilisez toute la largeur disponible sur les petits écrans */
-      flex: 1 0 100%; /* Assure que chaque carte occupe toute la largeur disponible */
+    ion-col {
+      flex: 0 0 100%; /* Une carte par ligne */
+      max-width: 100%;
     }
   }
   
+  /* Pour mobile : 2 par ligne */
+  @media (min-width: 576px) and (max-width: 768px) {
+    ion-col {
+      flex: 0 0 50%; /* Deux cartes par ligne */
+      max-width: 50%;
+    }
+  }
+  
+  /* Pour les écrans moyens : 3 par ligne */
+  @media (min-width: 768px) and (max-width: 992px) {
+    ion-col {
+      flex: 0 0 33.33%; /* Trois cartes par ligne */
+      max-width: 33.33%;
+    }
+  }
+  
+  /* Pour les écrans plus larges : 4 par ligne */
+  @media (min-width: 992px) {
+    ion-col {
+      flex: 0 0 25%; /* Quatre cartes par ligne */
+      max-width: 25%;
+    }
+  }
   /* Styles pour la section des meilleurs produits */
   .best-sellers-header {
     display: flex;
@@ -180,10 +204,7 @@
     display: flex;
     gap: 10px; /* Ajoute de l'espace entre les cartes */
   }
-  
-  ion-segment-button{
-  
-  }
+
   .best-sellers-segment {
     display: flex;
     flex-wrap: nowrap; /* Empêche le retour à la ligne des éléments */

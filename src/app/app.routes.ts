@@ -63,6 +63,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'produit/detail/:id', // Route with parameter
+    loadComponent: () =>
+      import('./detail/detail.page').then(
+        (m) => m.DetailPage
+      ),
+  },
+  {
     path: 'categorie/:id', // Route with parameter
     loadComponent: () =>
       import('./souscategorie/souscategorie.page').then(
@@ -85,6 +92,10 @@ export const routes: Routes = [
   {
     path: 'panier-accueil',
     loadComponent: () => import('./panier-accueil/panier-accueil.page').then( m => m.PanierAcuueilPage)
+  },
+  {
+    path: 'recu/:id',
+  loadComponent: () => import('./recu/recu.page').then((m) => m.RecuPage),
   },
   {
     path: 'historiques',
@@ -153,5 +164,5 @@ export const routes: Routes = [
     path: 'paiement',
     loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
   },
-];
 
+];

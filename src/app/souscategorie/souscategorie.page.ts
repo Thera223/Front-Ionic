@@ -39,34 +39,8 @@ import { SouscateserviceService } from '../Services/souscateservice.service';
   ],
 })
 export class SouscategoriePage implements OnInit {
-  listFile: any[] = [];
-  // listFile: any[] = [
-  //   {
-  //     name: 'Panier damou',
-  //     price: '5.000',
-  //     image: 'assets/imgmirashop/panieramadan.jpg',
-  //   },
-  //   { name: 'Sac', price: '25.000', image: 'assets/imgmirashop/sac.jpg' },
-  //   {
-  //     name: 'Power Bank',
-  //     price: '5.000',
-  //     image: 'assets/imgmirashop/powerbank.jpg',
-  //   },
-  //   { name: 'Canape', price: '45.000', image: 'assets/imgmirashop/canape.jpg' },
-  //   { name: 'Watch', price: '12.000', image: 'assets/imgmirashop/watch.jpg' },
-  //   {
-  //     name: 'Robe Rouge',
-  //     price: '30.000',
-  //     image: 'assets/imgmirashop/roberouge.jpg',
-  //   },
-  //   {
-  //     name: 'Victoria Secret',
-  //     price: '30.000',
-  //     image: 'assets/imgmirashop/victoria.jpg',
-  //   },
-  //   { name: 'Talon', price: '30.000', image: 'assets/imgmirashop/talon.jpg' },
-  // ];
 
+  produits: any[] = [];
   sousCategories: any[] = [];
   listile: any[] = [];
   selectedButton: number | null = 0;
@@ -86,9 +60,12 @@ export class SouscategoriePage implements OnInit {
   // }
 
   ngOnInit() {
-    this.souscateService.getSousCategories().subscribe((response) => {
-      this.sousCategories = response.data || response; // Si `data` est la clé contenant le tableau
-      console.log(this.sousCategories);
+    // this.souscateService.produitss().subscribe((files)=>this.produits = files);
+    this.souscateService.getSousCategories().subscribe((data) => {this.sousCategories = data; console.log(data);
+    });
+    this.souscateService.getProduitBySousCategorieUrl(1).subscribe((p) => {
+      console.log("listProduit",p);
+      this.produits = p;
     });
   }
   changeColor(index: number) {
@@ -96,6 +73,10 @@ export class SouscategoriePage implements OnInit {
       this.selectedButton = null;
     } else {
       this.selectedButton = index;
+      this.souscateService.getProduitBySousCategorieUrl(index+1).subscribe((p) => {
+        console.log("listProduit",p);
+        this.produits = p;
+      });
     }
   }
 

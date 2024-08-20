@@ -33,15 +33,15 @@
     display: flex;
     justify-content: space-between; /* Espacement entre les colonnes */
   }
-  .bar-orange {
-    position: absolute;
-    bottom: 0; /* Positionner la barre à 9 pixels du bas du bouton */
-    left: 0;
-    width: 100%; /* La barre s'étend sur toute la largeur du bouton */
-    height: 4px; /* Hauteur de la barre */
-    background-color: #EB4028; /* Couleur de la barre */
-    border-radius: 0 0 5px 5px; /* Arrondir les coins inférieurs */
-  }
+  .nav-separator {
+    height: 4px; /* Height of the bar */
+    background-color: #EB4028; /* Color of the bar */
+    width: 50px; /* Width of the bar */
+    position: relative; /* Necessary for bottom positioning */
+    bottom: 10px; /* Positioned at the bottom of the navigation */
+    left: 50%; /* Moves the left edge to the center */
+    transform: translateX(-50%); /* Centers the element by shifting it left by half its width */
+}
   
   ion-col {
     padding: 20PX; /* Supprimer le padding des colonnes */

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Produit } from '../Interface/Produit';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -29,7 +30,6 @@ export class SouscateserviceService {
       //responseType: 'text' as 'json',
     });
   }
-
   getProduitBySousCategorieUrl(sousCategorieId: number): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.get<any>(
