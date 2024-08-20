@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import {
   IonContent,
   IonHeader,
@@ -15,6 +17,15 @@ import {
   IonBackButton,
 } from '@ionic/angular/standalone';
 import { PanierserviceService } from '../Services/panierservice.service';
+import { PanierAcuueilPage } from '../panier-accueil/panier-accueil.page';
+import { RouterLink } from '@angular/router';
+import { addIcons } from 'ionicons';
+import {
+  addOutline,
+  chevronDownCircleOutline,
+  closeOutline,
+  removeOutline,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-panier',
@@ -23,6 +34,8 @@ import { PanierserviceService } from '../Services/panierservice.service';
   standalone: true,
   imports: [
     IonBackButton,
+    PanierAcuueilPage,
+    RouterLink,
     IonButtons,
     IonImg,
     IonCard,
@@ -37,72 +50,134 @@ import { PanierserviceService } from '../Services/panierservice.service';
   ],
 })
 export class PanierPage implements OnInit {
-  produits: any[] = [];
-  totalPanier: number = 0;
+  clientId: number = 2; // ID du client à adapter à ton application
+  panier: any = { produits: [] };
+  paniers: any[] = [];
+  panierId: number = 1;
+  // paniers: PanierClient[] = [];
+  totalPanier = 0;
 
   constructor(
-    private panierService: PanierserviceService,
-    private navCtrl: NavController
-  ) {}
+    private panierservice: PanierserviceService,
+    private alertController: AlertController,
+    private router: Router
+  ) {
+    addIcons({
+      closeOutline,
+      removeOutline,
+      addOutline,
+      chevronDownCircleOutline,
+    });
+  }
 
   ngOnInit() {
-    const panierId = 1; // Remplacez par l'ID réel du panier
-    this.panierService.listProduitsPanier(panierId).subscribe((produits) => {
-      console.log(produits);
-      this.produits = produits.map((produit) => ({
-        id: produit.id,
-        nom: produit.libelle,
-        imagSrc:
-          produit.fileInfo && produit.fileInfo.length > 0
-            ? produit.fileInfo[0].url
-            : 'assets/img/default.png',
-        prixUnitaire: produit.prix,
-        quantite: produit.quantite || 0,
-        totalUnitaire: produit.prixUnitaire * produit.quantite,
-      }));
-      this.calculerTotals();
-    });
+    this.getPanier();
   }
 
-  // la fonction pour supprimer provisoirement le card
-  supCard(event: Event) {
-    const CardElement = (event.target as HTMLElement).closest('ion-card');
-    if (CardElement) {
-      CardElement.remove();
-    }
+  getPanier() {
+    this.panierservice.getPanier(this.clientId).subscribe(
+      (data) => {
+        // Si data est directement le tableau de produits
+        this.paniers = data; // Pas de `produits`, car `data` est le tableau
+        this.calculerTotalAllPanier();
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du panier', error);
+      }
+    );
   }
 
-  // Fonctions pour incrémenter et décrémenter la quantité d'un produit spécifique
-  incremente(produitId: number) {
-    const produit = this.produits.find((p) => p.id === produitId);
-    if (produit) {
-      produit.quantite++;
-      this.calculerTotals();
-      this.panierService
-        .ajouterProduit(1, produitId, produit.quantite)
-        .subscribe();
-    }
-  }
-  navigateTo(page: string) {
-    this.navCtrl.navigateForward(`/${page}`);
-  }
-
-  decremente(produitId: number) {
-    const produit = this.produits.find((p) => p.id === produitId);
-    if (produit && produit.quantite > 0) {
-      produit.quantite--;
-      this.calculerTotals();
-    }
-  }
-
-  // Fonction pour calculer les totaux
-  calculerTotals() {
-    this.totalPanier = this.produits.reduce(
-      (total, produit) => total + produit.prixUnitaire * produit.quantite,
+  calculerTotalAllPanier() {
+    this.totalPanier = this.paniers.reduce(
+      (total, produit) => total + produit.produit.prix * produit.quantite,
       0
     );
-    this.produits.forEach((produit) => {
-      produit.totalUnitaire = produit.prixUnitaire * produit.quantite;
+  }
+
+  supprimerProduit(produitCommandee: any) {
+    const produitId = produitCommandee.id; // ID de ProduitCommandee
+    this.panierservice
+      .supprimerProduitDuPanier(this.clientId, this.panierId, produitId)
+      .subscribe(
+        () => {
+          this.getPanier(); // Rafraîchit le panier après suppression
+        },
+        (error) => {
+          console.error('Erreur lors de la suppression du produit :', error);
+        }
+      );
+  }
+
+  incrementePrd(produitCommandee: any) {
+    const nouvelleQuantite = produitCommandee.quantite + 1;
+    this.panierservice
+      .updateQuantitePanier(
+        this.clientId,
+        this.panierId,
+        produitCommandee.id,
+        nouvelleQuantite
+      )
+      .subscribe(
+        () => {
+          produitCommandee.quantite = nouvelleQuantite;
+          this.calculerTotalAllPanier();
+        },
+        (error) => {
+          console.error('Erreur lors de la mise à jour du panier :', error);
+        }
+      );
+  }
+
+  decrementePrd(produitCommandee: any) {
+    if (produitCommandee.quantite > 1) {
+      const nouvelleQuantite = produitCommandee.quantite - 1;
+      this.panierservice
+        .updateQuantitePanier(
+          this.clientId,
+          this.panierId,
+          produitCommandee.id,
+          nouvelleQuantite
+        )
+        .subscribe(
+          () => {
+            produitCommandee.quantite = nouvelleQuantite;
+            this.calculerTotalAllPanier();
+          },
+          (error) => {
+            console.error('Erreur lors de la mise à jour du panier :', error);
+          }
+        );
+    } else {
+      this.presentAlert('La quantité ne peut pas être inférieure à 1');
+    }
+  }
+
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Erreur',
+      message,
+      buttons: ['OK'],
     });
+
+    await alert.present();
+  }
+
+  passerCommande() {
+    const produitsCommandes = this.paniers.map((p) => ({
+      produit: { id: p.produit.id },
+      quantite: p.quantite,
+    }));
+
+    this.panierservice
+      .passerCommande(produitsCommandes, this.panierId)
+      .subscribe(
+        (response) => {
+          console.log('Commande passée avec succès', response);
+          this.router.navigate(['/livraison']);
+        },
+        (error: any) => {
+          console.error('Erreur lors du passage de la commande', error);
+        }
+      );
   }
 }
