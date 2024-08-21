@@ -1,50 +1,72 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RecuService,  } from '../Services/recu.service';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonList, IonListHeader, IonItem, IonLabel, IonNote, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RecuService } from '../Services/recu.service';
 import { Recu } from '../Interface/recu';
-import { HttpErrorResponse } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonGrid, IonRow, IonCol,IonHeader,IonToolbar,IonButton,IonIcon,IonBackButton } from "@ionic/angular/standalone";
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
-
-
 
 @Component({
   selector: 'app-recu',
   templateUrl: './recu.page.html',
   styleUrls: ['./recu.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonNote, IonLabel, IonItem, IonListHeader, IonList, IonCol, IonRow, IonGrid, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule,   ]
+  imports: [IonCol, IonRow, IonGrid, IonContent, CommonModule, RouterModule,IonHeader,IonToolbar,IonButton,IonIcon,IonBackButton],
 })
 export class RecuPage implements OnInit {
-  total= 1500;
-  items =[]
-  recus: Recu[] = [];
-   
 
+  recu: Recu | null = null;
+  errorMessage: string | null = null;
 
-  // recus: Recu[] = [];
+  constructor(
+    private recuService: RecuService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  constructor(private recuService: RecuService  ) {
-   
-  
+  goBack() {
+    this.router.navigate(['/historiques']);
+  }
+
+  ngOnInit() {
+    // Récupérer l'ID du reçu depuis l'URL
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) {
+      this.getRecu(id);
+    } else {
+      this.errorMessage = 'ID de reçu non trouvé';
+    }
+  }
+
+  // Méthode pour récupérer le reçu par ID
+  getRecu(id: number) {
+    this.recuService.getRecuById(id).subscribe(
+      (data: Recu) => {
+        this.recu = data;
+        this.errorMessage = null;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du reçu:', error);
+        this.errorMessage = 'Erreur lors de la récupération du reçu.';
+        this.recu = null;
+      }
+    );
   }
 
   generatePDF() {
-    console.log('Le bouton a été cliqué!');
-  
+    if (!this.recu) return;
+
     const docDefinition: any = {
       content: [
-        
         {
-          text: 'REÇU A1B2C3',
+          text: `REÇU ${this.recu.id}`,
           style: 'header'
         },
         {
-          text: 'REF: EEA5T26Y7UZ',
+          text: `REF: RECS25627`, 
           style: 'subheader'
         },
         {
@@ -52,11 +74,11 @@ export class RecuPage implements OnInit {
           style: 'sectionHeader'
         },
         {
-          text: this.recus.map(recu => `
-            ${recu.payement.commande.client.prenom} ${recu.payement.commande.client.nom}
-            ${recu.payement.commande.client.adresse}
-            ${recu.payement.commande.client.telephone}
-          `).join('\n\n'),
+          text: `
+            ${this.recu.payement.commande.client.prenom} ${this.recu.payement.commande.client.nom}
+            ${this.recu.payement.commande.client.adresse}
+            ${this.recu.payement.commande.client.telephone}
+          `,
           style: 'clientDetails'
         },
         {
@@ -69,15 +91,13 @@ export class RecuPage implements OnInit {
             widths: ['*', '*', '*', '*'],
             body: [
               ['Produit', 'Prix', 'Quantité', 'Sous-total'],
-              ...this.recus.flatMap(recu =>
-                recu.payement.commande.produitCommandees.map(produitCommande => [
-                  produitCommande.produit.libelle,
-                  `${produitCommande.produit.prix} F CFA`,
-                  `${produitCommande.produit.quantite}`,
-                  `${produitCommande.produit.prix * produitCommande.produit.quantite} F CFA`
-                ])
-              ),
-              ['', '', '', `${this.recus.reduce((sum, recu) => sum + recu.total, 0)} F CFA`]
+              ...this.recu.payement.commande.produitCommandees.map(produitCommande => [
+                produitCommande.produit.libelle,
+                `${produitCommande.produit.prix} F CFA`,
+                `${produitCommande.quantite}`,
+                `${produitCommande.produit.prix * produitCommande.quantite} F CFA`
+              ]),
+              ['', '', '', `${this.recu.total} F CFA`] // Montant total du reçu
             ]
           },
           layout: 'lightHorizontalLines'
@@ -107,24 +127,8 @@ export class RecuPage implements OnInit {
   
     pdfMake.createPdf(docDefinition).download('recu.pdf');
   }
-  
-  
-  
- 
+
   imprimerPage() {
     window.print();
-  }
-  
-
-  ngOnInit(): void {
-    this.recuService.getRecus().subscribe(
-      (data: Recu[]) => {
-        this.recus = data;
-        console.log('Reçus:', JSON.stringify(this.recus, null, 2));
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Erreur lors de la récupération des reçus', error.message);
-      }
-    );
   }
 }

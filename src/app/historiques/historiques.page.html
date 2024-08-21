@@ -28,11 +28,11 @@
   <ion-list>
     <ion-list-header>Paiements </ion-list-header>
     <ion-item *ngFor="let paiement of historique1">
-      <ion-label>
+      <ion-label (click)="viewReceipt(paiement.id)">
         <h2>Paiement #{{ paiement.id }}</h2>
         <p>Payement Effectué le {{ paiement.date | date:'dd/MM/yyyy' }} avec un montant de: {{ paiement.montant }} FCFA pour la commande  #{{ paiement.commande.id}}</p>
       </ion-label>
-      <ion-icon name="download-outline" (click)="downloadReceipt(paiement.id)"></ion-icon>
+  
     </ion-item>
   </ion-list>       
              

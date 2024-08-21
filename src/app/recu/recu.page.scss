@@ -111,6 +111,41 @@
 
 
 
+.tableau {
+  width: 100%;
+}
+
+.col-header, .col-content, .col-total {
+  padding: 8px;
+  border-bottom: solid 1px #ccc;
+  text-align: left;
+}
+
+.col-header {
+  font-weight: bold;
+}
+
+.col-total {
+  color: red;
+  font-weight: bold;
+  text-align: right;
+}
+
+ion-col {
+  display: flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -183,6 +218,24 @@ ion-col {
     margin: 5px;
   }
 
+
+  ion-toolbar {
+    ion-back-button {
+      width: auto;  /* Ajuste la largeur du bouton pour qu'il ne prenne que l'espace nécessaire */
+      display: inline-flex;
+      justify-content: center;  /* Centre le contenu horizontalement */
+      align-items: center;  /* Centre le contenu verticalement */
+      
+      ion-icon {
+        margin-right: 8px;  /* Ajuste l'espacement à droite de l'icône pour le texte */
+      }
+      
+      span {
+        font-size: 6px;  /* Ajuste la taille du texte */
+      }
+    }
+  }
+  
 
 
 
