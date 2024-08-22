@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { PanierPage } from "../panier/panier.page";
 
 

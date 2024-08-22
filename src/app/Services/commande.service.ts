@@ -10,11 +10,12 @@ import { commande } from '../Interface/commande';
 })
 export class CommandeService {
 
-  private BaseUrl= "http://localhost:8082/admin/voirCommandes"
+  private BaseUrl= "http://localhost:8080/client/commandes"
 
   constructor(private http:HttpClient) { }
 
-RecupererCommande():Observable<commande[]>{
-  return this.http.get <commande []>(this.BaseUrl)
+RecupererCommande(clientId: number):Observable<commande[]>{
+  const url = `${this.BaseUrl}/${clientId}`;
+    return this.http.get<commande[]>(url);
 }
 }

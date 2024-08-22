@@ -8,12 +8,11 @@ import {Produit} from "../Interface/Produit";
 })
 export class DetailserviceService {
 
-  private baseUrl = 'http://localhost:8080/client/listesProduit'
+  private baseUrl = 'http://localhost:8080/client'
 
   constructor(private http:HttpClient) { }
 
   Detailproduit():Observable<Produit[]>{
-    return this.http.get<Produit[]>(this.baseUrl)
+    return this.http.get<Produit[]>(`${this.baseUrl}/listesProduit`)
   }
-
 }

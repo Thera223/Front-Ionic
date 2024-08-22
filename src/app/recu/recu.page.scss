@@ -72,7 +72,74 @@
 
 .partiedroite p{
     margin: 4px;
+    text-transform: uppercase;
 }
+
+.imageimprimante, .pdficon{
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  // background-color: #ffffff;
+}
+
+.bouttonactions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+@media print {
+  /* Styles spécifiques à l'impression */
+  .azerty {
+    border: none;
+  }
+
+  .impression, .pdficon{
+    display: none;
+  }
+  
+
+  ion-tab-button {
+    display: none;
+  }
+}
+
+
+
+
+
+.tableau {
+  width: 100%;
+}
+
+.col-header, .col-content, .col-total {
+  padding: 8px;
+  border-bottom: solid 1px #ccc;
+  text-align: left;
+}
+
+.col-header {
+  font-weight: bold;
+}
+
+.col-total {
+  color: red;
+  font-weight: bold;
+  text-align: right;
+}
+
+ion-col {
+  display: flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+}
+
+
+
+
 
 
 

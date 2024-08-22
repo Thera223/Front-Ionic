@@ -1,103 +1,143 @@
 <!-- <ion-content>
-  <div class="imagecontain">
-
-    <img src="assets/logoo.png" alt="logo de l'entreprise Mirashop">
+  <div class="conteneurlogo">
+    <img src="/assets/logoo.png" alt="Logo de l'entreprise">
     <div class="recuinfo">
-      <h3>REÇU A1B2C3</h3>
-      <p>REF: RSTMZRSSJ</p>
+      <h4>REÇU A1B2C3</h4>
+      <p>REF: EEA5T26Y7UZ</p>
     </div>
-
   </div>
 
-    <div class="enteterecu">
+  <ng-container *ngIf="recus.length > 0; else noRecus">
+    <section class="enteterecu" *ngFor="let recu of recus">
       <div class="divpremierp">
-
-          <p >A:</p>
-
+        <p>A:</p>
       </div>
-
-
       <div class="partiedroite">
-        <p>MARIAME DAOU</p>
-        <p>YIRIMADJON</p>
-        <P>BAMAKO/MALI</P>
+        <p>{{ recu.payement.commande.client.prenom }} {{ recu.payement.commande.client.nom }}</p>
+        <p>{{ recu.payement.commande.client.adresse }}</p>
+        <p>{{ recu.payement.commande.client.telephone }}</p>
       </div>
+    </section>
 
+    <div class="tableau">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" class="col-header">Produit</ion-col>
+          <ion-col size="3" class="col-header">Prix</ion-col>
+          <ion-col size="3" class="col-header">Quantité</ion-col>
+          <ion-col size="3" class="col-header">Sous-total</ion-col>
+        </ion-row>
 
+        <ng-container *ngFor="let recu of recus">
+          <ion-row *ngFor="let produitCommande of recu.payement.commande.produitCommandees">
+            <ion-col size="3" class="col-content">
+              {{ produitCommande.produit.libelle }}
+            </ion-col>
+            <ion-col size="3" class="col-content">
+              {{ produitCommande.produit.prix }} F CFA
+            </ion-col>
+            <ion-col size="3" class="col-content">
+              {{ produitCommande.quantite }}
+            </ion-col>
+            <ion-col size="3" class="col-content">
+              {{ produitCommande.produit.prix * produitCommande.quantite }} F CFA
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+        <ion-row>
+          <ion-col size="9" class="col-total-label">Total :</ion-col>
+          <ion-col size="3" class="col-total">
+            {{ recus.reduce((sum, recu) => sum + recu.total, 0) }} F CFA
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
-    
+  </ng-container>
 
-  
+  <ng-template #noRecus>
+    <p>Aucun reçu disponible.</p>
+  </ng-template>
+
+  <div class="bouttonactions">
+    <button class="pdficon" (click)="generatePDF()">
+      <img src="assets/document.png" alt="Générer PDF">
+    </button>
+    <button class="impression" (click)="imprimerPage()">
+      <img class="imageimprimante" src="assets/imprimante.png" alt="Imprimer">
+    </button>
+  </div>
 </ion-content> -->
-
 
 <ion-content>
   <div class="conteneurlogo">
-    <img src="/assets/logoo.png" alt="">
+    <img src="/assets/logoo.png" alt="Logo de l'entreprise">
     <div class="recuinfo">
-     <h4>REÇU A1B2C3</h4> 
-    <p>REF: EEA5T26Y7UZ</p>
+      <h4>REÇU  {{ '0000'+ recu?.id }}</h4> 
+      <p>REF: AEARTAY</p> 
     </div>
   </div>
 
-  <section class="enteterecu">
-    <div class="divpremierp">
-      <p>A: </p>
+  <ng-container *ngIf="recu; else noRecu">
+    <section class="enteterecu">
+      <div class="divpremierp">
+        <p>A:</p>
+      </div>
+      <div class="partiedroite">
+        <p>{{ recu.payement.commande.client.prenom }} {{ recu.payement.commande.client.nom }}</p>
+        <p>{{ recu.payement.commande.client.adresse }}</p>
+        <p>{{ recu.payement.commande.client.telephone }}</p>
+      </div>
+    </section>
+
+    <div class="tableau">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" class="col-header">Produit</ion-col>
+          <ion-col size="3" class="col-header">Prix</ion-col>
+          <ion-col size="3" class="col-header">Quantité</ion-col>
+          <ion-col size="3" class="col-header">Sous-total</ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let produitCommande of recu.payement.commande.produitCommandees">
+          <ion-col size="3" class="col-content">
+            {{ produitCommande.produit.libelle }}
+          </ion-col>
+          <ion-col size="3" class="col-content">
+            {{ produitCommande.produit.prix }} F CFA
+          </ion-col>
+          <ion-col size="3" class="col-content">
+            {{ produitCommande.quantite }}
+          </ion-col>
+          <ion-col size="3" class="col-content">
+            {{ produitCommande.produit.prix * produitCommande.quantite }} F CFA
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="9" class="col-total-label">Total :</ion-col>
+          <ion-col size="3" class="col-total">
+            {{ recu.total }} F CFA
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
-   
+  </ng-container>
 
-    <div class="partiedroite">
-      <p>MARIAME</p>
-      <p>YIRIMADJON</p>
-      <p>BAMAKO/MALI</p>
+  <ng-template #noRecu>
+    <p>Aucun reçu disponible.</p>
+  </ng-template>
 
-    </div>
-  </section>
-
-
-
-
-
-  <div class="tableau">
-    <p style="font-size: 8px; margin-left: 16px;">L'expéditeur garantit que cet envoi ne contient pas de matériel non expédiable </p>
-    <div class="divpremierp">
-      <p>De:</p>
-    </div>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="ion-text-start ion-text-bottom">SNEAKERS</ion-col>
-        <ion-col class="ion-text-start ion-text-bottom">42 points</ion-col>
-        <ion-col class="ion-text-bottom">NOIR</ion-col>
-        <ion-col class="ion-text-bottom">100000F CFA</ion-col>
-      </ion-row>
-  
-      <ion-row>
-        <ion-col class="ion-text-start ion-text-bottom">SNEAKERS</ion-col>
-        <ion-col class="ion-text-start ion-text-bottom">42 pt</ion-col>
-        <ion-col class="ion-text-start ion-text-bottom">Blanche</ion-col>
-        <ion-col class="ion-text-start ion-text-bottom">93500F CFA</ion-col>
-      </ion-row>
-  
-      <ion-row>
-        <ion-col class="ion-text-bottom">Ordinateur</ion-col>
-        <ion-col class="ion-text-bottom">Core i7 1102m</ion-col>
-        <ion-col class="ion-text-bottom">1To SSD</ion-col>
-        <ion-col class="ion-text-bottom">235000F CFA</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="ion-text-bottom">Ordinateur</ion-col>
-        <ion-col class="ion-text-bottom">Core i7 1102m</ion-col>
-        <ion-col class="ion-text-bottom">1To SSD</ion-col>
-        <ion-col class="ion-text-bottom">235000F CFA</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="azerty"></ion-col>
-        <ion-col class="azerty"></ion-col>
-        <ion-col class="azerty"></ion-col>
-        <ion-col class="ion-text-bottom" style="border-left: solid 1px rgba(73, 71, 71, 0.534); color: red; font-weight: bold  ;">575000F</ion-col>
-      </ion-row>
-    </ion-grid>
-
+  <div class="bouttonactions">
+    <button class="pdficon" (click)="generatePDF()">
+      <img src="assets/document.png" alt="Générer PDF">
+    </button>
+    <button class="impression" (click)="imprimerPage()">
+      <img class="imageimprimante" src="assets/imprimante.png" alt="Imprimer">
+    </button>
   </div>
-  
 </ion-content>
+
+
+
+
