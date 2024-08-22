@@ -35,21 +35,30 @@
     </ion-item>
 
     <!-- Sélecteur pour le type de livraison -->
-    <ion-item class="select_contener">
-      <ion-label>Type de livraison</ion-label>
-      <ion-select formControlName="deliveryType" interface="popover">
-        <ion-select-option
-          *ngFor="let type of typesLivraison"
-          [value]="type.id"
-        >
-          {{ type.libelle }} - {{ type.prix | currency:'EUR' }} ({{ type.delai }} jours)
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
+<ion-item class="select_contener">
+  <ion-label>Type de livraison</ion-label>
+  <ion-select
+    formControlName="deliveryType"
+    interface="popover"
+    class="custom-select"
+  >
+    <ion-select-option
+      *ngFor="let type of typesLivraison"
+      [value]="type.id"
+      class="custom-option"
+    >
+      <div class="option-content">
+        <span class="libelle">{{ type.libelle }}</span>
+        <span class="prix">{{ type.prix | currency: 'XOF' }}</span>
+        <span class="delai">({{ type.delai }} jours)</span>
+      </div>
+    </ion-select-option>
+  </ion-select>
+</ion-item>
 
     <!-- Bouton Enregistrer -->
     <div class="contener_bouton">
-      <ion-button type="submit" expand="full" fill="clear" class="bouton">
+      <ion-button type="submit" expand="full" fill="clear" class="boutonn">
         Enregistrer
       </ion-button>
     </div>

@@ -54,7 +54,7 @@
               <p>Quantité: {{ produit.quantite }}</p>
             </ion-label>
             <ion-text slot="end">
-              {{ (produit.prix * produit.quantite) | currency:'EUR' }}
+              {{ (produit.prix * produit.quantite) | currency:'XOF' }}
             </ion-text>
           </ion-item>
 
@@ -63,19 +63,19 @@
           <ion-item>
   <ion-label>Total Commande</ion-label>
   <ion-text slot="end">
-    <strong>{{ infos.totalCommande | currency:'EUR' }}</strong>
+    <strong>{{ infos.totalCommande | currency:'XOF' }}</strong>
   </ion-text>
 </ion-item>
 <ion-item>
   <ion-label>Coût de Livraison</ion-label>
   <ion-text slot="end">
-    <strong>{{ infos.coutLivraison | currency:'EUR' }}</strong>
+    <strong>{{ infos.coutLivraison | currency:'XOF' }}</strong>
   </ion-text>
 </ion-item>
 <ion-item>
   <ion-label>Total à Payer</ion-label>
   <ion-text slot="end" color="primary">
-    <strong>{{ infos.totalAPayer | currency:'EUR' }}</strong>
+    <strong>{{ infos.totalAPayer | currency:'XOF' }}</strong>
   </ion-text>
 </ion-item>
 
@@ -157,7 +157,7 @@
           <ion-item>
             <ion-label>Total à Payer</ion-label>
             <ion-text color="primary">
-              <strong>{{ infos.totalAPayer | currency:'EUR' }}</strong>
+              <strong>{{ infos.totalAPayer | currency:'XOF' }}</strong>
             </ion-text>
           </ion-item>
         </ng-container>

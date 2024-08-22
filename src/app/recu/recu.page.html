@@ -1,9 +1,9 @@
 <ion-content>
   <div class="conteneurlogo">
-    <img src="/assets/logoo.png" alt="Logo de l'entreprise">
+    <img src="/assets/logoo.png" alt="Logo de l'entreprise" />
     <div class="recuinfo">
-      <h4>REÇU  {{ '0000'+ recu?.id }}</h4> 
-      <p>REF: AEARTAY</p> 
+      <h4>REÇU {{ '0000'+ recu?.id }}</h4>
+      <p>REF: AEARTAY</p>
     </div>
   </div>
 
@@ -13,7 +13,10 @@
         <p>A:</p>
       </div>
       <div class="partiedroite">
-        <p>{{ recu.payement.commande.client.prenom }} {{ recu.payement.commande.client.nom }}</p>
+        <p>
+          {{ recu.payement.commande.client.prenom }} {{
+          recu.payement.commande.client.nom }}
+        </p>
         <p>{{ recu.payement.commande.client.adresse }}</p>
         <p>{{ recu.payement.commande.client.telephone }}</p>
       </div>
@@ -28,7 +31,9 @@
           <ion-col size="3" class="col-header">Sous-total</ion-col>
         </ion-row>
 
-        <ion-row *ngFor="let produitCommande of recu.payement.commande.produitCommandees">
+        <ion-row
+          *ngFor="let produitCommande of recu.payement.commande.produitCommandees"
+        >
           <ion-col size="3" class="col-content">
             {{ produitCommande.produit.libelle }}
           </ion-col>
@@ -44,9 +49,18 @@
         </ion-row>
 
         <ion-row>
+          <ion-col size="9" class="col-total-label"
+            >Coût de Livraison :</ion-col
+          >
+          <ion-col size="3" class="col-total">
+            {{ coutLivraison }} F CFA
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
           <ion-col size="9" class="col-total-label">Total :</ion-col>
           <ion-col size="3" class="col-total">
-            {{ recu.total }} F CFA
+            {{ totalCommande }} F CFA
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -59,10 +73,10 @@
 
   <div class="bouttonactions">
     <button class="pdficon" (click)="generatePDF()">
-      <img src="assets/document.png" alt="Générer PDF">
+      <img src="assets/document.png" alt="Générer PDF" />
     </button>
     <button class="impression" (click)="imprimerPage()">
-      <img class="imageimprimante" src="assets/imprimante.png" alt="Imprimer">
+      <img class="imageimprimante" src="assets/imprimante.png" alt="Imprimer" />
     </button>
   </div>
 </ion-content>

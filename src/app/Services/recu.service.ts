@@ -1,24 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Recu } from '../Interface/recu';
+
+export interface TotalCommandeResponse {
+  totalCommande: number;
+  coutLivraison: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecuService {
-  private apiUrl = 'http://localhost:8080/client/recus'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8080/client/recus';
+  private apiTotalCommandeUrl = 'http://localhost:8080/client';
 
   constructor(private http: HttpClient) {}
 
-  // Méthode pour récupérer un reçu par son ID
-  getRecuById(id: number): Observable<Recu> {
+  private getAuthHeaders(): HttpHeaders {
+    const credentials = btoa('samake:samake');
+    return new HttpHeaders({
+      Authorization: `Basic ${credentials}`,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  getRecuById(id: number): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.get<Recu>(url, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${btoa('samake:samake')}`, // Ajoutez les credentials si nécessaire
-      }),
+    return this.http.get<any>(url, { headers: this.getAuthHeaders() });
+  }
+
+  getTotalCommande(commandeId: number): Observable<TotalCommandeResponse> {
+    const url = `${this.apiTotalCommandeUrl}/${commandeId}/total`;
+    return this.http.get<TotalCommandeResponse>(url, {
+      headers: this.getAuthHeaders(),
     });
   }
 }

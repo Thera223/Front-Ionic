@@ -95,8 +95,21 @@ export class PaiementPage implements OnInit {
     this.selectedCommande = this.commandes.find((cmd) => cmd.id === selectedId);
 
     if (this.selectedCommande) {
-      const infosPaiement = this.getInformationsPaiement();
-      this.selectedCommande.totalAPayer = infosPaiement.totalAPayer;
+      this.paiementService
+        .getDetailsPaiement(this.selectedCommande.id)
+        .subscribe(
+          (details) => {
+            this.selectedCommande.totalCommande = details.totalCommande;
+            this.selectedCommande.coutLivraison = details.coutLivraison;
+            this.selectedCommande.totalAPayer = details.totalAPayer;
+          },
+          (error) => {
+            console.error(
+              'Erreur lors du chargement des détails de paiement',
+              error
+            );
+          }
+        );
     }
 
     this.isSummaryVisible = false;
@@ -104,9 +117,7 @@ export class PaiementPage implements OnInit {
 
   getInformationsPaiement() {
     if (this.selectedCommande) {
-      const totalCommande = this.selectedCommande.total || 0;
-      const coutLivraison =
-        this.selectedCommande.livraison?.typeLivraison?.prix || 0;
+      const { totalCommande = 0, coutLivraison = 0 } = this.selectedCommande;
       const totalAPayer = totalCommande + coutLivraison;
 
       return {
@@ -115,7 +126,6 @@ export class PaiementPage implements OnInit {
         totalAPayer,
       };
     }
-    // Renvoie un objet avec des valeurs par défaut si `selectedCommande` est null
     return {
       totalCommande: 0,
       coutLivraison: 0,
@@ -125,7 +135,7 @@ export class PaiementPage implements OnInit {
 
   afficherRecapitulatif() {
     if (this.paiementForm.valid && this.selectedCommande) {
-      const infos = this.getInformationsPaiement(); // Ce ne sera jamais `null` maintenant
+      const infos = this.getInformationsPaiement();
       this.isSummaryVisible = true;
     } else {
       this.presentToast(
@@ -139,9 +149,9 @@ export class PaiementPage implements OnInit {
     if (this.paiementForm.valid && this.selectedCommande) {
       const alert = await this.alertController.create({
         header: 'Confirmation',
-        message: `Êtes-vous sûr de vouloir payer la commande <strong>#${
+        message: `Êtes-vous sûr de vouloir payer la commande ${
           this.selectedCommande.id
-        }</strong> via <strong>${this.getSelectedModeName()}</strong> ?`,
+        } via ${this.getSelectedModeName()} ?`,
         buttons: [
           {
             text: 'Annuler',

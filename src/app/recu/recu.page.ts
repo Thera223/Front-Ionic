@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecuService } from '../Services/recu.service';
+import { RecuService, TotalCommandeResponse } from '../Services/recu.service';
 import { Recu } from '../Interface/recu';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -18,6 +18,8 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 })
 export class RecuPage implements OnInit {
   recu: Recu | null = null;
+  totalCommande: number = 0;
+  coutLivraison: number = 0;
   errorMessage: string | null = null;
 
   constructor(
@@ -26,26 +28,44 @@ export class RecuPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Récupérer l'ID du reçu depuis l'URL
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.getRecu(id);
+      this.getRecuDetails(id);
     } else {
       this.errorMessage = 'ID de reçu non trouvé';
     }
   }
 
-  // Méthode pour récupérer le reçu par ID
-  getRecu(id: number) {
+  getRecuDetails(id: number) {
     this.recuService.getRecuById(id).subscribe(
       (data: Recu) => {
         this.recu = data;
         this.errorMessage = null;
+
+        if (this.recu && this.recu.payement) {
+          const commandeId = this.recu.payement.commande.id;
+          this.getTotalCommande(commandeId);
+        }
       },
       (error) => {
         console.error('Erreur lors de la récupération du reçu:', error);
         this.errorMessage = 'Erreur lors de la récupération du reçu.';
         this.recu = null;
+      }
+    );
+  }
+
+  getTotalCommande(commandeId: number) {
+    this.recuService.getTotalCommande(commandeId).subscribe(
+      (data: TotalCommandeResponse) => {
+        this.totalCommande = data.totalCommande;
+        this.coutLivraison = data.coutLivraison;
+      },
+      (error) => {
+        console.error(
+          'Erreur lors de la récupération du total de la commande:',
+          error
+        );
       }
     );
   }
@@ -95,7 +115,13 @@ export class RecuPage implements OnInit {
                   } F CFA`,
                 ]
               ),
-              ['', '', '', `${this.recu.total} F CFA`], // Montant total du reçu
+              [
+                { text: 'Coût de livraison', colSpan: 3 },
+                {},
+                {},
+                `${this.coutLivraison} F CFA`,
+              ],
+              ['', '', '', `${this.totalCommande} F CFA`], // Montant total du reçu
             ],
           },
           layout: 'lightHorizontalLines',

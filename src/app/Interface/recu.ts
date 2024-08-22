@@ -21,6 +21,7 @@ export interface Client {
 }
 
 export interface Commande {
+  livraison: any;
   id: number;
   produitCommandees: ProduitCommande[];
   client: Client;

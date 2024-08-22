@@ -1,16 +1,28 @@
-<div style="background: #8c8c8c; padding: 10px;">
-  <button style="background: none; border: none;" (click)="retourTab1()">
+<div style="background: #8c8c8c; padding: 10px">
+  <button style="background: none; border: none" (click)="retourTab1()">
     <ion-icon name="caret-back-outline" class="icon"></ion-icon>
   </button>
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
-    <img class="Img" src="{{produit!.fileInfo[0].url}}" alt="Produit Image" style="max-width: 100%; height: auto;">  
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    "
+  >
+    <img
+      class="Img"
+      src="{{produit!.fileInfo[0].url}}"
+      alt="Produit Image"
+      style="max-width: 100%; height: auto"
+    />
   </div>
 </div>
-<h2 style="color: orangered; margin: 10px;">{{ produit?.libelle }}</h2>
-<h3 style="margin: 10px;">Prix du produit : {{ produit?.prix }}</h3>
-<p style="margin: 10px;">{{ produit?.description }}</p>
+<h2 style="color: orangered; margin: 10px">{{ produit?.libelle }}</h2>
+<h3 style="margin: 10px">Prix du produit : {{ produit?.prix }}</h3>
+<p style="margin: 10px">{{ produit?.description }}</p>
 
-<div class="button-container" style="margin: 10px 0;">
+<div class="button-container" style="margin: 10px 0">
   <ion-button class="custom-button" (click)="ajouterAuPanier()">
     <h2 class="button-text">Ajouter au panier</h2>
   </ion-button>
