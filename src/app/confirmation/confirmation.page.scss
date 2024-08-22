@@ -1,40 +1,35 @@
-// Style global pour l'icône et le texte
 .confirmation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .icon {
-    font-size: 80px; /* Taille de l'icône, ajustez selon vos besoins */
-    color: #EE4D2D; /* Couleur orange */
-    margin-bottom: 15px;
-  }
-  
-  .message {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; /* Couleur du texte pour le message */
-    margin-bottom: 10px;
-  }
-  
-  .details {
-    font-size: 16px;
-    color: #666; /* Couleur du texte pour les détails */
-  }
-  
-  .view-receipt-button {
-    margin-top: 20px;
-   margin-left: 30%;
-    --background: #EE4D2D; /* Couleur de fond du bouton */
-    --color: white; /* Couleur du texte du bouton */
-  }
-  .custom-icon {
-    width: 70%; /* Ajustez la taille de l'icône */
-    height: 70%;
-    --background: #EE4D2D;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.custom-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.details {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.view-receipt-button {
+  --background: #ee4d2d;
+  --color: white;
+  margin-bottom: 10px;
+}

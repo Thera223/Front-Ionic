@@ -4,7 +4,7 @@ import { RecuService } from '../Services/recu.service';
 import { Recu } from '../Interface/recu';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonGrid, IonRow, IonCol } from "@ionic/angular/standalone";
+import { IonContent, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
@@ -17,7 +17,6 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
   imports: [IonCol, IonRow, IonGrid, IonContent, CommonModule, RouterModule],
 })
 export class RecuPage implements OnInit {
-
   recu: Recu | null = null;
   errorMessage: string | null = null;
 
@@ -58,15 +57,15 @@ export class RecuPage implements OnInit {
       content: [
         {
           text: `REÇU ${this.recu.id}`,
-          style: 'header'
+          style: 'header',
         },
         {
-          text: `REF: RECS25627`, 
-          style: 'subheader'
+          text: `REF: RECS25627`,
+          style: 'subheader',
         },
         {
           text: 'A:',
-          style: 'sectionHeader'
+          style: 'sectionHeader',
         },
         {
           text: `
@@ -74,11 +73,11 @@ export class RecuPage implements OnInit {
             ${this.recu.payement.commande.client.adresse}
             ${this.recu.payement.commande.client.telephone}
           `,
-          style: 'clientDetails'
+          style: 'clientDetails',
         },
         {
           text: 'Détails de la commande',
-          style: 'sectionHeader'
+          style: 'sectionHeader',
         },
         {
           table: {
@@ -86,40 +85,44 @@ export class RecuPage implements OnInit {
             widths: ['*', '*', '*', '*'],
             body: [
               ['Produit', 'Prix', 'Quantité', 'Sous-total'],
-              ...this.recu.payement.commande.produitCommandees.map(produitCommande => [
-                produitCommande.produit.libelle,
-                `${produitCommande.produit.prix} F CFA`,
-                `${produitCommande.quantite}`,
-                `${produitCommande.produit.prix * produitCommande.quantite} F CFA`
-              ]),
-              ['', '', '', `${this.recu.total} F CFA`] // Montant total du reçu
-            ]
+              ...this.recu.payement.commande.produitCommandees.map(
+                (produitCommande) => [
+                  produitCommande.produit.libelle,
+                  `${produitCommande.produit.prix} F CFA`,
+                  `${produitCommande.quantite}`,
+                  `${
+                    produitCommande.produit.prix * produitCommande.quantite
+                  } F CFA`,
+                ]
+              ),
+              ['', '', '', `${this.recu.total} F CFA`], // Montant total du reçu
+            ],
           },
-          layout: 'lightHorizontalLines'
-        }
+          layout: 'lightHorizontalLines',
+        },
       ],
       styles: {
         header: {
           fontSize: 18,
           bold: true,
-          margin: [0, 0, 0, 10]
+          margin: [0, 0, 0, 10],
         },
         subheader: {
           fontSize: 14,
-          margin: [0, 0, 0, 5]
+          margin: [0, 0, 0, 5],
         },
         sectionHeader: {
           fontSize: 12,
           bold: true,
-          margin: [0, 10, 0, 5]
+          margin: [0, 10, 0, 5],
         },
         clientDetails: {
           fontSize: 12,
-          margin: [0, 0, 0, 10]
-        }
-      }
+          margin: [0, 0, 0, 10],
+        },
+      },
     };
-  
+
     pdfMake.createPdf(docDefinition).download('recu.pdf');
   }
 

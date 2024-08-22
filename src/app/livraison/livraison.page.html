@@ -42,7 +42,7 @@
           *ngFor="let type of typesLivraison"
           [value]="type.id"
         >
-          {{ type.libelle }}
+          {{ type.libelle }} - {{ type.prix | currency:'EUR' }} ({{ type.delai }} jours)
         </ion-select-option>
       </ion-select>
     </ion-item>

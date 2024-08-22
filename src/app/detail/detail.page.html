@@ -9,31 +9,9 @@
 <h2 style="color: orangered; margin: 10px;">{{ produit?.libelle }}</h2>
 <h3 style="margin: 10px;">Prix du produit : {{ produit?.prix }}</h3>
 <p style="margin: 10px;">{{ produit?.description }}</p>
-<div>
-  <span>
-    <!-- Exemple d'images supplémentaires, si besoin :
-    <img class="pousser2" src="assets/imgmirashop/Face1.png" alt="Face 1">
-    <img src="assets/imgmirashop/Face2.png" alt="Face 2">
-    <img src="assets/imgmirashop/Face3.png" alt="Face 3">
-    -->
-  </span>
-</div>
 
-<!-- <div class="color-picker" style="margin: 10px 0;">
-  <h5>Couleur</h5>
-  <span>
-    <input type="radio" id="color1" name="color" value="color1" checked>
-    <label for="color1" class="color-label color1"></label>
-
-    <input type="radio" id="color2" name="color" value="color2">
-    <label for="color2" class="color-label color2"></label>
-
-    <input type="radio" id="color3" name="color" value="color3">
-    <label for="color3" class="color-label color3"></label>
-  </span>
-</div> -->
 <div class="button-container" style="margin: 10px 0;">
-  <ion-button class="custom-button" (click)="goToPanier()">
+  <ion-button class="custom-button" (click)="ajouterAuPanier()">
     <h2 class="button-text">Ajouter au panier</h2>
   </ion-button>
 </div>

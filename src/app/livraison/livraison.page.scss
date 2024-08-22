@@ -1,42 +1,27 @@
-ion-header {
-    ion-toolbar {
-      --background: #EE4D2D;
-      --color: #fff;
-
-      ion-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-    }
-  }
-
-ion-item {
-    --border-width: 1px; // Largeur de la bordure
-  --border-style: solid; // Style de la bordure
-  --border-color: #EE4D2D; // Couleur de la bordure
-  border-radius: 4px; // Bordure arrondie pour une meilleure apparence
-  
-  // Appliquer la bordure à tous les côtés
-  border-top: 1px solid #EE4D2D;
-  border-right: 1px solid #EE4D2D;
-  border-bottom: 1px solid #EE4D2D;
-  border-left: 1px solid #EE4D2D;
-
-  // Ajuster les marges et le padding si nécessaire
-  margin-bottom: 16px; // Espacement entre les champs
-  margin-top: 16;
-  margin-left: 16px;  // Marge à gauche
-  margin-right: 16px; // Marge à droite
-  padding: 0; // Retirer le padding par défaut pour éviter le décalage
-   
-  }
-  
-  .champs {
-    --color: #EE4D2D;
-    --border-color:#EE4D2D;
-  }
-.bouton{
-    --background: #EE4D2D;
-    --color: #fff;
+.contener {
+  padding: 20px;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.select_contener {
+  margin-top: 20px;
+}
+
+.contener_bouton {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.bouton {
+  --background: #3880ff;
+  --color: white;
+}
+
+.new-label {
+  color: green;
+  font-weight: bold;
+}

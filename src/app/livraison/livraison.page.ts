@@ -62,7 +62,15 @@ export class LivraisonPage implements OnInit {
   loadCommandesDisponibles() {
     this.livraisonservice.getCommandesDisponibles().subscribe(
       (data) => {
-        this.commandes = data;
+        // Trier les commandes par date de création (la plus récente en premier)
+        this.commandes = data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+
+        // Marquer la dernière commande comme "NEW"
+        if (this.commandes.length > 0) {
+          this.commandes[0].isNew = true;
+        }
       },
       (error) => {
         console.error(

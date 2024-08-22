@@ -1,41 +1,22 @@
-.imagecontain{
-    width: 100%;
+.confirmation-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    margin: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
 }
 
-
-.imagecontain img{
-    width: 15Opx;
-    height: 150px;
-}
-
-.recuinfo{
+.recuinfo {
     margin-right: 30px;
     padding: 0;
     line-height: 0px;
-
     align-items: end;
     display: flex;
     flex-direction: column;
 }
 
-.recuinfo h3{
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 0;
-}
-
-.recuinfo p{
-    font-size: 12px;
-    color: #292727;
-    margin-top:10px;
-    
-}
-
-.enteterecu{
+.enteterecu {
     width: 100vw;
     margin-bottom: 100px;
     margin-right: 20px;
@@ -47,181 +28,40 @@
     align-items: center;
 }
 
- .divpremierp{
-    width: 59px;
-    margin-left: 20px;
-    height: 22px;
-    background-color: #EE4D2D;
-    display: flex;
-    align-items: center;
-    
-}
-
-.divpremierp p{
-    color: white;
-    font-size: 15px;
-    margin-left: 5px;
-}
-
-.partiedroite{
-    font-size: 12px;
-    font-weight: 500;
-    margin-right: 5rem;
-    letter-spacing: 0.3mm;
-}
-
-.partiedroite p{
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.imageimprimante, .pdficon{
-  width: 40px;
-  height: 40px;
-  margin: 20px;
-  // background-color: #ffffff;
-}
-
-.bouttonactions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-
-@media print {
-  /* Styles spécifiques à l'impression */
-  .azerty {
-    border: none;
-  }
-
-  .impression, .pdficon{
-    display: none;
-  }
-  
-
-  ion-tab-button {
-    display: none;
-  }
-}
-
-
-
-
-
 .tableau {
-  width: 100%;
+    width: 100%;
 }
 
 .col-header, .col-content, .col-total {
-  padding: 8px;
-  border-bottom: solid 1px #ccc;
-  text-align: left;
+    padding: 8px;
+    border-bottom: solid 1px #ccc;
+    text-align: left;
 }
 
 .col-header {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .col-total {
-  color: red;
-  font-weight: bold;
-  text-align: right;
+    color: red;
+    font-weight: bold;
+    text-align: right;
 }
 
-ion-col {
-  display: flex;
-  align-items:flex-start;
-  justify-content: flex-start;
+.bouttonactions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.pdficon, .imageimprimante {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-ion-col {
-    background-color: #ffffff;
-    border: solid 1px rgba(73, 71, 71, 0.534);
-    color: #000000;
-    padding-bottom: 0;
-    width: 100vw;
-    border-left: none;
-    font-size: 12px;
-    min-height: 30px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: left;
-  }
-
-  .conteneurlogo{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .recuinfo {
-   display: flex;
-   flex-direction: column;
-   margin-right: 20px;
-  }
-
-  .recuinfo h4{
-    font-weight: bolder;
-  }
-
-  .recuinfo p{
-    font-size: 12px;
-    align-self: flex-end;
-    line-height: 0%;
-    margin: 0;
-  }
-
-  .conteneurlogo img {
-    height: 150px;
-    width: 150px;
-    filter: brightness(1.2) contrast(1.2);
-    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    // border-radius: 10px;
-  }
-
-  .azerty{
-    border: none;
-    border-bottom: solid 1px rgba(73, 71, 71, 0.534);
-  }
-
-  #sectiontete {
-    background-color: rgba(26, 167, 223, 0.192);
-    // margin-right: 50px;
-    margin: auto;
-    margin-bottom: 100px;
-    padding: 10px;
-    width: 95vw;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-  }
-
-  .infosperso p{
-    margin: 5px;
-  }
-
-
-
-
-
-
-
-
+@media print {
+    .impression, .pdficon {
+        display: none;
+    }
+}

@@ -28,11 +28,6 @@ export class LivraisonService {
     return this.http.get<any[]>(this.type, { headers });
   }
 
-  getCommandeEnAttente(): Observable<any> {
-    const headers = this.getAuthHeaders();
-    return this.http.get<any>(this.commande, { headers });
-  }
-
   getCommandesDisponibles(): Observable<any[]> {
     const headers = this.getAuthHeaders();
     return this.http.get<any[]>(`${this.baseUrl}/commande`, { headers });

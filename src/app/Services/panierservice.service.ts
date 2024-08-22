@@ -17,8 +17,8 @@ export interface PanierClient {
 })
 export class PanierserviceService {
   private baseUrl = 'http://localhost:8080/client';
-  private username = 'momo';
-  private password = '123';
+  private username = 'samake';
+  private password = 'samake';
 
   constructor(private http: HttpClient) {}
 
@@ -66,6 +66,21 @@ export class PanierserviceService {
   ): Observable<any> {
     const url = `${this.baseUrl}/${clientId}/panier/${panierId}/modifierQuantite?produitId=${produitCommandeeId}&nouvelleQuantite=${nouvelleQuantite}`;
     return this.http.put<any>(
+      url,
+      {},
+      {
+        headers: this.getAuthHeaders(),
+      }
+    );
+  }
+
+  ajouterProduitAuPanier(
+    clientId: number,
+    produitId: number,
+    quantite: number
+  ): Observable<any> {
+    const url = `${this.baseUrl}/${clientId}/panier/ajouterProduit?produitId=${produitId}&quantite=${quantite}`;
+    return this.http.post<any>(
       url,
       {},
       {
